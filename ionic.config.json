@@ -1,0 +1,7 @@
+{
+  "name": "Shikshak Solutions",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

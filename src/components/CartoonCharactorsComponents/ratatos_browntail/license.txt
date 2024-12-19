@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ratatos Browntail
+* source:	https://sketchfab.com/3d-models/ratatos-browntail-fdffb710e3fa48898bf5462186df0ced
+* author:	NickNech (https://sketchfab.com/nicknech)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ratatos Browntail" (https://sketchfab.com/3d-models/ratatos-browntail-fdffb710e3fa48898bf5462186df0ced) by NickNech (https://sketchfab.com/nicknech) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

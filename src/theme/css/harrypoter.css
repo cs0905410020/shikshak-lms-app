@@ -1,0 +1,315 @@
+
+.harry.cartoon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .harry.cartoon div {
+        position: absolute;
+        box-sizing: border-box;
+    }
+
+    .harry .b {
+        border: 1vmin solid black;
+    }
+
+    .harry  .r {
+        border-radius: 100%;
+    }
+
+    .harry .hb::before,
+    .harry .ha::after {
+        content: "";
+        display: block;
+        position: absolute;
+    }
+
+    /****/
+    .harry.cartoon {
+        --skin: #fca;
+        --dark: #e96;
+        --hair: #630;
+        --robe: #222;
+        width: 45vmin;
+        height: 52vmin;
+    }
+
+    .harry.cartoon::after {
+        width: 120%;
+        bottom: 0;
+        border-top: 1vmin solid black;
+        left: 50%;
+        transform: translate(-50%, 25%);
+    }
+
+    .harry .face {
+        left: 50%;
+        top: 2%;
+        background: var(--skin);
+        width: 60%;
+        height: 40%;
+        border-radius: 60% 60% 60% 60% / 50% 50% 30% 30%;
+        transform: translate(-50%, 0);
+    }
+
+    .harry .glasses {
+        background: var(--skin);
+        width: 30%;
+        height: 45%;
+        top: 41%;
+        left: 12%;
+    }
+
+    .harry .glasses + .glasses {
+        left: auto;
+        right: 12%;
+    }
+
+    .harry .glasses-bar {
+        width: 100%;
+        border-top: 1vmin solid black;
+        top: 63%;
+    }
+
+    .harry  .scarf {
+        width: 50%;
+        height: 25%;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-radius: 15% / 130%;
+        background: linear-gradient(to right, #c00 50%, #fc6 0);
+        background-size: 50%;
+        background-position: -25% 0;
+    }
+
+    .harry  .scarf-2 {
+        width: 15%;
+        height: 26%;
+        top: 43%;
+        left: 28%;
+        background: linear-gradient(to bottom, #c00 50%, #fc6 0);
+        background-size: 100% 70%;
+    }
+
+    .harry .eye {
+        width: 6%;
+        height: 9%;
+        background: white;
+        top: 60%;
+        left: 24%;
+        box-shadow: inset -0.5vmin -0.5vmin 0 1vmin black;
+    }
+
+    .harry .eye + .eye {
+        left: auto;
+        right: 24%;
+    }
+
+    .harry .mouth.s, .harry .mouth.\/, .harry .mouth.\), .harry .mouth.\\ {
+        width: 10%;
+        height: 15%;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        transform: translate(-50%, 0) rotate(45deg);
+        top: 73%;
+        left: 50%;
+    }
+
+    .harry .mouth.D {
+        width: 7%;
+        height: 18%;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        transform: translate(-50%, 0) rotate(80deg);
+        top: 73%;
+        left: 50%;
+    }
+
+    .harry .mouth.\|, .harry .mouth.\( {
+        width: 10%;
+        height: 15%;
+        border-radius: 17px;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        transform: translate(-50%, 0) rotate(224deg);
+        top: 79%;
+        left: 50%;
+    }
+
+    .harry .mouth.I, .harry .mouth.x, .harry .mouth.z, .harry .mouth.P {
+        width: 3%;
+        height: 20%;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        transform: translate(-50%, 0) rotate(84deg);
+        top: 73%;
+        left: 50%;
+    }
+
+    .harry .mouth.o {
+        width: 10%;
+        height: 15%;
+        transform: translate(-50%, 0) rotate(45deg);
+        top: 73%;
+        left: 50%;
+    }
+
+
+    .harry .ear {
+        background: var(--skin);
+        width: 7%;
+        height: 7%;
+        top: 27%;
+        left: 16%;
+    }
+
+    .harry .ear + .ear {
+        left: auto;
+        right: 16%;
+    }
+
+    .harry .hair {
+        background: var(--hair);
+        top: 0%;
+        height: 28%;
+    }
+
+    .harry .hair-1 {
+        left: 18%;
+        width: 17%;
+        border-radius: 80% 0 100% 0;
+    }
+
+    .harry .hair-2 {
+        top: 7%;
+        height: 21%;
+        right: 18%;
+        width: 15%;
+        border-radius: 0 80% 0 100%;
+    }
+
+
+    .harry  .hair-3 {
+        height: 17%;
+        width: 48.5%;
+        right: 18%;
+        border-radius: 0 20vmin 0 90%;
+    }
+
+    .harry .body {
+        width: 60%;
+        height: 55%;
+        top: 34%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-radius: 40% / 100% 100% 0 0;
+        background: var(--robe);
+    }
+
+    .harry .arm {
+        top: 45%;
+        left: 35%;
+        height: 35%;
+        width: 40%;
+        transform: translate(-50%, 0) rotate(20deg);
+        border-radius: 100% 100% 40% 40% / 200% 200% 0 0;
+        background: var(--robe);
+    }
+
+    .harry .arm + .arm {
+        left: auto;
+        right: 35%;
+        transform: translate(50%, 0) rotate(-20deg);
+    }
+
+    .harry .hand {
+        width: 15%;
+        height: 15%;
+        top: 69%;
+        left: 12%;
+        background: var(--skin);
+    }
+
+    .harry .hand + .hand {
+        left: 73%;
+    }
+
+    .harry .wand {
+        width: 20%;
+        height: 4%;
+        border-radius: 3vmin 100% 100% 3vmin;
+        transform: rotate(30deg);
+        top: 81%;
+        right: -2%;
+        background: var(--hair)
+    }
+
+    .harry .pants {
+        width: 25%;
+        height: 20%;
+        bottom: 6%;
+        left: 24%;
+        background: #444;
+    }
+
+    .harry .pants + .pants {
+        left: auto;
+        right: 24%;
+    }
+
+    .harry .shoe {
+        width: 28%;
+        left: 20.5%;
+        height: 9%;
+        bottom: 0;
+        border-radius: 200% 90% 0 5% / 400% 0 0 0;
+        background: var(--robe);
+    }
+
+    .harry .shoe + .shoe {
+        left: auto;
+        right: 20.5%;
+        border-radius: 90% 200% 5% 0% / 0 400% 0 0;
+    }
+
+    .harry .scar {
+        width: 0;
+        height: 14%;
+        border-left: 1.5vmin solid var(--dark);
+        border-bottom: 1.5vmin solid transparent;
+        top: 22%;
+        left: 22%;
+    }
+
+    .harry .scar::after {
+        box-sizing: border-box;
+        top: 1.5vmin;
+        height: 3vmin;
+        border-left: 1.5vmin solid var(--dark);
+        border-bottom: 3.5vmin solid transparent;
+    }
+
+    .harry .hair-mess {
+        width: 7%;
+        height: 7%;
+        border: 1vmin solid transparent;
+        border-right: 1vmin solid black;
+        transform: rotate(-45deg);
+        top: -3%;
+        left: 27.5%;
+    }
+
+    .harry .hair-mess::after {
+        width: 150%;
+        height: 150%;
+        border: 1vmin solid transparent;
+        border-top: 1vmin solid black;
+        border-radius: 50%;
+        top: 50%;
+        top: calc(50% + 1vmin);
+        right: -140%;
+        right: calc(-140% - 0.5vmin);
+    }

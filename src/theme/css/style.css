@@ -1,0 +1,1223 @@
+
+.login_page_main_container_section {
+    width: 100%;
+    height: 100vh;
+}
+
+.login_top_header_green {
+    width: 100%;
+    background-image: linear-gradient(180deg, #76d0ff, #ffb860);
+    height: 232px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.voice_avatar_select_section_loop.active {
+    border: 4px solid #2196f3;
+}
+.row-custom {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.row-custom .col-custom {
+    margin-right: 27px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.voice_avatar_select_section_loop  img {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+.voice_avatar_select_section_loop {
+    display: flex;
+    border: 4px solid #ccc;
+    width: 118px;
+    height: 197px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+}
+.row-custom {
+    display: flex;
+}
+
+.row-custom .col-custom {
+    margin-right: 27px;
+    margin-top: 10px;
+}
+.avatar_select_section_loop img {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.floating_answer_question_main_div .floating_answer_question_inner_div {
+    margin: auto;
+    padding: 14px 10px;
+}
+.login_body_light_green {
+    background-image: linear-gradient(180deg, #76d0ff, #76d0ff);
+    width: 110%;
+    height: 248px;
+    position: absolute;
+    top: 108px;
+    left: -88px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+}
+.floating_answer_question_main_div {
+    width: 100%;
+    position: absolute;
+    top: 82px;
+    left: 0px;
+    font-size: 23px;
+    font-weight: 600;
+    display: flex;
+}
+.floating_answer_question_main_div .floating_answer_question_inner_div {
+    margin: auto;
+}
+.student_dash_all_courses_main_section.progress_panel {
+    width: 95%;
+}
+.login_page_main_inner_section {
+    position: relative;
+    height: 100vh;
+}
+.login_body_light_green_bottom {
+    background-image: linear-gradient(180deg, #76d0ff, #fbd5a6);
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: calc(100vh - 356px);
+    position: absolute;
+}
+.login_page_main_inner_section .login_bag_image img {
+    width: 250px;
+}
+
+.login_page_main_inner_section .login_marker_image {
+    position: absolute;
+    bottom: 0px;
+    right: -3px;
+}
+
+.login_page_main_inner_section .login_frontimgboook_image {
+    position: absolute;
+    top: 85px;
+    right: 273px;
+}
+
+.login_page_main_inner_section .login_frontimgboook_image img {
+    width: 189px;
+}
+
+
+.login_page_main_inner_section .login_compas_image {
+    position: absolute;
+    top: 48px;
+    right: 0px;
+}
+
+.login_page_main_inner_section .login_trophy_image {
+    bottom: 0px;
+    position: absolute;
+}
+.login_page_main_container_section .login_readinggirl_image {
+    margin-top: -252px;
+    display: flex;
+}
+
+.login_page_main_container_section .login_readinggirl_image img {
+    width: 290px;
+    margin: auto;
+}
+.login_page_main_container_section .login_readinggirl_image .login_page_main_password_panel {
+    background: red;
+    width: 10px;
+}
+
+.login_page_main_inner_section .login_page_main_password_panel {
+    width: 100%;
+    margin-top: 17px;
+}
+
+.login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form {
+    margin: auto;
+    width: 391px;
+    height: 443px;
+    background: #ffffff5c;
+    border-radius: 38px;
+}
+
+.login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form .login_page_heading_bar {
+    width: 100%;
+    padding: 39px 0px;
+    display: flex;
+}
+
+.login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form .login_page_heading_bar div {
+    width: 105px;
+    height: 4px;
+    background: #ffffffcf;
+    border: 19px;
+    margin: auto;
+}
+
+.login_page_main_password_inner_section_form .login_page_input_form_section {
+    width: 100%;
+    text-align: center;
+    padding: 0px 51px;
+}
+
+.login_page_main_password_inner_section_form .login_page_input_form_section .login_page_input_form_section_heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #2196f3;
+}
+.login_page_main_password_inner_section_form .login_page_input_form_section_password_input {
+    width: 100%;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.login_page_main_password_inner_section_form .login_page_input_form_section_password_input input {
+    text-align: center;
+    border-radius: 10px;
+    font-size: 38px;
+    width: 100%;
+    border: unset!important;
+    border-bottom: 2px solid #000;
+    outline-width: 0px!important;
+    margin: auto;
+}
+.login_page_main_password_inner_section_form .login_page_input_form_section_password_input input:focus,
+.login_page_main_password_inner_section_form .login_page_input_form_section_password_input input:active {
+    background: transparent;
+    background-color:transparent;
+    border: unset!important;
+    border-bottom: 2px solid #000;
+}
+.login_page_main_password_inner_section_form .login_page_input_form_section_password_input button {
+    margin-top: 26px;
+    padding: 12px 88px;
+    border-radius: 27px;
+    background: #2196f3!important;
+    color: #fff!important;
+    font-size: 20px;
+    font-weight: 600;
+}
+.main_padding_main_page {
+    padding: 9px;
+}
+.login_page_input_form_section_heading_error {
+    color: red;
+    font-size: 19px;
+}
+.left_side_bar_main_section_container {
+    width: 100%;
+    height: 98vh;
+    display: block;
+    background-image: linear-gradient(180deg, #0fa9f9, #df9130);
+    margin: 0px;
+    position: relative;
+    border-radius: 15px;
+}
+
+.left_side_bar_main_section_container .left_side_bar_logo_section {
+    width: 100%;
+    display: flex;
+    padding-top: 52px;
+}
+
+.left_side_bar_main_section_container .left_side_bar_logo_section .logo_main_div {
+    margin: auto;
+    font-size: 19px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+}
+
+.left_side_bar_main_section_container .left_side_bar_logo_section .logo_main_div img {
+    width: 65px;
+    margin: 7px 10px;
+}
+.left_side_bar_extra_div {
+    width: 70px;
+    height: 98vh;
+    display: block;
+    background-image: linear-gradient(180deg, #0fa9f9, #df9130);
+    position: absolute;
+    right: -56px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    top: 0px;
+}
+.main_body_content_section {
+    box-shadow: 1px 0px 3px 0px #afafaf;
+    background-image: linear-gradient(180deg, #fff, #fff);
+    border-radius: 15px;
+    height: 98vh;
+    padding: 25px;
+    width: 100%;
+    overflow: auto;
+}
+.left_side_content_menu_section {
+    margin-top: 100px;
+}
+.left_side_content_menu_section .menu_loop_section {
+    display: flex;
+    width: 100%;
+}
+
+.left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section {
+    font-size: 17px;
+    font-weight: 600;
+    width: 94%;
+    text-align: center;
+    padding: 11px 0px;
+    color:#fff;
+    padding-left: 82px;
+}
+.left_side_content_menu_section .menu_loop_section{
+    margin: 25px 0px;
+}
+.left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section.active {
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    background: #fff;
+    color:#000!important;
+}
+.left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section svg {
+    width: 30px;
+    margin-right: 12px;
+}
+.left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section svg {
+    fill:#fff;
+}
+.left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section.active svg {
+    fill:#000!important;
+}
+.student_dash_header_section {
+    padding: 44px 0px;
+    width: 100%;
+}
+.student_dash_header_section .student_dash_header_inner_section {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.student_dash_header_section .student_dash_header_inner_section .header_welcome_text .main_heading {
+    font-size: 20px;
+    font-weight: 900;
+    color: #123242;
+    display: flex;
+}
+
+.student_dash_header_section .student_dash_header_inner_section .header_welcome_text .sub_heading {
+    font-size: 14px;
+    color: #525252;
+}
+.header_profile_right_side_search_input svg {
+    position: absolute;
+    width: 21px;
+    top: 13px;
+    right: 10px;
+    fill: #7c7c7c;
+}
+
+.header_profile_right_side_search_input {
+    position: relative;
+}
+
+.header_profile_right_side_search_input input {
+    padding: 12px 37px 10px 19px;
+    font-size: 15px;
+    border-radius: 7px;
+    border: unset;
+    color: #7c7c7c;
+    width: 266px;
+    box-shadow: -1px 0px 3px 0px #afafaf85;
+}
+.header_profile_right_side_search_input input:focus,.header_profile_right_side_search_input input:active  {
+    border: unset!important;
+}
+.header_profile_right_side_panel_inner_section {
+    display: inline-flex;
+}
+
+.header_profile_right_side_user_icon_section {
+    height: 55px;
+    width: 55px;
+    margin-left: 18px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/*.dashboard_container .student_dash_header_inner_section .header_welcome_text {*/
+/*    display: inline-flex;*/
+/*}*/
+.subject_history_main_container_inner_section {
+    padding: 20px;
+}
+
+.subject_history_main_container_inner_section .history_data_subject_section_loop {
+    margin-bottom: 20px;
+}
+
+.topic_video_class_desktop_main_div_container .react-player_wrapper .react_player {
+    width: 100%!important;
+    height: calc(100vh - 294px)!important;
+}
+
+.subject_chapter_main_container_section_video_page_inner .video_col {
+    border-right: 0px;
+}
+.subject_chapter_main_container_section_video_page_inner .video_list_main_loop_container {margin-top: 24px;cursor: pointer;}
+
+.subject_chapter_main_container_section_video_page_inner .topic_video_poster_screenshot_section {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+}
+.all_student_subject_main_container .header_welcome_text {
+    display: inline-flex;
+}
+
+.subject_chapter_main_container_section_video_page_inner .topic_video_poster_screenshot_section img {
+    width: 100%;
+    height: 100%;
+}
+
+.subject_chapter_main_container_section_video_page_inner .video_list_main_loop_container .topic_video_poster_timer_button {
+    position: absolute;
+    bottom: 5px;
+    right: 21px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+.subject_chapter_main_container_section_video_page_inner .topic_video_poster_screenshot_section .time_duration {
+    color: #ccc;
+}
+
+.subject_chapter_main_container_section_video_page_inner .video_list_main_loop_container .time_duration {
+    color: #da9236;
+}
+.subject_chapter_main_container_section_video_page_inner .video_list_main_loop_container .topic_name {
+    font-size: 16px;
+    font-weight: 600;
+}
+.subject_chapter_main_container_section_video_page_inner .topic_video_poster_screenshot_section .topic_video_poster_play_button {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    height: 100%;
+    background: #0003;
+}
+
+.subject_chapter_main_container_section_video_page_inner .topic_video_poster_screenshot_section .topic_video_poster_play_button svg {
+    margin: auto;
+    width: 44px;
+    fill: #da9236;
+}
+
+.topic_video_class_desktop_main_div_container .react-player_topic_heading_section {
+    padding: 19px 22px;
+    background: #e5e5e5;
+}
+.subject_chapter_main_container_section_video_page_inner .list_col {
+    height: calc(100vh - 219px);
+    overflow: auto;
+}
+.main_body_content_section_for_history_page {
+    box-shadow: 1px 0px 3px 0px #afafaf;
+    background-image: linear-gradient(180deg, #fff, #fff);
+    border-radius: 15px;
+    height: 98vh;
+    width: 100%;
+    overflow: auto;
+    padding-top: 30px;
+}
+
+.subject_history_main_container_inner_section .history_data_subject_section_loop .history_data_subject_section_heading {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 44px;
+}
+
+.subject_history_main_container_inner_section .history_data_subject_section_loop .history_data_chapter_section_heading {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ff3d00;
+}
+
+.subject_history_main_container_inner_section .history_data_subject_section_loop .history_data_chapter_section_loop {
+    margin-bottom: 16px;
+}
+.student_dash_header_inner_section .header_welcome_text_search_text {
+    margin-left: 23px;
+}
+.student_dash_all_courses_main_section .student_dash_heading {
+    font-size: 20px;
+    font-weight: 900;
+}
+.student_dash_all_courses_inner_section_loop {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 10px 1px #bfbfbf;
+    padding: 19px;
+    margin-top: 40px;
+    margin-right: 65px;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .icon_section {
+    display: flex;
+    width: 117px;
+    height: 117px;
+    border-radius: 10px;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .icon_section svg {
+    width: 66px;
+    margin: auto;
+}
+
+.student_dash_all_courses_inner_section {
+    display: inline-flex;
+    flex-flow: wrap;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section {
+    text-align: center;
+    width: 286px;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .heading {
+    font-size: 19px;
+    font-weight: 900;
+    color: #707070;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .progress_bar_section {
+    display: inline-flex;
+    margin-top: 10px;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .progress_bar_section .progress_bar span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #626262;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .progress_bar_section .progress_bar_container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .progress_bar_section .progress_bar_container .progress_bar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 900;
+    color: #505050;
+    position: absolute;
+    background: #f9f9f9;
+}
+
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .progress_bar_section .progress_bar_container .progress_spinner {
+    border-radius: 50%;
+    height: 78px;
+    width: 78px;
+    background-image: conic-gradient(rgb(24, 168, 241) 0%, rgb(242, 242, 242) 0%);
+}
+.left_side_footer_section_main_div {
+    position: absolute;
+    bottom: 76px;
+    left: 0px;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+.left_side_footer_section_inner_section {
+    padding: 28px;
+    border-radius: 32px;
+    background: #ffffff63;
+    margin: auto;
+    display: inline-flex;
+    width: 220px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.left_side_footer_section_inner_section svg{
+  width: 50px;
+  margin-left: 14px;
+}
+::-webkit-scrollbar {
+    width: 4px;
+}
+ ::-webkit-scrollbar-thumb {
+     background: #607d8b;
+     border-radius: 11px;
+ }
+ ::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 5px #80808087;
+     border-radius: 10px;
+ }
+.header_welcome_text .breadcrumb_section {
+    display: inline-flex;
+}
+.header_welcome_text .breadcrumb_section div {
+    cursor: pointer;
+    margin-right: 7px;
+}
+.header_welcome_text .breadcrumb_section .main_link {
+    color: #fb8b00;
+}
+.header_welcome_text .header_main_text_heading_subject {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 38px;
+    color: #333;
+}
+.subject_chapter_main_container_section {
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section {
+    display: inline-flex;
+    padding: 15px;
+    width: 100%;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section {display: flex;width: 120px;margin: auto;height: 120px;padding: 10px;border-radius: 50%;background: #ffc06e;}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section svg {
+    margin: auto;
+    width: 70px;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col {
+    display: flex;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .subject_name {
+    color: #5c5c5c;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_name_section {}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_name_section .chapter_name {
+    color: #2e2e2e;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_name_section .chapter_description {
+    font-size: 15px;
+    color: #484848;
+    margin-bottom: 18px;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_name_section .chapter_total_videos {
+    color: #626262;
+    font-size: 18px;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .topics_inner_section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .topics_inner_section button {
+    margin: auto;
+    padding: 5px 20px;
+    color: #db7c00;
+    font-size: 18px;
+    font-weight: 600;
+    border: unset;
+    border-radius: 5px;
+    background: #ffe7c8;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_main_section {
+    border: 1px solid #d3d3d3;
+    margin-top: 28px;
+}
+.desktop_no_data_found_icon_container {
+    display: flex;
+    width: 100%;
+    margin-top: 42px;
+}
+
+.desktop_no_data_found_icon_container img {
+    margin: auto;
+    width: 28%;
+}
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col .topic_video_poster_screenshot_section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col .topic_video_poster_screenshot_section img {
+    margin: auto;
+}
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col .topic_video_poster_screenshot_section .topic_video_poster_play_button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 6px;
+    background: #00000047;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col .topic_video_poster_screenshot_section .topic_video_poster_play_button svg {
+    width: 54px;
+    margin: auto;
+    fill: #ff9800;
+}
+
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col .topic_video_poster_screenshot_section .topic_video_poster_timer_button {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    right: 7px;
+    position: absolute;
+    bottom: 10px;
+    z-index: 999;
+}
+.topic_video_desktop_class_main_div_container .react-player_wrapper_main_desktop {
+    width: 100%;
+    height: 100vh;
+}
+
+.topic_video_desktop_class_main_div_container .react-player_wrapper_main_desktop .react_player {
+    width: 100%!important;
+    height: 100vh!important;
+}
+.topic_video_desktop_class_main_div_container {
+    position: fixed;
+    z-index: 9999999;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background: black;
+}
+.topic_video_desktop_class_main_div_container .close_button {
+    top: 17px;
+    right: 25px;
+    width: 26px;
+    position: absolute;
+    z-index: 99999;
+    cursor: pointer;
+}
+.topic_video_desktop_class_main_div_container .close_button svg {
+    width: 37px;
+    fill: #fff;
+}
+.character_voice_command_main_container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #ffffffed;
+    display: flex;
+    z-index: 99999;
+}
+
+.character_voice_command_main_container .character_voice_command_main_container_inner {
+    margin: auto;
+}
+.character_voice_command_main_container .close_button {
+    position: absolute;
+    top: 41px;
+    right: 67px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.character_voice_command_main_container .close_button svg {
+    width: 79px;
+}
+.enable_voice_command_button {
+    position: absolute;
+    bottom: 155px;
+    right: 24px;
+    width: 60px;
+    font-size: 11px;
+    height: 60px;
+    background: #673ab7!important;
+    border-radius: 100%;
+    color: #ffffff;
+    font-weight: 700;
+    animation: glowing 1300ms infinite;
+    z-index: 99999;
+}
+
+.student_dash_header_section .student_dash_header_inner_section .header_welcome_text .main_heading svg {
+    width: 31px;
+    margin-left: 9px;
+    transform: scaleX(-1);
+}
+
+@keyframes glowing {
+    0% {
+        background-color: #dfdfdf;
+        box-shadow: 0 0 5px #dfdfdf;
+    }
+    50% {
+        background-color: #dfdfdf;
+        box-shadow: 0 0 20px #000;
+    }
+    100% {
+        background-color: #dfdfdf;
+        box-shadow: 0 0 5px #dfdfdf;
+    }
+}
+
+.admin_dashboard_main_content_container .admin_dashboard_block_div_container {
+    box-shadow: 1px 1px 5px 3px #cccccc6b;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.admin_dashboard_main_content_container .admin_dashboard_main_content_inner {
+    width: 100%;
+    height: calc(100vh - 200px);
+    overflow: auto;
+    padding: 146px 10% 0px 10%;
+}
+.admin_dashboard_main_content_container .admin_dashboard_block_div_container .icon_svg svg {
+    width: 121px;
+    margin: auto;
+}
+
+.admin_dashboard_block_div_container .icon_svg {
+    width: 100%;
+    display: flex;
+    margin-bottom: 21px;
+}
+
+.admin_dashboard_block_div_container button.add_button {
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    background: #e91e63;
+    font-weight: 700;
+}
+
+.admin_dashboard_main_content_container .admin_dashboard_block_div_container button.view_button {
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    background: #2196f3;
+    font-weight: 700;
+}
+.admin_dashboard_main_content_container .admin_logo_section {
+    width: 100%;
+    display: flex;
+    margin-top: 21px;
+}
+
+.admin_dashboard_main_content_container .admin_logo_section img {
+    margin: auto;
+    width: 71px;
+}
+.admin_dashboard_main_content_inner.add_school_form_section_container {
+    padding: 70px 36%!important;
+}
+.admin_dashboard_main_content_container .admin_hello_section {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+.admin_dashboard_main_content_container .admin_back_button_section {
+    position: absolute;
+    top: 45px;
+    left: 17%;
+    cursor: pointer;
+}
+
+.admin_dashboard_main_content_container .admin_back_button_section svg {
+    width: 32px;
+}
+button.datatable_edit_button {
+    padding: 6px 20px;
+    background: #2196f3;
+    color: #fff;
+    font-size: 15px;
+}
+#editPopupId .close_modal_form_button {
+    position: absolute;
+    top: 20px;
+    right: 9px;
+    cursor: pointer;
+}
+
+#editPopupId .close_modal_form_button svg {
+    width: 25px;
+}
+
+#editPopupId h2 {
+    font-size: 22px;
+}
+.header_profile_right_side_user_icon_section img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+.avatar_select_section_container {
+    display: inline-flex;
+    width: 100%;
+    flex-flow: wrap;
+}
+
+.avatar_select_section_container .avatar_select_section_loop {
+    margin-right: 14px;
+    border: 4px solid transparent;
+    cursor: pointer;
+}
+
+.avatar_select_section_container .avatar_select_section_loop img {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+}
+
+.avatar_select_section_loop.active {
+    border: 4px solid #2196f3;
+    border-radius: 50%;
+    position: relative;
+}
+.avatar_select_section_loop.active:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #b5b5b569;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.datatable_chapter_description {
+    width: 175px;
+}
+
+.datatable_chapter_icon_svg {
+    display: flex;
+}
+
+.datatable_chapter_icon_svg svg {
+    width: 35px;
+    margin: auto;
+}
+div#editPopupId {
+    min-width: 600px;
+    max-width: 783px;
+    max-height: calc(100vh - 200px);
+}
+.rdt_TableHead .rdt_TableCol {
+    background: #ccc;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.rdt_Table {
+    border: 10px solid #ccc;
+    border-radius: 10px;
+}
+.menu_loop_section_inner_section .row {
+    cursor: pointer;
+}
+.page_not_found_class_main_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.page_not_found_class_main_container img {
+    margin: auto;
+}
+.header_profile_right_side_panel .profile_edit_save_button {
+    background: #2196f3;
+    padding: 10px 46px;
+    border-radius: 6px;
+    font-size: 19px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+.subject_chapter_main_container_inner_section_profile_edit .profile_edit_user_avatar_button_header .app_header_user_icon_section {
+    width: 150px;
+    height: 150px;
+}
+
+.subject_chapter_main_container_inner_section_profile_edit .profile_edit_user_avatar_button_header .app_header_user_icon_section .edit_overlay {
+    cursor: pointer;
+}
+.subject_chapter_main_container_inner_section_profile_edit .profile_edit_user_avatar_button_header .app_header_user_icon_section img {
+    width: 150px;
+    height: 150px;
+}
+
+.subject_chapter_main_container_inner_section_profile_edit .profile_edit_user_avatar_button_header .app_header_user_class_section {
+    font-size: 21px;
+    margin-top: 20px;
+}
+.subject_chapter_main_container_inner_section_profile_edit .profile_edit_user_profile_form_section {
+    margin: 10px 160px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding: 20px;
+}
+.profile_edit_user_profile_form_section .form-control:disabled {
+    background: #fff;
+}
+.selected_main_pie_chart_section_div_container .loader_in_chart {
+    margin: auto;
+    padding: 10%;
+}
+
+.selected_main_pie_chart_section_div_container .loader_in_chart svg {
+    width: 100%;
+}
+
+.student_progress_inner_section .subject_menu_loop_container {
+    padding: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 38px;
+    border: 5px solid transparent;
+    color: #fff;
+}
+
+.student_progress_inner_section .subject_menu_loop_container .icon_section {display: flex;padding: 0px;width: 106px;border-radius: 50%;margin: auto;}
+
+.student_progress_inner_section .subject_menu_loop_container .icon_section svg {
+    width: 38px;
+    margin: auto;
+}
+
+.student_progress_inner_section .subject_menu_loop_container .heading {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+}
+.student_progress_inner_section .student_progress_menu_main_container {
+    overflow: auto;
+    height: calc(100vh - 134px);
+    padding: 0px;
+    cursor: pointer;
+}
+
+.student_dash_all_courses_main_section .student_progress_inner_section {
+    border: 1px solid #ccc;
+    border-left: unset;
+    border-radius: 10px;
+    margin-top: 36px;
+    margin-left: 17px;
+    height: calc(100vh - 134px);
+    position: relative;
+}
+.student_progress_inner_section .subject_menu_loop_container.active {
+    border: 5px solid #222;
+}
+.student_progress_chart_main_container .student_progress_chart_menu_container {
+    text-align: center;
+}
+
+.student_progress_chart_main_container .student_progress_chart_menu_container .selected_sub_overall_heading {
+    display: inline-flex;
+    padding: 24px;
+}
+
+.student_progress_chart_bosy_col_container {
+    border-left: 1px solid #ccc;
+}
+
+
+.student_progress_chart_main_container .student_progress_chart_menu_container .selected_sub_overall_heading .chart_menu_button {
+    border: 4px solid transparent;
+    margin-right: 30px;
+    background: #f44336;
+    border-radius: 24px;
+    color: #fff;
+    padding: 0px 9px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.student_progress_chart_main_container .student_progress_chart_menu_container .selected_sub_overall_heading .chart_menu_button.active {
+    border: 4px solid #2196f3!important;
+}
+.student_progress_chart_main_container .student_progress_chart_main_container_inner {
+    width: 100%;
+    margin-top: 100px;
+}
+.subject_chapter_main_container_section .search_data_main_header_with_search_box {
+    width: 100%;
+    display: flex;
+}
+
+.subject_chapter_main_container_section .search_data_main_header_with_search_box .app_search_input_inner_section {
+    margin: auto;
+    position: relative;
+    width: 39%;
+}
+
+.subject_chapter_main_container_section .search_data_main_header_with_search_box .app_search_input_inner_section svg {
+    position: absolute;
+    top: 11px;
+    right: 6px;
+    width: 23px;
+    fill: #878787;
+}
+.main_body_content_section_for_search_page{
+    box-shadow: 1px 0px 3px 0px #afafaf;
+    background-image: linear-gradient(180deg, #fff, #fff);
+    border-radius: 15px;
+    height: 98vh;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 30px;
+}
+.main_body_content_section_for_search_page .subject_chapter_main_container_inner_section {
+    margin-top: 18px;
+}
+.subject_chapter_main_container_section .search_data_main_header_with_search_box .app_search_input_inner_section input {
+    padding: 8px;
+    padding-right: 22px;
+    border-radius: 7px;
+    width: 100%;
+    font-size: 17px;
+}
+
+.subject_chapter_main_container_inner_section .student_search_scroll_container_list_data {
+    height: calc(100vh - 115px)!important;
+}
+.main_body_content_section_for_search_page .subject_chapter_main_container_inner_section .chapter_section_loop_area_main_section {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.all_teacher_classes_and_subject_data_main_container {
+    margin-top: 20px;
+}
+
+.all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu {
+    display: inline-flex;
+}
+
+.all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu .all_teacher_class_menu_loop {
+    margin-right: 20px;
+    padding: 5px 18px;
+    text-align: center;
+    background: #d1882a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu .all_teacher_class_menu_loop.active {
+    background: #14a8f3;
+}
+.all_teacher_classes_and_subject_data_main_container .student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section {
+    width: auto;
+    padding: 4px 1px;
+}
+
+.all_teacher_subject_data_container .student_dash_all_courses_inner_section_loop_inner.class_detail {
+    display: block;
+}
+.student_dash_select_input_section_main_container {
+    display: flex;
+    width: 100%;
+    height: 70vh;
+}
+
+.student_dash_select_input_section_main_container .student_dash_select_input_section_student {
+    margin: auto;
+}
+
+.student_dash_select_input_section_main_container .student_dash_select_input_section_student label {
+    font-size: 38px;
+    padding: 13px;
+    font-weight: 600;
+}
+
+.student_dash_select_input_section_main_container .student_dash_select_input_section_student select {
+    padding: 11px 32px;
+    border-radius: 27px;
+    font-size: 31px;
+}
+.student_dash_select_input_section_main_container .student_dash_select_input_section_student  select::-ms-expand{
+  width: 30px;
+}
+.student_progress_inner_section .close_icon {
+    position: absolute;
+    top: -12px;
+    right: -11px;
+    display: flex;
+    border-radius: 50%;
+    background: #f33;
+    width: 34px;
+    height: 34px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    z-index: 999;
+    font-size: 20px;
+}
+
+.student_progress_inner_section .close_icon span {
+    margin: auto;
+    display: flex;
+}
+.app_inner_tab_main_section_container .app_inner_tab_main_section_tabs .all_teacher_class_menu_loop {
+    margin-right: 13px;
+    border-radius: 52px;
+    background: #f44336;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 19px;
+    margin-top: 13px;
+}
+.student_app_dashboard_app_main_body_inner_section .app_inner_tab_main_section_container.teacher_classes {
+    padding: 0px 17px 0px 17px!important;
+}
+.app_inner_tab_main_section_container .app_inner_tab_main_section_tabs .all_teacher_class_menu_loop.active {
+    background: #03a9f4!important;
+}

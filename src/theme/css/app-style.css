@@ -1,0 +1,1336 @@
+.student_app_dashboard_app_header span.header_name_text {
+    color: #3c3c3c;
+    font-weight: 700;
+    font-size: 28px;
+}
+.student_app_dashboard_app_header .app_header_user_icon_section {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #00bcd4;
+}
+.student_app_dashboard_app_main_body_container{
+    background-image: linear-gradient(180deg, #76d0ff, #fbd5a6);
+    width: 100%;
+    height: calc(100vh - 160px);
+    overflow: auto;
+    padding-bottom: 65px;
+}
+.voice_avatar_select_section_loop {
+    width: 82px!important;
+    height: 122px!important;
+}
+.student_app_dashboard_app_view_container .student_app_dashboard_app_header {
+    background: #79d1fe;
+}
+.search_page_student_input_section .app_sub_header_welcome_text {
+    display: flex;
+    position: absolute;
+    top: 21px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.student_app_dashboard_app_header_inner {
+    padding: 18px;
+    background: #fff;
+}
+.student_app_dashboard_app_header .header_hi_text {
+    color: #727272;
+    font-size: 20px;
+}
+.student_app_dashboard_app_view_container .student_app_text_icon {
+    display: flex;
+    width: 75px;
+    height: 100%;
+}
+.student_app_dashboard_app_header .header_name_text svg {
+    width: 31px;
+    margin-left: 9px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.student_app_dashboard_app_header .header_name_text {
+    color: #3c3c3c;
+    font-weight: 700;
+    font-size: 23px;
+    display: flex;
+}
+.student_app_dashboard_app_header_inner .header_name_sub_text {
+    font-size: 18px;
+    color: #727272;
+}
+.student_app_dashboard_app_header .app_header_user_icon_section {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: #00bcd4;
+    margin: auto;
+}
+
+.student_app_dashboard_app_main_body_inner_section .app_search_input_section {
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding-top: 19px;
+}
+.student_app_dashboard_app_main_body_container .header_sudo_search_section_main_container {
+    background: #fff;
+    padding: 0px 15px 20px 15px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.student_app_dashboard_app_main_body_container .header_sudo_search_section {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    position: relative;
+    display: inline-flex;
+    font-size: 17px;
+    padding: 10px 10px 10px 41px;
+    width: 100%;
+    color: #727272;
+    margin-top: 29px;
+}
+
+.student_app_dashboard_app_main_body_container .header_sudo_search_section svg {
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    width: 18px;
+    fill: #727272;
+}
+.student_app_dashboard_app_main_body_inner_section .app_search_input_section input {
+    border: unset;
+    border-radius: 7px;
+    height: 40px;
+    padding: 10px 10px;
+    margin: auto;
+    width: 100%;
+    font-size: 14px;
+    padding-right: 34px;
+    background: #fff;
+}
+
+.student_app_dashboard_app_main_body_inner_section .app_search_input_section svg {
+    position: absolute;
+    width: 20px;
+    fill: #afafaf;
+    top: 10px;
+    right: 25px;
+}
+.student_app_main_body_container_sub_pages_search .app_search_input_inner_section {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    padding: 0px 17px;
+}
+.student_app_dashboard_app_main_body_inner_section .app_inner_tab_main_section_container .app_inner_tab_heading_courses {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+.student_app_dashboard_app_main_body_inner_section .app_inner_tab_main_section_container {
+    padding: 0px 17px 64px 17px;
+    margin-top: 20px;
+    padding-right: 0px;
+}
+
+
+.app_main_sub_header_container .profile_logout_button_button {
+    top: 10px;
+    right: 19px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.app_main_sub_header_container .profile_logout_button_button svg {
+    width: 19px;
+    fill: #c90000;
+    margin: auto;
+}
+.course_tabs_in_app_panel_loop .course_tabs_in_app_panel_loop_inner .icon_section {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.course_tabs_in_app_panel_loop .course_tabs_in_app_panel_loop_inner svg {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+.course_tabs_in_app_panel_loop {
+    border-radius: 10px;
+    display: inline-flex;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 30%;
+    height: 100px;
+}
+
+.app_inner_tab_main_section_container .app_inner_tab_main_section_tabs {
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.course_tabs_in_app_detail_section .heading {
+    padding: 10px;
+    border-bottom: 1px solid #c74137;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.course_tabs_in_app_detail_section .progress_bar_section {
+    display: inline-flex;
+}
+
+.course_tabs_in_app_detail_section .progress_bar_section .progress_bar span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #626262;
+}
+
+.course_tabs_in_app_detail_section .progress_bar_section .progress_bar_container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8px;
+    margin: auto;
+}
+
+.course_tabs_in_app_detail_section .progress_bar_section .progress_bar_container .progress_bar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #505050;
+    position: absolute;
+    text-align: center;
+    background: #e1e1e1;
+}
+
+.course_tabs_in_app_detail_section .progress_bar_section .progress_bar_container .progress_spinner {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-image: conic-gradient(rgb(24, 168, 241) 0%, rgb(242, 242, 242) 0%);
+}
+.course_tabs_in_app_panel_loop .course_tabs_in_app_panel_loop_inner .icon_section .heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
+.course_tabs_in_app_detail_section .heading_progress {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: -7px;
+    color: #fff;
+}
+.course_tabs_in_app_detail_section {
+    padding: 20px;
+}
+.course_tabs_in_app_panel_loop .course_tabs_in_app_panel_loop_inner {
+    padding: 20px;
+    margin: auto;
+}
+.student_app_footer_tab_container {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 17px 10px;
+    background: #fff;
+}
+.student_app_footer_tab_container .student_app_footer_tab_container_inner {
+    display: inline-flex;
+    width: 100%;
+}
+
+.student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop {
+    display: flex;
+    padding: 7px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop span {
+    display: none;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop.active {
+    background: #2196f3;
+    border-radius: 25px;
+    margin: unset!important;
+}
+
+.student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop.active span {
+    overflow: hidden;
+    width: 70px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop svg {
+    width: 25px;
+    fill: #2196f3;
+    margin: auto;
+}
+
+.student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop.active svg {
+    fill: #fff!important;
+}
+
+.popular_courses_main_section_inner_loop .popular_course_icon_mg_section {
+    display: flex;
+    height: 100%;
+    width: 150px;
+}
+
+.popular_courses_main_section_inner_loop .popular_course_icon_mg_section img {
+    margin: auto;
+    display: inline-flex;
+}
+
+.popular_courses_main_section_inner_loop {
+    display: inline-flex;
+    border-radius: 10px;
+    background: #fff;
+    margin-right: 15px;
+    width: 100%;
+}
+
+.popular_courses_main_section {
+    margin-top: 10px;
+}
+
+.popular_courses_main_section_inner_loop .popular_course_text_section {
+    padding: 10px;
+    width: 200px;
+}
+
+.popular_courses_main_section_inner_loop .popular_course_text_section .popular_courses_main_section_heading_tab {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.popular_courses_main_section_inner_loop .popular_course_text_section .popular_courses_main_section_lesson_tab {
+    font-size: 14px;
+    margin-top: 7px;
+    font-weight: 600;
+}
+
+.popular_courses_main_section_inner_loop .popular_course_text_section .popular_courses_main_section_quick_click_tab {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #568913;
+    font-weight: 600;
+}
+.popular_courses_main_section {
+    margin-top: 10px;
+    display: inline-flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 170px;
+}
+.speak_to_us_main_section .speak_to_us_inner_section {
+    padding: 11px;
+    background: #2196f3;
+    border-radius: 10px;
+    display: inline-flex;
+    width: 100%;
+    outline: 0px;
+}
+
+.speak_to_us_main_section .speak_to_us_inner_section svg {
+    width: 63px;
+    margin: auto;
+}
+.subject_chapter_mobile_main_container_section .test_switch_buttons_main_container {
+    width: 100%;
+    display: flex;
+    margin: 13px 0px;
+}
+
+.subject_chapter_mobile_main_container_section .test_switch_buttons_main_container .test_switch_buttons_main_container_inner {
+    margin: auto;
+    width: 90%;
+    display: inline-flex;
+    border: 1px solid #ccc;
+    border-radius: 43px;
+}
+
+.subject_chapter_mobile_main_container_section .test_switch_buttons_main_container .test_switch_buttons_main_container_inner .tab_section_button {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 43px;
+    font-size: 14px;
+}
+
+.subject_chapter_mobile_main_container_section .test_switch_buttons_main_container .test_switch_buttons_main_container_inner .tab_section_button.active {
+    background: #2196f3;
+    color: #fff;
+}
+.speak_to_us_inner_section_col_1 {
+    display: flex;
+    width: 44px;
+    padding: 10px;
+}
+
+.speak_to_us_inner_section_col_2 {
+    padding: 10px;
+}
+
+.speak_to_us_inner_section p.have_query_section_heading {
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+}
+
+.speak_to_us_inner_section p.have_query_section_sub_heading {
+    font-size: 13px;
+    color: #fff;
+}
+
+.speak_to_us_inner_section button.call_now_button_section {
+    border-radius: 5px;
+    color: #fff;
+    background: #3daed9;
+    padding: 5px 11px;
+    font-size: 14px;
+}
+.speak_to_us_main_section{
+    margin-top: 10px;
+    padding-right: 17px;
+}
+.app_inner_tab_main_section_tabs .loader_section {
+    width: 100%;
+    display: flex;
+}
+
+.app_inner_tab_main_section_tabs .loader_section svg {
+    width: 148px;
+    margin: auto;
+}
+.student_app_dash_sub_header_section {
+    width: 100%;
+    height: 67px;
+}
+
+.student_app_dash_sub_header_section .student_app_dash_sub_header_inner_section {
+    padding: 10px;
+    position: relative;
+}
+
+.student_app_dash_sub_header_section .student_app_dash_sub_header_inner_section .app_sub_header_welcome_text {
+    display: flex;
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.main_test_page_panel_main_container .test_name {
+    font-weight: 600;
+    font-size: 20px;
+    color: #cd7a00;
+}
+
+.main_test_page_panel_main_container {
+    padding: 16px;
+}
+
+.main_test_page_panel_main_container .test_questions_and_time_main_section {
+    margin-top: 17px;
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 49px;
+}
+
+.main_test_page_panel_main_container .test_questions_and_time_main_section .test_questions_snd_time {
+    width: 50%;
+    display: inline-flex;
+}
+
+.main_test_page_panel_main_container .test_questions_and_time_main_section .test_questions_snd_time .test_questions_snd_time_inner_section {
+    margin: auto;
+    font-size: 14px;
+}
+
+.main_test_page_panel_main_container .test_questions_and_time_main_section .test_questions_snd_time .test_questions_snd_time_inner_section svg {
+    width: 47px;
+    fill: #cd7a00;
+}
+
+.main_test_page_panel_main_container .test_questions_and_time_main_section .test_questions_snd_time .test_questions_snd_time_inner_section_text {
+    margin-left: -26px;
+}
+
+.test_instructions_main_section_container {
+    margin-top: 20px;
+    padding-left: 13px;
+}
+
+.main_test_page_panel_main_container .start_test_button_div_container {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    width: 100%;
+    left: 0px;
+}
+
+.main_test_page_panel_main_container .start_test_button_div_container button.start_test_button {
+    margin: auto;
+    border: 10px;
+    padding: 6px 17px;
+    color: #fff;
+    background: #cd7a00;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 17px;
+}
+.student_test_start_new_test_main_container .test_header_main_header_top_section {
+    padding: 16px;
+    display: inline-flex;
+    width: 100%;
+}
+.student_test_start_new_test_main_container .test_header_main_header_bottom_section {
+    margin-top: 27px;
+}
+
+.student_test_start_new_test_main_container .test_header_main_header_bottom_section .test_header_main_header_bottom_inner_section .test_series_questions_count_number_loop_container {
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-left: 18px;
+    border-bottom: 2px solid #ccc;
+}
+
+.student_test_start_new_test_main_container .test_header_main_header_bottom_section .test_header_main_header_bottom_inner_section .test_series_questions_count_number_loop_container .test_series_questions_count_number_loop {
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 14px;
+    padding-right: 28px;
+    font-weight: 600;
+}
+
+.student_test_start_new_test_main_container .test_header_main_header_bottom_section .test_header_main_header_bottom_inner_section .test_series_questions_count_number_loop_container .test_series_questions_count_number_loop.active {
+    color: #c77600;
+    font-weight: 600;
+}
+.student_app_dashboard_app_view_container .test_series_body_section_container {
+    padding: 15px;
+}
+
+.student_app_dashboard_app_view_container .test_series_body_section_container .test_series_body_section_question {
+    font-size: 15px;
+}
+
+.student_app_dashboard_app_view_container .test_series_body_section_container .test_series_body_section_option.row {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.student_app_dashboard_app_view_container .test_series_body_section_container .test_series_body_section_option_main .test_series_body_section_option.selected {
+    border: 1px solid #000!important;
+}
+.student_app_dashboard_app_view_container .test_series_body_section_container .test_series_body_section_option {
+    display: inline-flex;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-bottom: 13px;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 14px;
+}
+
+.student_app_dashboard_app_view_container .test_series_body_section_container .test_series_body_section_option_main {
+    margin-top: 13px;
+}
+
+.student_app_dashboard_app_view_container .test_series_body_section_container .test_series_body_section_option .test_series_body_section_option_col.col-2 {
+    color: #c77600;
+}
+
+.student_app_dashboard_app_view_container .test_series_body_section_container .test_series_body_section_option .test_series_body_section_option_col {
+    margin: auto;
+}
+.student_test_start_new_test_main_container .test_header_main_header_bottom_section .test_timer_for_current_question {
+    font-size: 14px;
+    color: #707070;
+    width: 95%;
+}
+.student_test_start_new_test_main_container .test_header_main_header_bottom_section .test_timer_for_current_question_container {
+    display: inline-flex;
+    padding: 7px 15px;
+    width: 100%;
+}
+
+.student_test_start_new_test_main_container .test_header_main_header_bottom_section .test_timer_for_current_question_container .test_next_question_for_current_question {
+    float: right;
+    font-size: 14px;
+    color: #c77600;
+    margin-left: 21px;
+}
+.student_test_start_new_test_main_container .test_header_main_header_top_section span.timer_section_header {
+    width: 86%;
+    font-size: 15px;
+}
+
+.student_test_start_new_test_main_container .test_header_main_header_top_section span.timer_section_header strong {
+    color: #c17300;
+}
+
+.student_test_start_new_test_main_container .test_header_main_header_top_section span.submit_button_section_header {
+    float: right;
+    border-radius: 40px;
+    padding: 2px 14px;
+    font-size: 13px;
+    background: #c77600;
+    color: #fff;
+}
+.test_instructions_main_section_container .test_instructions_main_section_container_loop {
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #5e5e5e;
+}
+
+.test_instructions_main_section_container .test_instructions_main_section_container_loop svg {
+    fill: #5e5e5e;
+    width: 35px;
+}
+
+.test_instructions_main_section_container .test_instructions_main_section_container_loop .text_col {
+    margin: auto;
+}
+
+.test_instructions_main_section_container .test_instructions_main_section_container_loop .svg_col {
+    margin: auto;
+}
+.student_app_dash_sub_header_section .student_app_dash_sub_header_inner_section .app_sub_header_welcome_text svg {
+    width: 38px;
+    fill: #323232;
+}
+.student_app_dashboard_app_view_container_scroll {
+    height: calc(100vh - 70px);
+}
+
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container {
+    width: 100%;
+    height: 100px;
+    padding: 15px 15px;
+    position: relative;
+}
+
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .app_sub_header_welcome_text .breadcrumb_section {
+    color: #fff;
+    font-size: 15px;
+    display: inline-flex;
+}
+
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .app_sub_header_welcome_text .breadcrumb_section div {
+    margin-right: 5px;
+    font-weight: 700;
+    color: #e9e9e9;
+}
+
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .app_sub_header_welcome_text .breadcrumb_section .main_link {
+    font-weight: 700;
+    line-height: 20px;
+    color: #fff;
+}
+
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .app_sub_header_welcome_text .app_sub_header_main_text_heading_subject.subject-chapters,.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .app_sub_header_welcome_text .app_sub_header_main_text_heading_subject.profile-page {
+    font-weight: 900;
+    font-size: 22px;
+    color: #fff;
+    line-height: 38px;
+    width: 74%;
+}
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .icon_section {
+    position: absolute;
+    top: -31px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .icon_section svg {
+    width: 88px;
+}
+.subject_chapter_mobile_main_container_section {
+    padding: 15px;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+}
+
+.subject_chapter_mobile_main_container_section .chapter_heading_section {
+    color: #585858;
+    font-size: 16px;
+}
+
+.subject_chapter_mobile_main_container_section .subject_chapter_mobile_chapters_main_container {
+    margin-top: 18px;
+}
+
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .icon_section {
+    display: flex;
+    padding: 14px;
+}
+
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .icon_section .chapter_icon_section {
+    margin: auto;
+    background: #fff;
+    padding: 10px;
+}
+
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .icon_section .chapter_icon_section svg {
+    width: 40px;
+}
+
+.subject_chapter_mobile_main_container_section .subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .chapter_name {
+    font-size: 13px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .text_section {
+    padding: 23px 4px 8px 37px;
+}
+
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .text_section .chapter_description {
+    height: 35px;
+    text-overflow: ellipsis;
+}
+
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .text_section .chapter_total_videos {
+    font-size: 12px;
+    color: #cf4403;
+}
+.student_app_dashboard_app_view_container .loading_in_chapter_page_mobile {
+    padding: 18px;
+}
+.mobile_no_data_found_icon_container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.mobile_no_data_found_icon_container img {
+    margin: auto;
+    width: 65%;
+}
+.subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app img {
+    border-radius: 7px;
+}
+.topic_progress_data p.progress-label {
+    font-size: 13px;
+    margin: auto;
+    color: #cf4403;
+}
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .app_sub_header_welcome_text .app_sub_header_main_text_heading_subject.chapter-mobile-topics {
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    width: 74%;
+}
+.subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app .topic_video_poster_play_button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #00000047;
+    border-radius: 7px;
+}
+.subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app .topic_video_poster_play_button svg {
+    fill: #ff9800;
+    margin: auto;
+    width: 26px;
+}
+.subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app .topic_video_poster_timer_button {
+    position: absolute;
+    color: #ffffff;
+    font-size: 12px;
+    top: 4px;
+    left: 4px;
+    font-weight: 600;
+    z-index: 9;
+}
+.topic_video_class_main_div_container {
+    width: 100%;
+    margin-top: 10px;
+}
+.topic_video_class_main_div_container .react-player_wrapper {
+    height: 200px;
+    width: 100%;
+}
+.subject_chapter_mobile_main_container_section.video_section .subject_chapter_mobile_chapters_loop .text_section {
+    padding: 12px 4px 8px 37px!important;
+}
+.topic_video_class_main_div_container .react-player_wrapper .react_player {
+    height: 200px!important;
+    width: 100%!important;
+    display: flex;
+}
+.topic_video_class_main_div_container .react-player_wrapper .react_player video{
+   margin: auto;
+}
+.topic_video_class_main_div_container .react-player_topic_heading_section {
+    padding: 10px;
+    background: #e7e7e7;
+    font-size: 13px;
+}
+
+.subject_chapter_mobile_main_container_section.video_section .loader_section {
+    padding: 20px 19px;
+}
+.subject_chapter_mobile_chapters_main_container.video_section {
+    height: calc(100vh - 288px);
+    overflow-y: auto;
+    padding: 0px 18px!important;
+}
+.subject_chapter_mobile_main_container_section.video_section {
+    overflow-y: hidden!important;
+    padding: 0px!important;
+    height: calc(100vh - 66px)!important;
+}
+.student_app_dashboard_app_header .app_header_user_icon_section img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .profile_edit_save_button {
+    position: absolute;
+    top: 10px;
+    right: 79px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 50%;
+    background: #fff;
+}
+.student_app_dashboard_app_view_container_scroll.profile_page .app_main_sub_header_container {
+    padding: 12px 15px!important;
+}
+.student_app_dashboard_app_view_container_scroll.profile_page .app_main_sub_header_container {
+    height: 62px!important;
+}
+.student_app_dashboard_app_view_container_scroll .app_main_sub_header_container .profile_edit_save_button div {
+    margin: auto;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2196f3;
+}
+.profile_edit_user_avatar_button_header .app_header_user_icon_section {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile_edit_user_avatar_button_header .app_header_user_icon_section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.profile_edit_user_avatar_button_header .app_header_user_icon_section {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.profile_edit_user_avatar_button_header .app_header_user_icon_section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile_edit_user_profile_form_input_group {
+    background: #ffffff;
+    padding: 16px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+.profile_edit_user_avatar_button_header .app_header_user_class_section {
+    text-align: center;
+    margin-top: 6px;
+}
+.profile_edit_user_profile_form_section {
+    margin-top: 10px;
+}
+.student_app_main_body_container_sub_pages_search .app_main_sub_header_container {
+    height: 62px;
+    padding: 14px;
+    font-weight: 900;
+    color: #fff;
+    font-size: 21px;
+}
+.profile_edit_user_profile_form_input_group .label {
+    font-size: 13px;
+    color: #545454;
+    margin-bottom: 1px;
+    padding-left: 1px;
+}
+
+.profile_edit_user_profile_form_input_group .text_input {
+    border: unset;
+    background: unset;
+    font-weight: 600;
+    font-size: 14px;
+    width: 100%;
+    padding: 0px;
+    outline-width: 0px;
+    resize: none;
+}
+.student_app_dashboard_app_view_container_scroll.profile_page {
+    background: #e4f3ff;
+}
+.profile_edit_user_profile_form_input_group textarea {
+    border: unset;
+    background: unset;
+    font-weight: 600;
+    font-size: 14px;
+    width: 100%;
+}
+.profile_edit_user_profile_form_input_group .input_radio_button {
+    display: inline-flex;
+    margin-top: 13px;
+    margin-left: 2px;
+}
+
+
+.profile_edit_user_profile_form_input_group .input_radio_button .radio_label {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0px 23px;
+}
+.profile_edit_user_avatar_button_header .app_header_user_icon_section .edit_overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #0000006b;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px;
+    color: #fff;
+    text-align: center;
+}
+
+.profile_edit_user_avatar_button_header .app_header_user_icon_section .edit_overlay span {
+    margin: auto;
+}
+.profile_edit_user_profile_form_input_group .sudo_div_section {
+    border: unset;
+    background: unset;
+    font-weight: 600;
+    font-size: 14px;
+    width: 100%;
+    padding: 0px;
+    outline-width: 0px;
+    resize: none;
+}
+.choose_user_profile_icon_main_container {
+    position: absolute;
+    bottom: 0px;
+    background: #fff;
+    width: 100%;
+    left: 0px;
+    height: 522px;
+}
+
+.choose_user_profile_icon_main_container .avatar_select_section_container {
+    margin: auto;
+}
+
+.choose_user_profile_icon_main_container .avatar_select_section_loop {
+    margin-right: -1px;
+}
+
+.choose_user_profile_icon_main_container .close_modal_form_button {
+    position: absolute;
+    right: 24px;
+    top: 12px;
+}
+
+.choose_user_profile_icon_main_container .close_modal_form_button svg {width: 24px;}
+
+.choose_user_profile_icon_main_container .choose_user_profile_icon_header {
+    width: 100%;
+    padding: 14px;
+    border-bottom: 1px solid #ccc;
+}
+
+.choose_user_profile_icon_main_container .choose_user_profile_icon_body {
+    display: flex;
+    padding: 14px;
+    overflow: auto;
+    height: 470px;
+}
+
+.choose_user_profile_icon_main_container .choose_user_profile_icon_header .test_header {
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile_edit_user_profile_form_input_group button.btn.btn-primary {width: 100%;}
+
+.student_app_main_body_container_sub_pages {
+    background-image: linear-gradient(180deg, #76d0ff, #fbd5a6);
+    width: 100%;
+    height: calc(100vh - 71px);
+    overflow-y: auto;
+    padding-bottom: 65px;
+    overflow-x: hidden;
+}
+.student_app_main_body_container_sub_pages_search {
+    background-image: linear-gradient(180deg, #76d0ff, #fbd5a6);
+    width: 100%;
+    height: calc(100vh - 0px);
+    overflow-y: hidden;
+    padding-bottom: 65px;
+    overflow-x: hidden;
+}
+.student_app_main_body_container_sub_pages .student_app_main_body_container_header_section {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.student_app_main_body_container_sub_pages_search .student_app_main_body_container_header_section {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.student_app_main_body_container_sub_pages_inner .all_subject_menu_container {
+    display: inline-flex;
+    overflow-x: auto;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section {
+    margin-right: 30px;
+}
+
+.student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section .icon_section {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section .icon_section svg {
+    width: 32px;
+    margin: auto;
+}
+
+.student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section .heading {
+    font-size: 13px;
+    text-align: center;
+    line-height: 27px;
+}
+.student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section.all_section .icon_section {
+    background: #2196f3;
+}
+.student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section.active {
+    border-bottom: 2px solid #2196f3;
+}
+/*.student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report {*/
+/*    padding: 20px;*/
+/*}*/
+
+.student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report .selected_sub_overall_heading {
+    display: inline-flex;
+    overflow-x: auto;
+    width: 100%;
+    padding-left: 20px;
+}
+.student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report .selected_sub_overall_heading .chart_menu_button {
+    border: 4px solid transparent;
+    margin-right: 18px;
+    padding: 3px 12px;
+    font-size: 15px;
+    color: #fff;
+    background: #f44336;
+    border-radius: 22px;
+    font-weight: 600;
+}
+
+.student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report .selected_sub_overall_heading .chart_menu_button.active {
+    border: 4px solid #2196f3!important;
+}
+
+.student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report .selected_sub_heading {
+    font-weight: 600;
+    font-size: 17px;
+    padding: 20px;
+}
+.selected_main_pie_chart_section_div_container {
+    width: 100%;
+    display: flex;
+    height: 412px!important;
+    overflow: hidden!important;
+    padding: 20px 20px 0px 20px;
+}
+
+.selected_main_pie_chart_section_div_container .selected_main_pie_chart_section_div_container_inner {
+    margin: auto;
+}
+.canvasjs-chart-credit,.canvasjs-chart-credit{
+    display: none!important;
+}
+.search_page_student_input_section .app_search_input_section {
+    margin-top: 22px;
+    margin-left: 53px;
+}
+
+.search_page_student_input_section .app_search_input_section input {
+    width: 100%;
+    outline-width: 0px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: unset;
+    padding: 8px;
+    padding-right: 40px;
+}
+
+.search_page_student_input_section .app_search_input_section svg {
+    position: absolute;
+    top: 9px;
+    right: 26px;
+    width: 18px;
+    fill: #a9a9a9;
+}
+.student_app_main_body_container_sub_pages_search .subject_chapter_mobile_chapters_main_container {
+    margin-top: 1px;
+}
+.student_app_main_body_container_sub_pages_search .mobile_no_data_found_icon_container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+}
+.mobile_no_data_found_icon_container svg {
+    width: 107px;
+    fill: #fff;
+    margin: auto;
+    margin-top: 137px;
+}
+.student_app_main_body_container_sub_pages_search .subject_chapter_mobile_chapters_main_container .student_search_scroll_container .student_search_scroll_container_list_data {
+    height: calc(100vh - 130px)!important;
+    padding: 0px 22px;
+}
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop {
+    display: inline-flex;
+    background: #e7e7e7;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.student_app_main_body_container_sub_pages_search .subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop {
+    display: inline-flex;
+    background: #e7e7e7;
+    border-radius: 5px;
+    width: 90%;
+    margin-bottom: 20px;
+}
+.subject_chapter_mobile_chapters_main_container.history_section_container {
+    padding: 22px;
+    height: calc(100vh - 100px);
+    overflow: auto;
+}
+
+.subject_chapter_mobile_chapters_main_container.history_section_container .subject_chapter_mobile_chapters_loop {
+    width: 100%!important;
+}
+
+.subject_chapter_mobile_chapters_main_container.history_section_container .history_data_subject_section_heading {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.subject_chapter_mobile_chapters_main_container.history_section_container .history_data_chapter_section_heading {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ff3d00;
+}
+
+.subject_chapter_mobile_chapters_main_container.history_section_container .history_data_chapter_section_loop {
+    margin-top: 7px;
+}
+.subject_chapter_mobile_chapters_main_container.history_section_container .subject_chapter_mobile_chapters_loop {
+    width: 100%!important;
+}
+.student_app_main_body_container_sub_pages_search .loading_in_chapter_list_page_mobile{
+    padding: 0px 22px!important;
+}
+.subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app img {
+    height: 100%;
+    width: 100%;
+}
+.subject_chapter_mobile_chapters_main_container .subject_chapter_mobile_chapters_loop .text_section .chapter_name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.app_inner_tab_main_section_container .app_inner_tab_main_section_tabs .all_teacher_class_menu_loop.active {
+    background: #03a9f4;
+}
+
+.student_dash_select_input_section_main_container.app_view label {
+    font-size: 19px!important;
+}
+
+.student_dash_select_input_section_main_container.app_view select {
+    font-size: 18px!important;
+    padding: 6px 18px!important;
+}
+
+.student_app_main_body_container_header_section .close_icon {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    width: 49px;
+    height: 23px;
+    background: #f44336;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+}
+
+.student_app_main_body_container_header_section .close_icon span {
+    margin: auto;
+    font-size: 15px;
+}
+.test_score_main_circle_container {
+    margin-top: 14px;
+    display: flex;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner {
+    margin: auto;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    border: 2px solid #1baf09;
+    font-size: 39px;
+    font-weight: 600;
+    display: flex;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content {
+    margin: auto;
+    text-align: center;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content .total_score_1 {
+    width: 182px;
+    height: 2px;
+    background: #1baf09;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content .total_score {
+    margin-bottom: 12px;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content .total_score_2 {
+    margin-top: 12px;
+}
+.test_score_main_circle_container {
+    margin-top: 14px;
+    display: flex;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner {
+    margin: auto;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    border: 2px solid #1baf09;
+    font-size: 39px;
+    font-weight: 600;
+    display: flex;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content {
+    margin: auto;
+    text-align: center;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content .total_score_1 {
+    width: 182px;
+    height: 2px;
+    background: #1baf09;
+}
+.floating_answer_question_main_div {
+    width: 100%;
+    position: absolute;
+    top: 82px;
+    left: 0px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+}
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content .total_score {
+    margin-bottom: 12px;
+}
+
+.enable_voice_command_button {
+    width: 45px!important;
+    height: 45px!important;
+    font-size: 9px!important;
+}
+
+.test_score_main_circle_container .test_score_main_circle_container_inner .test_score_main_circle_container_inner_score_content .total_score_2 {
+    margin-top: 12px;
+}
+
+.question_with_solutions_section_container_main {
+    margin-top: 16px;
+    height: calc(100vh - 509px);
+    overflow: auto;
+}
+
+.question_with_solutions_section_container_main .question_with_solutions_section_loop {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}

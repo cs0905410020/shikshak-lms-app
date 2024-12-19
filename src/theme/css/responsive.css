@@ -1,0 +1,111 @@
+@media only screen and (min-width: 800px) and (max-width: 1500px) {
+    ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px!important;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #607d8b;
+        border-radius: 11px;
+    }
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #80808087;
+        border-radius: 10px;
+    }
+    .login_page_main_inner_section .login_bag_image img {
+        width: 194px !important;
+    }
+    .login_page_main_inner_section .login_frontimgboook_image img {
+        display: none !important;
+    }
+    .login_page_main_container_section .login_readinggirl_image img {
+        width: 223px!important;
+    }
+    .login_page_main_container_section .login_readinggirl_image {
+        margin-top: -185px!important;
+    }
+    .login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form {
+        width: 353px!important;
+        height: 406px!important;
+    }
+    .login_page_main_password_inner_section_form .login_page_input_form_section .login_page_input_form_section_heading {
+        font-size: 21px!important;
+        margin-top: 50px;
+    }
+    .login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form .login_page_heading_bar{
+        display: none !important;
+    }
+
+}
+@media only screen and (max-width: 799px) {
+    ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px!important;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #607d8b;
+        border-radius: 11px;
+    }
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #80808087;
+        border-radius: 10px;
+    }
+    .login_body_light_green {
+        left: -21px!important;
+    }
+    .login_page_main_inner_section .login_bag_image {
+        display: flex!important;
+        width: 100%!important;
+        height: 310px!important;
+    }
+    .login_page_main_inner_section .login_bag_image img {
+        width: 147px!important;
+        margin: auto!important;
+    }
+    .login_page_main_inner_section .login_frontimgboook_image {
+        display: none!important;
+    }
+    .login_page_main_inner_section .login_compas_image {
+        display: none!important;
+    }
+    .login_page_main_container_section .login_readinggirl_image {
+        display: none!important;
+    }
+    .login_page_main_password_inner_section_form .login_page_input_form_section_password_input button {
+        margin-top: 24px!important;
+        padding: 9px 56px!important;
+        font-size: 18px!important;
+    }
+    .login_page_main_password_inner_section_form .login_page_input_form_section_password_input input {
+        font-size: 25px!important;
+    }
+    .login_page_main_password_inner_section_form .login_page_input_form_section_password_input {
+        margin-top: 38px!important;
+    }
+    .login_page_main_password_inner_section_form .login_page_input_form_section .login_page_input_form_section_heading {
+        font-size: 22px!important;
+        margin-top: 18px;
+    }
+    .login_page_main_password_inner_section_form .login_page_input_form_section {
+        padding: 0px 15px!important;
+    }
+    .login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form .login_page_heading_bar {
+        display: none!important;
+    }
+    .login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form {
+        width: 88%!important;
+        height: 303px!important;
+    }
+    .login_page_main_inner_section .login_page_main_password_panel {
+        margin-top: -13px!important;
+    }
+    .login_page_main_inner_section .login_bag_image img {
+        width: 174px!important;
+    }
+    .character_voice_command_main_container .close_button svg {
+        width: 40px!important;
+    }
+    .character_voice_command_main_container .close_button {
+        top: 15px!important;
+        right: 14px!important;
+    }
+}

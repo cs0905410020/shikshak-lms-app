@@ -1,0 +1,252 @@
+.alien #head {
+    position: relative;
+    margin: 0 auto;
+    width: 200px;
+    height: 120px;
+    background-color: #94ec3f;
+    border-radius: 100%;
+    z-index: 8;
+}
+.alien #antenna {
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 60px solid #94ec3f;
+    border-radius: 40%;
+    margin-bottom: -10px;
+    position:relative;
+}
+.alien #antenna::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #94ec3f;
+    position: absolute;
+    top: 0px;
+    left: -10px;
+}
+.alien .ear {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 70px;
+    background-color: #94ec3f;
+    border-radius: 50%;
+}
+.alien #left-ear {
+    top: 10px;
+    left: -16px;
+}
+.alien #right-ear {
+    top: 10px;
+    right: -16px;
+}
+.alien #eyes {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.alien .eye {
+    display: inline-block;
+    background-color: black;
+    width: 27px;
+    height: 27px;
+    border-radius: 100%;
+    margin-right: 6px!important;
+    border: 9px solid white;
+}
+.alien .eye:last-child {
+    margin-right: 0;
+}
+.alien .mouth {
+    margin: 0 auto;
+    width: 80px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 1px 0 0 black;
+    position: relative;
+}
+.alien .mouth.s,.alien .mouth.\/,.alien .mouth.\),.alien .mouth.\\ {
+    width: 80px;
+    height: 20px;
+}
+.alien .mouth.D {
+    height: 39px;
+    width: 72px;
+}
+.alien .mouth.\|,.alien .mouth.\( {
+    height: 41px;
+    width: 70px;
+}
+.alien .mouth.I,.alien .mouth.x,.alien .mouth.z,.alien .mouth.P {
+    height: 41px;
+    width: 70px;
+}
+.alien .mouth.o {
+    height: 37px;
+    width: 25px;
+}
+.alien .mouth::before {
+    position: absolute;
+    top: 8px;
+    left: -8px;
+    z-index: 100;
+    content: "";
+    width: 10px;
+    height: 5px;
+    border-radius: 100%;
+    box-shadow: 0 1px 0 0 black;
+    transform: rotate(290deg);
+}
+.alien .mouth::after {
+    position: absolute;
+    top: 8px;
+    right: -7px;
+    z-index: 100;
+    content: "";
+    width: 10px;
+    height: 5px;
+    border-radius: 100%;
+    box-shadow: 0 1px 0 0 black;
+    transform: rotate(70deg);
+}
+.alien #alien-body {
+    position: relative;
+    margin: 0 auto;
+    width: 180px;
+    height: 150px;
+    background-color: #5CB3FF;
+    border-radius: 40%;
+    margin-top: -40px;
+}
+.alien #alien-body::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 150px;
+    height: 80px;
+    border-radius: 40%;
+    top: -50px;
+    left: 15px;
+    box-shadow: 0 20px 0 0 #842DCE;
+}
+.alien .arm {
+    width: 30px;
+    height: 70px;
+    background-color: #5CB3FF;
+    position: absolute;
+    border-radius: 20px;
+}
+.alien #left-arm {
+    transform: rotate(230deg);
+    left: -15px;
+    top: 24px;
+    z-index: -10;
+}
+.alien .hands {
+    width: 12px;
+    height: 30px;
+    position: absolute;
+    top: -18px;
+    left: 22px;
+    background-color: #94ec3f;
+    border-radius: 30px;
+    transform: rotate(30deg);
+}
+.alien .hands::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 12px;
+    height: 30px;
+    background-color: #94ec3f;
+    border-radius: 30px;
+    top: -5px;
+    right: 16px;
+    transform: rotate(-30deg);
+}
+.alien .hands::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 12px;
+    height: 20px;
+    background-color: #94ec3f;
+    border-radius: 30px;
+    top: 16px;
+    right: 22px;
+    transform: rotate(130deg);
+}
+.alien #right-arm{
+    transform: rotate(120deg);
+    right: -20px;
+    top: 20px;
+}
+.alien .arm::before{
+    display: block;
+    content: "";
+    background-color: #94ec3f;
+    width: 30px;
+    height: 24px;
+    border-radius: 100%;
+    postion: absoulte;
+    margin-top: -10px;
+}
+.alien #legs {
+    border-top: 20px solid #151B8D;
+    width: 180px;
+    height: 50px;
+    margin: 0 auto;
+    z-index: 10;
+    position: absolute;
+    top: 90px;
+    background-color: #5CB3FF;
+}
+.alien #legs::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 30px;
+    background-color: #151B8D;
+    margin: 0 auto;
+    margin-top: -25px;
+    border-radius: 5px;
+}
+.alien #left-foot {
+    position: absolute;
+    bottom: -12px;
+    left: -20px;
+    z-index: 120;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 30px solid #151B8D;
+    border-radius: 20px;
+}
+.alien #right-foot {
+    position: absolute;
+    bottom: -12px;
+    right: -20px;
+    z-index: 150;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid #151B8D;
+    border-radius: 20px;
+}
+.alien #right-foot::before{
+    content: "";
+    display:block;
+    position: absolute;
+    top: -1px;
+    left: -91px;
+    border-left: 3px solid #488AC7;
+    height: 28px;
+    z-index: 300;
+}
