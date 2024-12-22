@@ -1,17 +1,17 @@
 // LOGIN STATUS
 export const isSuperAdminLogin = () => {
-    if (localStorage.getItem('superAdminAuthentication')) return true;
-    return false;
-}
+    return !!localStorage.getItem('superAdminAuthentication');
+
+};
 export const isSchoolMasterLogin = () => {
-    if (localStorage.getItem('schoolMasterAuthentication')) return true;
-    return false;
+    return !!localStorage.getItem('schoolMasterAuthentication');
+
 }
 export const isTeacherMasterLogin = () => {
-    if (localStorage.getItem('teacherMasterAuthentication')) return true;
-    return false;
+    return !!localStorage.getItem('teacherMasterAuthentication');
+
 }
 export const isStudentLogin = () => {
-    if (localStorage.getItem('studentAuthentication')) return true;
-    return false;
+    return !!localStorage.getItem('studentAuthentication');
+
 }

@@ -149,9 +149,6 @@ function LoginComponentSection(){
                 : ''
             }
             <div className={"login_page_input_form_section"}>
-                <div className={"login_page_input_form_section_heading"}>
-                    Enter Panel Password To Login.
-                </div>
                 {(errorPassword) ?
                     <div className={"login_page_input_form_section_heading_error"}>
                         Invalid Password!

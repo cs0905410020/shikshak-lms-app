@@ -8,7 +8,5 @@ const Apis = {
   GetUserLogin: `${API_URL}/api/customer/login`,
   GetUserRegister: `${API_URL}/api/customer/register`,
   GetCustomerDetails: `${API_URL}/api/customer/getUserByEmailId?email=`,
-
-
 };
 export { API_URL, Apis };

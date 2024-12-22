@@ -1,4 +1,4 @@
-import {api} from '../../hooks/api/ApiConfig';
+import {api, setHeaderForAuthorization} from '../../hooks/api/ApiConfig';
 import {USER_SIGNIN_SUCCESS} from "../../constants/CommonConstants";
 
 const signup = (body) => {
@@ -33,10 +33,14 @@ const login = (email, password) => {
         })
         .then((response) => {
             if (response.data.accessToken) {
-                localStorage.setItem("user", JSON.stringify(response.data));
-            }
+                setHeaderForAuthorization(response.data.accessToken);
+                localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
+                // Parse the JWT token
+                const parsedData = parseJwt(response.data.accessToken);
+                localStorage.setItem("user", JSON.stringify(parsedData));
 
-            return response.data;
+                return parsedData;
+            }
         });
 };
 

@@ -48,17 +48,13 @@ import {
     ALL_CLASS_STANDARD_DATA,
     USER_VOICE_ASSISTANT_SELECTION
 } from "../constants/CommonConstants";
-import Axios from 'axios';
 import {handleWebSocketEvent} from "./helpers/WebSocketHelper";
 import {storeDataIntoLocalstorage} from "./helpers/LocalStorageHelper";
 import {_generateUniqueIdForBlock} from "../helpers/CommonHelper";
-import {callFunctionToSpeakText, callFunctionToStartTextToVoice} from "../helpers/VoiceAssistanceHelper";
+import {callFunctionToStartTextToVoice} from "../helpers/VoiceAssistanceHelper";
 import {cloneDeep} from "lodash";
 import {getChartDataByFormat, modifyHistoryUserData} from "./helpers/CommonHelper";
-import {testAllQuestionOptionsDataReducer} from "../reducers/CommonReducers";
-const api = Axios.create({
-    baseURL: `https://shikshaksolutions.com/api-call/`
-})
+import {api} from "../hooks/api/ApiConfig";
 
 export const actionToSignInUserIntoApp = (password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST });
