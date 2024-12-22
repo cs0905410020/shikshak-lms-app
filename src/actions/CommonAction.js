@@ -197,7 +197,7 @@ export const actionToGetAllStudentClassDataByClassSectionId = (classStandardId) 
     const userInfo = getState().userSignin.userInfo;
     const {prevId} = getState().allSubjectStudentClassSectionWise;
 
-    if(prevId != classStandardId) {
+    if(prevId != classStandardId && classStandardId) {
         ///// Store in local storage
         if (!localStorage.getItem('ALL_SUBJECT_STUDENT_SCHOOL'))
             dispatch({type: ALL_SUBJECT_STUDENT_SCHOOL_REQUEST, payload: classStandardId});

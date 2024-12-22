@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {actionToSignInUserIntoApp} from "../../actions/CommonAction";
 import {useDispatch,useSelector} from "react-redux";
-import AuthService from "../services/auth.service";
 import useAuth from "../../hooks/useAuth";
+import {actionToLogin} from "../../actions/userAction";
 import {USER_SIGNIN_SUCCESS} from "../../constants/CommonConstants";
 
 function LoginComponentSection(){
@@ -90,38 +90,33 @@ function LoginComponentSection(){
         if(formValid()){
             try {
                 setDisableActionButton(true);
-                await AuthService.login(email, password).then(
-                    async (data) => {
-                        if (data.accessToken) {
-                            let user =  await AuthService.parseJwt(data.accessToken);
-                            let value  = user.user
-                            dispatch({ type: USER_SIGNIN_SUCCESS, payload: value});
-                            localStorage.setItem('userInfo',JSON.stringify(value));
-                            switch (Number(value?.role)){
-                                case 5:
-                                    localStorage.setItem('superAdminAuthentication',JSON.stringify(value));
-                                    break;
-                                case 2:
-                                    localStorage.setItem('schoolMasterAuthentication',JSON.stringify(value));
-                                    break;
-                                case 3:
-                                    localStorage.setItem('teacherMasterAuthentication',JSON.stringify(value));
-                                    break;
-                                case 4:
-                                    localStorage.setItem('studentAuthentication',JSON.stringify(value));
-                                    break;
-                            }
-                            setAuth({...value});
-                            /*navigate(from, { replace: true });*/
-                            setDisableActionButton(false);
+                dispatch(actionToLogin({email, password})).then(
+                    res => {
+                        setAuth({...res});
+                        dispatch({ type: USER_SIGNIN_SUCCESS, payload: res});
+                        console.log(res?.role,'res')
+                        switch (Number(res?.role)){
+                            case 1:
+                                localStorage.setItem('superAdminAuthentication',JSON.stringify(res));
+                                break;
+                            case 11:
+                                localStorage.setItem('schoolMasterAuthentication',JSON.stringify(res));
+                                break;
+                            case 12:
+                                localStorage.setItem('teacherMasterAuthentication',JSON.stringify(res));
+                                break;
+                            case 13:
+                                localStorage.setItem('studentAuthentication',JSON.stringify(res));
+                                break;
                         }
+                       // navigate('/home');
+                        setDisableActionButton(false);
                     },
                     (error) => {
-                        console.log(error);
                         setSignInError(error?.response?.data?.errors[0]?.msg)
                         setDisableActionButton(false);
                     }
-                );
+                )
             } catch (err) {
                 console.log(err);
                 setDisableActionButton(false);

@@ -119,7 +119,7 @@ export const AppEnterMainPage = ()=>{
         dispatch(actionToGetAllClassSectionTypeData());
         dispatch(actionToGetAllClassStandardData());
     }, []);
-
+console.log(isSuperAdminLogin(),'isSuperAdminLogin()')
     return(
         (isSuperAdminLogin()) ? <SuperAdminPrivateRoutes/> : (isSchoolMasterLogin()) ? <SchoolMasterPrivateRoutes/> : (isStudentLogin()) ? <StudentPrivateRoutes/> : (isTeacherMasterLogin()) ? <TeacherMasterPrivateRoutes/> : ''
     )

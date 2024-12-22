@@ -1,8 +1,12 @@
 import axios from 'axios';
+import FingerprintJS from '@fingerprintjs/fingerprintjs'; // Optional library for advanced fingerprinting
 
 axios.defaults.withCredentials = true; // Ensure cookies are sent with requests
 
-const API_URL = "https://shikshaksolutions.com/api-call/";
+const API_URL =
+    process.env.REACT_APP_DEVELOPMENT_MODE === 'development'
+        ? "http://localhost:4024/api/"
+        : "https://shikshaksolutions.com/api-call/";
 
 const api = axios.create({
     baseURL: API_URL,
@@ -11,13 +15,25 @@ const api = axios.create({
     },
 });
 
-// Interceptor to automatically set Authorization header with access token
+// Function to generate a device fingerprint
+const generateDeviceFingerprint = async () => {
+    const fpPromise = await FingerprintJS.load();
+    const fingerprint = await fpPromise.get();
+    return fingerprint.visitorId; // Combine user agent, IP, and visitor ID
+};
+
+// Interceptor to automatically set Authorization and Device headers
 api.interceptors.request.use(
-    (config) => {
+    async (config) => {
         const accessToken = localStorage.getItem("accessToken");
         if (accessToken) {
-            config.headers["Authorization"] = `Bearer ${JSON.parse(accessToken)}`;
+            config.headers["Authorization"] = `Bearer ${accessToken}`;
         }
+
+        // Attach device fingerprint to every request
+        const deviceFingerprint = await generateDeviceFingerprint();
+        config.headers["X-Device-Fingerprint"] = deviceFingerprint;
+
         return config;
     },
     (error) => {
@@ -25,9 +41,12 @@ api.interceptors.request.use(
     }
 );
 
-const setHeaderForAuthorization = (accessToken) => {
+const setHeaderForAuthorization = async (accessToken) => {
+    // Attach device fingerprint to every request
+    const deviceFingerprint = await generateDeviceFingerprint();
     // Use the access token for authorized requests
     api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    api.defaults.headers.common["X-Device-Fingerprint"] = deviceFingerprint;
 };
 
 // Add a response interceptor to handle access token expiration
@@ -39,6 +58,11 @@ api.interceptors.response.use(
         // Check if the access token has expired (403) and the request has not been retried yet
         if (error?.response?.status === 403 && !originalRequest?._retry) {
             originalRequest._retry = true;
+            if(error?.response?.data?.message==='Invalid device fingerprint'){
+                localStorage.removeItem("accessToken");
+                window.location.href = "/login"; // Redirect to login page
+                return Promise.reject(error);
+            }
 
             try {
                 const refreshResponse = await axios.post(API_URL + "auth/token"); // Attempt to refresh the token
@@ -66,4 +90,4 @@ api.interceptors.response.use(
     }
 );
 
-export { api, setHeaderForAuthorization };
+export { api, setHeaderForAuthorization,generateDeviceFingerprint };

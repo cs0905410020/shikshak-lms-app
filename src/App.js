@@ -33,8 +33,10 @@ import {useDispatch} from "react-redux";
 import {actionToSetWindowSizeCount} from "./actions/CommonAction";
 import $ from "jquery";
 import useAuth from "./hooks/useAuth";
-import AuthService from "./components/services/auth.service";
 import {useEffectOnce} from "./hooks/useEffectOnce";
+import {setHeaderForAuthorization} from "./hooks/api/ApiConfig";
+import {parseJwt} from "./hooks/jwtUtils";
+import {USER_SIGNIN_SUCCESS} from "./constants/CommonConstants";
 setupIonicReact();
 
 
@@ -53,14 +55,14 @@ const App = () => {
     const { setAuth,auth } = useAuth();
     const dispatch = useDispatch();
     const authorized = async()=>{
-        console.log('56')
-        if(localStorage.getItem('user')){
-            const data = JSON.parse(localStorage.getItem('user'));
-            if (data.accessToken ) {
-                let user =  await AuthService.parseJwt(data.accessToken);
-                let value  = user.user
-                console.log('value')
-                setAuth({...value});
+        if(localStorage.getItem('accessToken')){
+            const data =localStorage.getItem('accessToken');
+            console.log(data,'data')
+            if (data ) {
+                setHeaderForAuthorization(data);
+                let user =  await parseJwt(data);
+                dispatch({ type: USER_SIGNIN_SUCCESS, payload: user});
+                setAuth({...user});
             }
         }
     }
@@ -79,7 +81,7 @@ const App = () => {
 
   return (
       <IonApp>
-          { localStorage.getItem('user') ? <AppEnterMainPage/> : <PublicRoutes/>}
+          { localStorage.getItem('accessToken') ? <AppEnterMainPage/> : <PublicRoutes/>}
       </IonApp>
   )
 }
