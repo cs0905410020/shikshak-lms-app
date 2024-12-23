@@ -245,7 +245,7 @@ authRouter.post("/login", async (req, res) => {
   const {email,source,password} = req.body;
   console.log('email',email)
   // Look for user email in the database
-  let user = await actionToGetUserIsExist(email,'shikshak')
+  let user = await actionToGetUserIsExist(email,1)
 
   console.log('user',user)
 
