@@ -34,7 +34,8 @@ function ChapterAllTopicsDataBodyComponentFunction({chapterId,chapterName}){
                                         <div className={"topic_video_poster_screenshot_section"}>
                                             <LazyLoadImage
                                                 alt={'Video Class'}
-                                                src={topic?.poster_url}/>
+                                                src={topic?.poster_url ? topic?.poster_url : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/steam-park-8.png'} // use normal <img> attributes as props
+                                            />
                                             <div className={"topic_video_poster_timer_button"}>
                                                 {_readableTimeFromSeconds(topic?.video_duration_in_seconds)}
                                             </div>

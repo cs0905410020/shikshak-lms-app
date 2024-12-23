@@ -27,8 +27,10 @@ function SubjectAllChapterDataBodyComponentFunction({subjectName}){
                         <div key={key} className={"chapter_section_loop_area_main_section"}>
                             <div className={"chapter_section_loop_area_inner_section"}>
                                 <div className={"col-2 chapter_icon_section_col"}>
-                                    <div className={"chapter_icon_section"}
-                                         dangerouslySetInnerHTML={{__html:chapter?.icon}}>
+                                    <div className={"chapter_icon_section"}>
+                                        <img
+                                            src={chapter?.icon ? chapter?.icon : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/steam-park-8.png'}
+                                            alt={"chapter?.icon"}/>
                                     </div>
                                 </div>
                                 <div className={"col-7"}>

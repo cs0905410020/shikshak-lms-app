@@ -71,12 +71,12 @@
         display: none!important;
     }
     .login_page_main_password_inner_section_form .login_page_input_form_section_password_input button {
-        margin-top: 24px!important;
+        margin-top: 0px!important;
         padding: 9px 56px!important;
         font-size: 18px!important;
     }
     .login_page_main_password_inner_section_form .login_page_input_form_section_password_input input {
-        font-size: 25px!important;
+        font-size: 1.3rem!important;
     }
     .login_page_main_password_inner_section_form .login_page_input_form_section_password_input {
         margin-top: 38px!important;
@@ -94,6 +94,7 @@
     .login_page_main_inner_section .login_page_main_password_panel .login_page_main_password_inner_section_form {
         width: 88%!important;
         height: 303px!important;
+        background: none!important;
     }
     .login_page_main_inner_section .login_page_main_password_panel {
         margin-top: -13px!important;

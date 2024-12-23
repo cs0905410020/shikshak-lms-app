@@ -8,10 +8,10 @@ import ReactPlayer from "react-player/lazy";
 import { useWakeLock } from 'react-screen-wake-lock';
 
 export const ReactVideoPlayerCommonComponent=({openTopicVideoSection})=>{
-    console.log('openTopicVideoSection',openTopicVideoSection)
     const dispatch = useDispatch();
     const playerRef = useRef();
     const [isReady, setIsReady] = React.useState(false);
+    console.log(openTopicVideoSection)
     const callFunctionToSetTotalPlayedData = (seconds)=>{
        dispatch(actionToSetVideoProgressUpdate(seconds))
     }
@@ -71,6 +71,6 @@ export const ReactVideoPlayerCommonComponent=({openTopicVideoSection})=>{
             onProgress={(progress) => {
                 callFunctionToSetTotalPlayedData(progress?.playedSeconds)
             }}
-            url={openTopicVideoSection?.video_url}/>
+            url={openTopicVideoSection?.url}/>
     )
 }

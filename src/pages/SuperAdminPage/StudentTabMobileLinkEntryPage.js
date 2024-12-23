@@ -13,25 +13,16 @@ export default function StudentTabMobileLinkEntryPage() {
     return (
         <div className={"student_app_dashboard_app_view_container"}>
             <Switch>
-                <Route exact path={`${path}`} render={()=> (<Redirect to={`${path}/home`}/>)}></Route>
-                <Route path={`${path}/home`}>
-                    <StudentMobileDashboard/>
-                </Route>
-                <Route path={`${path}/student-profile-page`}>
-                    <ProfileMobileComponent/>
-                </Route>
-                <Route path={`${path}/student-progress-page`}>
-                    <StudentMobileProgressComponent/>
-                </Route>
-                <Route path={`${path}/student-history-topic-page`}>
-                    <StudentHistoryTopicMobileComponent/>
-                </Route>
-                <Route exact path={`${path}/student-search-topic-page`}>
-                    <StudentSearchTopicMobileComponent/>
-                </Route>
-                <Route exact path={`${path}/student-search-topic-page/:search`}>
-                    <StudentSearchTopicMobileComponent/>
-                </Route>
+                {/* Main dashboard routes */}
+                <Route path={`/dashboard/home`} component={StudentMobileDashboard} />
+                <Route exact path={`/dashboard/student-profile-page`} component={ProfileMobileComponent} />
+                <Route exact path={`/dashboard/student-progress-page`} component={StudentMobileProgressComponent} />
+                <Route exact path={`/dashboard/student-history-topic-page`} component={StudentHistoryTopicMobileComponent} />
+                <Route exact path={`/dashboard/student-search-topic-page`} component={StudentSearchTopicMobileComponent} />
+                <Route exact path={`/dashboard/student-search-topic-page/:search`} component={StudentSearchTopicMobileComponent} />
+
+                {/* Fallback redirect for undefined dashboard routes */}
+                <Redirect to={`/dashboard/home`} />
             </Switch>
             {(history?.location?.pathname?.indexOf('subject-chapters') < 0 && history?.location?.pathname?.indexOf('chapter-topics') < 0 && history?.location?.pathname?.indexOf('student-search-topic-page') < 0 && history?.location?.pathname?.indexOf('chapter-test-detail') < 0 && history?.location?.pathname?.indexOf('chapter-test-main') < 0) ?
                 <StudentAppFooterTabComponent/>

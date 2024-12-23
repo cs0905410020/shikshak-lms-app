@@ -58,10 +58,13 @@ export const AppEnterMainPage = ()=>{
 
     const StudentPrivateRoutes = () => {
         return (
-            <IonReactRouter basename={"/app"}>
+            <IonReactRouter basename="/app">
                 <IonRouterOutlet>
-                    <Route path="/dashboard"  component={StudentTabCommonLinkEntryPage} />
+                    {/* Redirect root to "/dashboard" */}
                     <Redirect exact from="/" to="/dashboard" />
+                    {/* Route for dashboard */}
+                    <Route path="/dashboard" component={StudentTabCommonLinkEntryPage} />
+                    {/* Fallback redirect to "/dashboard" */}
                     <Route render={() => <Redirect to="/dashboard" />} />
                 </IonRouterOutlet>
             </IonReactRouter>

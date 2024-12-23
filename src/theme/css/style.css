@@ -131,7 +131,7 @@
 }
 
 .login_page_main_container_section .login_readinggirl_image img {
-    width: 290px;
+    width: 10rem;
     margin: auto;
 }
 .login_page_main_container_section .login_readinggirl_image .login_page_main_password_panel {
@@ -191,7 +191,7 @@
     border: unset!important;
     border-bottom: 2px solid #000;
     outline-width: 0px!important;
-    margin: auto;
+    margin-bottom: 20px;
 }
 .login_page_main_password_inner_section_form .login_page_input_form_section_password_input input:focus,
 .login_page_main_password_inner_section_form .login_page_input_form_section_password_input input:active {
@@ -425,6 +425,9 @@
     background: #0003;
 }
 
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col {
+    margin-right: 14PX;
+}
 .subject_chapter_main_container_section_video_page_inner .topic_video_poster_screenshot_section .topic_video_poster_play_button svg {
     margin: auto;
     width: 44px;
@@ -468,8 +471,11 @@
     margin-left: 23px;
 }
 .student_dash_all_courses_main_section .student_dash_heading {
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.all_teacher_subject_data_container {
+    margin-top: 30px;
 }
 .student_dash_all_courses_inner_section_loop {
     border: 1px solid #ccc;
@@ -477,7 +483,7 @@
     background: #fff;
     box-shadow: 0px 0px 10px 1px #bfbfbf;
     padding: 19px;
-    margin-top: 40px;
+    margin-top: 19px;
     margin-right: 65px;
 }
 
@@ -611,8 +617,12 @@
     width: 100%;
 }
 
-.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section {display: flex;width: 120px;margin: auto;height: 120px;padding: 10px;border-radius: 50%;background: #ffc06e;}
-
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section {display: flex;width: 120px;margin: auto;height: 120px;border-radius: 50%;background: #ffc06e;}
+.subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 .subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section svg {
     margin: auto;
     width: 70px;
@@ -1145,6 +1155,7 @@ div#editPopupId {
     padding: 5px 18px;
     text-align: center;
     background: #d1882a;
+    border-radius: 10px;
     color: #fff;
     font-size: 16px;
     font-weight: 600;

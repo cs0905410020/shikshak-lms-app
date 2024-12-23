@@ -1,21 +1,27 @@
-import React,{useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {_getIconBySubjectKey} from "../../helpers/CommonHelper";
+import {_getClassFormat, _getIconBySubjectKey} from "../../helpers/CommonHelper";
 import {FacebookLoader} from "../Loader/FacebookLoader";
 import {useHistory} from "react-router-dom";
 import {StudentDashHeaderComponent} from "./StudentDashHeaderComponent";
 import {actionToGetAllStudentClassDataByClassSectionId} from "../../actions/CommonAction";
+import noDataFound from "../../theme/image/no-data-found-desktop.png";
 
 function StudentAllCoursesComponentFunction(){
-    const allSubjectStudentClassSectionWise = useSelector((state) => state.allSubjectStudentClassSectionWise);
+    const allClassStandardGradesData = useSelector((state) => state.allClassStandardGradesData);
     const history = useHistory();
+    const [teacherClassData,setTeacherClassData] = useState(null);
     const path = '/dashboard/home';
 
-    const userInfo = useSelector((state) => state.userSignin.userInfo);
-    const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch(actionToGetAllStudentClassDataByClassSectionId(userInfo?.class_standard_id));
-    },[])
+        if(allClassStandardGradesData?.gradesData?.length){
+            setTeacherClassData(allClassStandardGradesData?.gradesData[0]);
+        }
+    },[allClassStandardGradesData])
+
+    const callFunctionToGetClassData = (classData)=>{
+        setTeacherClassData(classData);
+    }
 
     const openSubjectChapters = (subject)=>{
         history.push(`${path}/subject-chapters/${subject?.id}`);
@@ -25,65 +31,54 @@ function StudentAllCoursesComponentFunction(){
         <div className={"main_body_content_section all_student_subject_main_container"}>
             <StudentDashHeaderComponent type={"StudentAllCoursesComponent"}/>
             <div className={"student_dash_all_courses_main_section"}>
-                <div className={"student_dash_heading"}>Your courses</div>
-                {(allSubjectStudentClassSectionWise?.loading) ?
+                <div className={"student_dash_heading"}>Classes</div>
+                {(allClassStandardGradesData?.loading) ?
                     <div className={"loader_section"}>
                         <div className={"loading_in_chapter_page_desktop"}>
                             <FacebookLoader type={"facebookStyleBigLoader"} item={4}/>
                         </div>
                     </div>
                     :
-                    <div className={"student_dash_all_courses_inner_section"}>
-                        {allSubjectStudentClassSectionWise?.subjectData?.map((subject, key) => (
-                            <div key={key} className={"student_dash_all_courses_inner_section_loop"}>
-                                <div onClick={() => openSubjectChapters(subject)}
-                                     className={"student_dash_all_courses_inner_section_loop_inner"}>
-                                    <div
-                                        style={{background: _getIconBySubjectKey(subject?.name)?.color}}
-                                        className={"icon_section"}>
-                                        {_getIconBySubjectKey(subject?.name)?.icon}
-                                    </div>
-                                    <div className={"detail_section"}>
-                                        <div className={"heading"}>{subject?.name}</div>
-                                        <div className={"progress_bar_section"}>
-                                            <div className={"progress_bar_container"}>
-                                                <div className="progress_bar">
-                                                    {
-                                                        (subject?.lesson_completed_percentage ? Math.round(subject?.lesson_completed_percentage) : 0)
-                                                    }%
-                                                    <br/>
-                                                    <span>Lessons</span>
-                                                </div>
+                    <div className={"all_teacher_classes_and_subject_data_main_container"}>
+                        <div className={"all_teacher_class_menu"}>
+                            {allClassStandardGradesData?.gradesData?.map((gradesData, key) => (
+                                <div key={key}
+                                     onClick={() => callFunctionToGetClassData(gradesData)}
+                                     className={"all_teacher_class_menu_loop"}>
+                                    Class {gradesData?.name}
+                                </div>
+                            ))}
+                        </div>
+                        <div className={"all_teacher_subject_data_container"}>
+                            <div className={"student_dash_heading"}>Subjects</div>
+                            {(teacherClassData?.subjects?.length) ?
+                                <div className={"student_dash_all_courses_inner_section"}>
+                                    {teacherClassData?.subjects?.map((subject, key) => (
+                                        <div key={key} className={"student_dash_all_courses_inner_section_loop"}>
+                                            <div onClick={() => openSubjectChapters(subject)}
+                                                 className={"student_dash_all_courses_inner_section_loop_inner class_detail"}>
                                                 <div
-                                                    style={{
-                                                        backgroundImage: `conic-gradient(rgb(24 168 241) ${subject?.lesson_completed_percentage}%,
-                                                         rgb(242, 242, 242) ${subject?.lesson_completed_percentage}%)`
-                                                    }}
-                                                    className="progress_spinner"></div>
-                                            </div>
-                                            <div className={"progress_bar_container"}>
-                                                <div className="progress_bar">
-                                                    {
-                                                        (subject?.test_completed_percentage ? Math.round(subject?.test_completed_percentage) : 0)
-                                                    }%
-                                                    <br/><span>Tests</span>
+                                                    className={"icon_section"}>
+                                                    {_getIconBySubjectKey(subject?.name)?.icon}
                                                 </div>
-                                                <div
-                                                    style={{
-                                                        backgroundImage: `conic-gradient(#ff9800 ${subject?.test_completed_percentage}%,
-                                                         rgb(242, 242, 242) ${subject?.test_completed_percentage}%)`
-                                                    }}
-                                                    className="progress_spinner"></div>
+                                                <div className={"detail_section"}>
+                                                    <div className={"heading"}>{subject?.name}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    ))}
                                 </div>
-                            </div>
-                        ))}
+                                :
+                                <div className={"desktop_no_data_found_icon_container"}>
+                                    <img alt={noDataFound} src={noDataFound}/>
+                                </div>
+                            }
+                        </div>
                     </div>
                 }
             </div>
         </div>
     )
 }
+
 export const StudentAllCoursesComponent = React.memo(StudentAllCoursesComponentFunction);

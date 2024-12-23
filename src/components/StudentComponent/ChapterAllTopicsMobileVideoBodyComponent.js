@@ -56,12 +56,12 @@ function ChapterAllTopicsMobileVideoBodyComponentFunction({topicId}){
                                     <div className={"topic_video_poster_screenshot_section_app"}>
                                         <LazyLoadImage
                                             alt={'Video Class'}
-                                            src={topic?.poster_url} // use normal <img> attributes as props
+                                            src={topic?.poster_url ? topic?.poster_url : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/steam-park-8.png'} // use normal <img> attributes as props
                                         />
                                         <div className={"topic_video_poster_timer_button"}>
                                             {_readableTimeFromSeconds(topic?.video_duration_in_seconds)}
                                         </div>
-                                        <div className={"topic_video_poster_play_button"}>
+                                        <div className={"topic_video_poster_play_button list_vid"}>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M13.75 8.412l24.417 12.705a3.25 3.25 0 0 1 0 5.766L13.75 39.588A3.25 3.25 0 0 1 9 36.705v-25.41a3.25 3.25 0 0 1 4.549-2.979l.202.096z"/></svg>
                                         </div>
                                     </div>

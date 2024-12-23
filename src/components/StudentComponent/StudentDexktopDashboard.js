@@ -9,16 +9,16 @@ function StudentDesktopDashboardFunction(){
     const { path } = useRouteMatch();
     return (
         <Switch>
-            <Route exact path={path}>
+            <Route exact path={'/dashboard/home'}>
                 <StudentAllCoursesComponent/>
             </Route>
-            <Route exact path={`${path}/chapter-topics-video/:chapter_id/:topic_id`}>
+            <Route exact path={`/dashboard/home/chapter-topics-video/:chapter_id/:topic_id`}>
                 <ChapterAllTopicsVideoDesktopComponent/>
             </Route>
-            <Route path={`${path}/subject-chapters/:id`}>
+            <Route path={`/dashboard/home/subject-chapters/:id`}>
                 <SubjectAllChaptersDesktopComponent/>
             </Route>
-            <Route path={`${path}/chapter-topics/:id`}>
+            <Route path={`/dashboard/home/chapter-topics/:id`}>
                 <ChapterAllTopicsDesktopComponent/>
             </Route>
         </Switch>

@@ -787,6 +787,9 @@
     margin: auto;
     width: 100px;
 }
+.topic_video_poster_play_button.list_vid svg {
+    width: 43px !important;
+}
 .subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app .topic_video_poster_timer_button {
     position: absolute;
     color: #ffffff;

@@ -18,22 +18,14 @@ export default function StudentTabDesktopLinkEntryPage() {
                 </div>
                 <div className={"col-10"}>
                     <Switch>
-                            <Route exact path={path} render={()=> (<Redirect to={`${path}/home`}/>)}></Route>
-                            <Route path={`${path}/home`}>
-                                <StudentDesktopDashboard/>
-                            </Route>
-                            <Route path={`${path}/student-progress-page`}>
-                                <StudentDesktopProgressComponent/>
-                            </Route>
-                            <Route path={`${path}/student-search-topic-page`}>
-                                <StudentSearchTopicDesktopComponent/>
-                            </Route>
-                            <Route path={`${path}/student-profile-page`}>
-                                <ProfileDesktopComponent/>
-                            </Route>
-                            <Route path={`${path}/student-history-topic-page`}>
-                                <StudentHistoryTopicDesktopComponent/>
-                            </Route>
+                        {/* Main dashboard routes */}
+                        <Route exact path={`/dashboard/home`} component={StudentDesktopDashboard} />
+                        <Route exact path={`/dashboard/student-progress-page`} component={StudentDesktopProgressComponent} />
+                        <Route exact path={`/dashboard/student-search-topic-page`} component={StudentSearchTopicDesktopComponent} />
+                        <Route exact path={`/dashboard/student-profile-page`} component={ProfileDesktopComponent} />
+                        <Route exact path={`/dashboard/student-history-topic-page`} component={StudentHistoryTopicDesktopComponent} />
+                        {/* Catch-all redirect to home if no route matches */}
+                        <Redirect to={`/dashboard/home`} />
                     </Switch>
                 </div>
             </div>
