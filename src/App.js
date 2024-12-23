@@ -75,6 +75,7 @@ const App = () => {
             dispatch(actionToSetWindowSizeCount($(window).width()));
         });
     }, []);
+
     /*------ Pages-----*/
 
   return (
