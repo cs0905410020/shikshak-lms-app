@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {actionToSignInUserIntoApp} from "../../actions/CommonAction";
+import {actionToGetUserProfileData, actionToSignInUserIntoApp} from "../../actions/CommonAction";
 import {useDispatch,useSelector} from "react-redux";
 import useAuth from "../../hooks/useAuth";
 import {actionToLogin} from "../../actions/userAction";
@@ -85,7 +85,6 @@ function LoginComponentSection(){
     }
 
     const handleLogin = async (e) => {
-        console.log(87)
         e.preventDefault();
         if(formValid()){
             try {
@@ -93,23 +92,7 @@ function LoginComponentSection(){
                 dispatch(actionToLogin({email, password})).then(
                     res => {
                         setAuth({...res});
-                        dispatch({ type: USER_SIGNIN_SUCCESS, payload: res});
-                        console.log(res?.role,'res')
-                        switch (Number(res?.role)){
-                            case 1:
-                                localStorage.setItem('superAdminAuthentication',JSON.stringify(res));
-                                break;
-                            case 11:
-                                localStorage.setItem('schoolMasterAuthentication',JSON.stringify(res));
-                                break;
-                            case 12:
-                                localStorage.setItem('teacherMasterAuthentication',JSON.stringify(res));
-                                break;
-                            case 13:
-                                localStorage.setItem('studentAuthentication',JSON.stringify(res));
-                                break;
-                        }
-                       // navigate('/home');
+                        dispatch(actionToGetUserProfileData());
                         setDisableActionButton(false);
                     },
                     (error) => {

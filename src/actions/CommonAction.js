@@ -56,6 +56,23 @@ import {cloneDeep} from "lodash";
 import {getChartDataByFormat, modifyHistoryUserData} from "./helpers/CommonHelper";
 import {api} from "../hooks/api/ApiConfig";
 
+export const actionToGetUserProfileData = () => async (dispatch) => {
+    dispatch({ type: USER_SIGNIN_REQUEST });
+    try {
+        api.post(`users/actionToGetUserProfileDataApiCall`,{}).then(response=>{
+            let userData = response.data;
+            dispatch({ type: USER_SIGNIN_SUCCESS, payload: userData.userData});
+        })
+    } catch (error) {
+        dispatch({
+            type: USER_SIGNIN_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        });
+    }
+}
 export const actionToSignInUserIntoApp = (password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST });
     try {

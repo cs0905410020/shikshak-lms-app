@@ -64,8 +64,8 @@ where app_user.source='${website}' and (app_user.email = '${email}' or app_user.
 export const actionToGetUserIsExist = async (email,company) => {
     try {
     return new Promise(function(resolve, reject) {
-        const query = `select * from users where source=${company} and (email = '${email}' or mobile = '${email}')`;
-        pool.query(query, (error, results) => {
+        const query = `select * from users where source = ? and (email = ? or mobile = ?)`;
+        pool.query(query,[company,email,email], (error, results) => {
             if (error) {
                 reject(query)
             }
@@ -273,4 +273,21 @@ export const actionToGetUserRoleApiCall = () =>{
             resolve(results);
         })
     })
+}
+
+/**
+ * This  query is used to get user list
+ * @param body
+ * @returns {{query: string}}
+ */
+export const actionToGetUserProfileDetailApiCall = async (body) => {
+    try {
+        const {id} = body;
+        let where = id ? `and u.id=${id}` : '';
+        const query = `select u.id,u.name,u.email,u.role,u.region_id,u.source,u.password,u.gender,u.date_of_birth,u.mobile from users u where u.is_active='1' ${where}`;
+        const [results] = await pool.query(query);
+        return results?.length ? results[0] : {};
+    } catch (error) {
+        return {success: 0, message:error.message};
+    }
 }

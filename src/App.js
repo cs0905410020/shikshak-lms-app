@@ -30,7 +30,7 @@ import './theme/css/responsive.css';
 import LoginPage from "./pages/LoginPage/LoginPage";
 import {AppEnterMainPage} from "./pages/AppEnterMainPage";
 import {useDispatch} from "react-redux";
-import {actionToSetWindowSizeCount} from "./actions/CommonAction";
+import {actionToGetUserProfileData, actionToSetWindowSizeCount} from "./actions/CommonAction";
 import $ from "jquery";
 import useAuth from "./hooks/useAuth";
 import {useEffectOnce} from "./hooks/useEffectOnce";
@@ -57,18 +57,16 @@ const App = () => {
     const authorized = async()=>{
         if(localStorage.getItem('accessToken')){
             const data =localStorage.getItem('accessToken');
-            console.log(data,'data')
             if (data ) {
                 setHeaderForAuthorization(data);
                 let user =  await parseJwt(data);
-                dispatch({ type: USER_SIGNIN_SUCCESS, payload: user});
+                dispatch(actionToGetUserProfileData());
                 setAuth({...user});
             }
         }
     }
 
     useEffectOnce(() => {
-        console.log('67')
         authorized();
     });
     useEffect(() => {

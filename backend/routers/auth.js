@@ -243,8 +243,11 @@ authRouter.get("/users", actionToGetAllUserApiCall);
 // Log in
 authRouter.post("/login", async (req, res) => {
   const {email,source,password} = req.body;
+  console.log('email',email)
   // Look for user email in the database
-  let user = await actionToGetUserIsExist({email,source})
+  let user = await actionToGetUserIsExist(email,'shikshak')
+
+  console.log('user',user)
 
   // If user not found, send error message
   if (!user?.id) {
