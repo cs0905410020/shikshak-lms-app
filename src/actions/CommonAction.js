@@ -46,7 +46,7 @@ import {
     USER_CLASS_SUBJECT_DATA_SUCCESS,
     ASSISTANT_SEARCH_TEST_FOR_SPEAK,
     ALL_CLASS_STANDARD_DATA,
-    USER_VOICE_ASSISTANT_SELECTION
+    USER_VOICE_ASSISTANT_SELECTION, ALL_CLASS_STANDARD_GRADES_DATA_REQUEST, ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS
 } from "../constants/CommonConstants";
 import {handleWebSocketEvent} from "./helpers/WebSocketHelper";
 import {storeDataIntoLocalstorage} from "./helpers/LocalStorageHelper";
@@ -61,7 +61,21 @@ export const actionToGetUserProfileData = () => async (dispatch) => {
     try {
         api.post(`users/actionToGetUserProfileDataApiCall`,{}).then(response=>{
             let userData = response.data;
-            dispatch({ type: USER_SIGNIN_SUCCESS, payload: userData.userData});
+            dispatch({ type: USER_SIGNIN_SUCCESS, payload: userData});
+            // switch (Number(userData?.userData?.role)){
+            //     case 1:
+            //         localStorage.setItem('superAdminAuthentication',JSON.stringify(userData.userData));
+            //         break;
+            //     case 2:
+            //         localStorage.setItem('schoolMasterAuthentication',JSON.stringify(userData.userData));
+            //         break;
+            //     case 3:
+            //         localStorage.setItem('teacherMasterAuthentication',JSON.stringify(userData.userData));
+            //         break;
+            //     case 4:
+            //         localStorage.setItem('studentAuthentication',JSON.stringify(userData.userData));
+            //         break;
+            // }
         })
     } catch (error) {
         dispatch({
@@ -85,13 +99,8 @@ export const actionToSignInUserIntoApp = (password) => async (dispatch) => {
                         payload:'Wrong Password!',
                     });
                 } else {
-                    // sendWebsocketRequest(JSON.stringify({
-                    //     clientId:localStorage.getItem('clientId'),
-                    //     data:userData.userData,
-                    //     type: "logOutUserFromOtherDevices"
-                    // }));
                     dispatch({ type: USER_SIGNIN_SUCCESS, payload: userData.userData});
-                    localStorage.setItem('userInfo',JSON.stringify(userData.userData));
+                    console.log('userData',userData);
                     switch (Number(userData?.userData?.role)){
                         case 1:
                             localStorage.setItem('superAdminAuthentication',JSON.stringify(userData.userData));
@@ -229,16 +238,18 @@ export const actionToGetAllStudentClassDataByClassSectionId = (classStandardId) 
         dispatch({type: ALL_SUBJECT_STUDENT_SCHOOL_SUCCESS, payload: [...data?.response]});
     }
 }
-export const actionToGetSubjectAllChapterDataById = (subjectId) => async (dispatch,getState) => {
-    const userInfo = getState().userSignin.userInfo;
 
+export const actionToGetAllClassStandardGradesData = () => async (dispatch) => {
+    const {data} = await api.post(`common/actionToGetAllClassStandardGradesDataApiCall`, {});
+    dispatch({type: ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS, payload: [...data?.response]});
+}
+export const actionToGetSubjectAllChapterDataById = (subjectId) => async (dispatch,getState) => {
     const {prevId} = getState().subjectAllChapterData;
 
     if(prevId != subjectId) {
         dispatch({type: SUBJECT_ALL_CHAPTER_DATA_REQUEST, payload:subjectId });
         const {data} = await api.post(`common/actionToGetSubjectAllChapterDataByIdApiCall`, {
-            subjectId,
-            userId: userInfo?.id
+            subjectId
         });
         dispatch({type: SUBJECT_ALL_CHAPTER_DATA_SUCCESS, payload: [...data?.response]});
     }
@@ -266,15 +277,14 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
 
     if(prevId != chapterId) {
         dispatch({type: CHAPTER_ALL_TOPICS_DATA_REQUEST, payload: chapterId});
-        let condition = `chapter_wise_video_lessons.chapter_id = ${chapterId}`;
         const {data} = await api.post(`common/actionToGetChaptersAllTopicsDataByIdApiCall`, {
-            condition,
+            chapterId,
             userId: userInfo?.id
         });
         dispatch({type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: [...data?.response]});
         let foundIndex = null;
         data?.response?.map((topic, key) => {
-            if (topic?.id == topicId) {
+            if (topic?.id === topicId) {
                 foundIndex = key;
             }
         })
@@ -307,10 +317,10 @@ export const actionToGetChapterAllTopicDataBySearchData = (searchData,limitData)
     if(searchData?.trim()?.length) {
         const userInfo = getState().userSignin.userInfo;
         dispatch({type: CHAPTER_ALL_TOPICS_SEARCH_DATA_REQUEST});
-        let condition = `chapter_wise_video_lessons.name LIKE '%${searchData}%' OR chapter_wise_video_lessons.description LIKE '%${searchData}%'`;
+        //let condition = `chapter_wise_video_lessons.name LIKE '%${searchData}%' OR chapter_wise_video_lessons.description LIKE '%${searchData}%'`;
         let limitQuery = `LIMIT ${limitData} OFFSET 0`;
         const {data} = await api.post(`common/actionToGetChaptersAllTopicsDataByIdApiCall`, {
-            condition,
+            searchData,
             limitQuery,
             userId: userInfo?.id
         });

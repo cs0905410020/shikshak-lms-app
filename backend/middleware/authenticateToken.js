@@ -1,39 +1,26 @@
-import jwt from 'jsonwebtoken';
+import JWT from 'jsonwebtoken';
 import dotenv  from 'dotenv';
 dotenv.config();
 const authToken = async (req, res, next) => {
-  // Option 1
-  // const authHeader = req.headers["authorization"];
-  // const token = authHeader && authHeader.split(" ")[1]; // Bearer Token
 
-  // Option 2
-  const token = req.header("x-auth-token");
+  const authHeader = req.headers["authorization"];
+  if (!authHeader) {
+    return res.status(403).json({ message: "Token required" });
+  }
 
-  // If token not found, send error message
+  const token = authHeader.split(" ")[1]; // Extract the token after "Bearer"
   if (!token) {
-    res.status(401).json({
-      errors: [
-        {
-          msg: "Token not found",
-        },
-      ],
-    });
+    return res.status(403).json({ message: "Malformed token" });
   }
+  JWT.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).json({ message: "Access token expired" });
+    }
 
-  // Authenticate token
-  try {
-    const user = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    req.user = user.email;
+    // Extract the user ID from the token
+    req.user = user; // user object will have id and email fields
     next();
-  } catch (error) {
-    res.status(403).json({
-      errors: [
-        {
-          msg: "Invalid token",
-        },
-      ],
-    });
-  }
+  });
 };
 
 export default authToken;

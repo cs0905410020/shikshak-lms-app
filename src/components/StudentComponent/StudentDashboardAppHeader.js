@@ -6,6 +6,8 @@ import {useHistory} from "react-router-dom";
 function StudentDashboardAppHeaderFunction(){
     const {userInfo} = useSelector((state) => state.userSignin);
     const history = useHistory();
+
+    console.log('userInfo',userInfo);
     const goToThePage = (type)=>{
         history.push(type);
     }

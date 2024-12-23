@@ -60,37 +60,37 @@ function TeacherDashboardAppMainBodyFunction(){
                     </div>
                 </div>
             </div>
-            <div className={"student_app_dashboard_app_main_body_inner_section"}>
-                <div className={"app_inner_tab_main_section_container"}>
-                    <div className={"app_inner_tab_heading_courses"}>Subjects</div>
-                    <div className={"app_inner_tab_main_section_tabs"}>
-                        {(teacherAllClassesData?.loading) ?
-                            <div className={"loader_section"}>
-                                <FacebookLoader type={"appLoader"}/>
-                            </div>
-                            :
-                          teacherClassData?.class_data ?
-                              (teacherClassData?.class_data?.map((subject,key)=>(
-                                <div key={key} style={{background:_getIconBySubjectKey(subject?.name)?.color}}
-                                     onClick={()=>openSubjectChapters(subject)}
-                                     className={"course_tabs_in_app_panel_loop"}>
-                                    <div className={"course_tabs_in_app_panel_loop_inner"}>
-                                        <div className={"icon_section"}>
-                                            {_getIconBySubjectKey(subject?.name)?.icon}
-                                            <br/>
-                                            <div className={"heading"}>{subject?.name}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            )))
-                           :
-                          <div className={"desktop_no_data_found_icon_container"}>
-                              <img alt={noDataFound} src={noDataFound}/>
-                          </div>
-                        }
-                    </div>
-                </div>
-            </div>
+            {/*<div className={"student_app_dashboard_app_main_body_inner_section"}>*/}
+            {/*    <div className={"app_inner_tab_main_section_container"}>*/}
+            {/*        <div className={"app_inner_tab_heading_courses"}>Subjects</div>*/}
+            {/*        <div className={"app_inner_tab_main_section_tabs"}>*/}
+            {/*            {(teacherAllClassesData?.loading) ?*/}
+            {/*                <div className={"loader_section"}>*/}
+            {/*                    <FacebookLoader type={"appLoader"}/>*/}
+            {/*                </div>*/}
+            {/*                :*/}
+            {/*              teacherClassData?.class_data ?*/}
+            {/*                  (teacherClassData?.class_data?.map((subject,key)=>(*/}
+            {/*                    <div key={key} style={{background:_getIconBySubjectKey(subject?.name)?.color}}*/}
+            {/*                         onClick={()=>openSubjectChapters(subject)}*/}
+            {/*                         className={"course_tabs_in_app_panel_loop"}>*/}
+            {/*                        <div className={"course_tabs_in_app_panel_loop_inner"}>*/}
+            {/*                            <div className={"icon_section"}>*/}
+            {/*                                {_getIconBySubjectKey(subject?.name)?.icon}*/}
+            {/*                                <br/>*/}
+            {/*                                <div className={"heading"}>{subject?.name}</div>*/}
+            {/*                            </div>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                )))*/}
+            {/*               :*/}
+            {/*              <div className={"desktop_no_data_found_icon_container"}>*/}
+            {/*                  <img alt={noDataFound} src={noDataFound}/>*/}
+            {/*              </div>*/}
+            {/*            }*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     )
 }

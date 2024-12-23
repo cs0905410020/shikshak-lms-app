@@ -121,6 +121,6 @@ export const AppEnterMainPage = ()=>{
     }, []);
 
     return(
-        (isSuperAdminLogin()) ? <SuperAdminPrivateRoutes/> : (isSchoolMasterLogin()) ? <SchoolMasterPrivateRoutes/> : (isStudentLogin()) ? <StudentPrivateRoutes/> : (isTeacherMasterLogin()) ? <TeacherMasterPrivateRoutes/> : ''
+        <StudentPrivateRoutes/>
     )
 }

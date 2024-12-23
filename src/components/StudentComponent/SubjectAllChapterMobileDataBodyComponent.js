@@ -25,8 +25,8 @@ function SubjectAllChapterMobileDataBodyComponentFunction(){
                     subjectAllChapterData?.chapterData?.map((chapter,key)=>(
                         <div key={key} onClick={()=>openChaptersTopics(chapter)} className={"subject_chapter_mobile_chapters_loop"}>
                             <div className={"col-2 icon_section"}>
-                                <div className={"chapter_icon_section"}
-                                     dangerouslySetInnerHTML={{__html:chapter?.icon}}>
+                                <div className={"chapter_icon_section"}>
+                                    <img src={chapter?.icon ? chapter?.icon : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/steam-park-8.png'} alt={"chapter?.icon"}/>
                                 </div>
                             </div>
                             <div className={"col-10 text_section"}>

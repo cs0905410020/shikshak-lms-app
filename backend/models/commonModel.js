@@ -1,7 +1,10 @@
 import connectPool from './connection.js';
 const pool = await connectPool();
 import {
-    actionToGetAllChapterListDataQuery, actionToGetAllPincodeListDataQuery, actionToGetAllStateListQuery,
+    actionToGetAllChapterListDataQuery,
+    actionToGetAllClassStandardGradesDataQuery,
+    actionToGetAllPincodeListDataQuery,
+    actionToGetAllStateListQuery,
     actionToGetAllStudentClassDataByClassSectionQuery,
     actionToGetAllSubjectDataListQuery,
     actionToGetAllTopicListDataQuery,
@@ -11,11 +14,14 @@ import {
     actionToGetChaptersAllTopicsDataByIdQuery,
     actionToGetChaptersAllTopicsHistoryDataByUserIdQuery,
     actionToGetChartDataJsProgressDataQuery,
-    actionToGetChartDataJsProgressSubjectWiseDataQuery, actionToGetPinCodeDetailsDataQuery,
+    actionToGetChartDataJsProgressSubjectWiseDataQuery,
+    actionToGetPinCodeDetailsDataQuery,
     actionToGetSubjectAllChapterDataByIdQuery,
-    actionToGetSubjectDataBySubjectIdQuery, actionToGetTeacherAllClassesDataQuery,
+    actionToGetSubjectDataBySubjectIdQuery,
+    actionToGetTeacherAllClassesDataQuery,
     actionToGetTestDataByTestIdQuery,
-    actionToGetTestQuestionsAndOptionsDataByIdQuery, actionToGetUserAllClassesSubjectDataQuery,
+    actionToGetTestQuestionsAndOptionsDataByIdQuery,
+    actionToGetUserAllClassesSubjectDataQuery,
     loginUserQuery
 } from "./helpers/commonQueries.js";
 import request from 'request';
@@ -232,8 +238,8 @@ export const actionToGetSubjectDataBySubjectIdApiCall = (body) => {
 export const actionToGetChapterDataByChapterIdApiCall = (body) => {
     const {chapterId} = body;
     return new Promise(function(resolve, reject) {
-        const query = actionToGetChapterDataByChapterIdQuery(chapterId);
-        pool.query(query, (error, results) => {
+        const query = actionToGetChapterDataByChapterIdQuery();
+        pool.query(query,[chapterId], (error, results) => {
             if (error) {
                 reject(error)
             }
@@ -257,9 +263,20 @@ export const actionToCallFunctionToValidatePasswordApiCall = (body) => {
     })
 }
 export const actionToGetSubjectAllChapterDataByIdApiCall = (body) => {
-    const {subjectId,userId} = body;
+    const {subjectId} = body;
     return new Promise(function(resolve, reject) {
-        const query = actionToGetSubjectAllChapterDataByIdQuery(subjectId,userId);
+        const query = actionToGetSubjectAllChapterDataByIdQuery();
+        pool.query(query,[subjectId], (error, results) => {
+            if (error) {
+                reject(error)
+            }
+            resolve(results);
+        })
+    })
+}
+export const actionToGetAllClassStandardGradesDataApiCall = (body) => {
+    return new Promise(function(resolve, reject) {
+        const query = actionToGetAllClassStandardGradesDataQuery();
         pool.query(query, (error, results) => {
             if (error) {
                 reject(error)
@@ -269,10 +286,10 @@ export const actionToGetSubjectAllChapterDataByIdApiCall = (body) => {
     })
 }
 export const actionToGetChaptersAllTopicsDataByIdApiCall = (body) => {
-    const {condition,userId,limitQuery} = body;
+    const {chapterId,userId,limitQuery} = body;
     return new Promise(function(resolve, reject) {
-        const query = actionToGetChaptersAllTopicsDataByIdQuery(condition,userId,limitQuery);
-        pool.query(query, (error, results) => {
+        const query = actionToGetChaptersAllTopicsDataByIdQuery(chapterId,userId,limitQuery);
+        pool.query(query,[chapterId], (error, results) => {
             if (error) {
                 reject(error)
             }

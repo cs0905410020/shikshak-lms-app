@@ -4,7 +4,7 @@ import {
     actionToCallFunctionToValidatePasswordApiCall,
     actionToGetAllChapterListDataApiCall,
     actionToGetAllClassSectionTypeDataApiCall,
-    actionToGetAllClassStandardDataApiCall,
+    actionToGetAllClassStandardDataApiCall, actionToGetAllClassStandardGradesDataApiCall,
     actionToGetAllPincodeDetailsDataApiCall, actionToGetALLStateListApiCall,
     actionToGetAllStudentClassDataByClassSectionIdApiCall,
     actionToGetAllSubjectDataListApiCall,
@@ -33,6 +33,7 @@ import {
 import {actionToSendCustomEmail} from "../helper/emailNodeMailerHelper.js";
 import {actionToGetAllCustomersData} from "../models/Users.js";
 import CryptoJS from "crypto-js";
+import authToken from "../middleware/authenticateToken.js";
 const ENCRYPTION_KEY = "XkhZG4fW2t2W";
 const commonRouter = express.Router();
 
@@ -280,6 +281,19 @@ commonRouter.post(
     '/actionToGetSubjectAllChapterDataByIdApiCall',
     expressAsyncHandler(async (req, res) => {
         actionToGetSubjectAllChapterDataByIdApiCall(req.body).then((data) => {
+            res.status(200).send({
+                response: data,
+            });
+        })
+		.catch(error => {
+			res.status(500).send(error);
+		})
+    })
+);
+commonRouter.post(
+    '/actionToGetAllClassStandardGradesDataApiCall',authToken,
+    expressAsyncHandler(async (req, res) => {
+        actionToGetAllClassStandardGradesDataApiCall(req.body).then((data) => {
             res.status(200).send({
                 response: data,
             });

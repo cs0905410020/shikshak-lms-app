@@ -46,7 +46,7 @@ import {
     USER_CLASS_SUBJECT_DATA_SUCCESS,
     ASSISTANT_SEARCH_TEST_FOR_SPEAK,
     ALL_CLASS_STANDARD_DATA,
-    USER_VOICE_ASSISTANT_SELECTION,
+    USER_VOICE_ASSISTANT_SELECTION, ALL_CLASS_STANDARD_GRADES_DATA_REQUEST, ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS,
 } from "../constants/CommonConstants";
 
 export const userSigninReducer = (state = {}, action) => {
@@ -190,6 +190,17 @@ export const allSubjectStudentClassSectionWiseReducer = (state = {}, action) => 
             return { loading: true,prevId:action.payload,subjectData:[] };
         case ALL_SUBJECT_STUDENT_SCHOOL_SUCCESS:
             return { loading: false,subjectData:action.payload ,prevId:state.prevId};
+        default:
+            return state;
+    }
+};
+
+export const allClassStandardGradesDataReducer = (state = {}, action) => {
+    switch (action.type) {
+        case ALL_CLASS_STANDARD_GRADES_DATA_REQUEST:
+            return { loading: true,gradesData:[] };
+        case ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS:
+            return { loading: false,gradesData:action.payload};
         default:
             return state;
     }

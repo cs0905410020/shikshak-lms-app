@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import {
     allChapterDataListReducer,
     allChapterTestDataReducer,
-    allClassSectionDataReducer, allClassStandardDataReducer,
+    allClassSectionDataReducer, allClassStandardDataReducer, allClassStandardGradesDataReducer,
     allSchoolDataListReducer,
     allSubjectDataListReducer,
     allSubjectStudentClassSectionWiseReducer,
@@ -40,6 +40,7 @@ const initialState = {
             localStorage.getItem('ALL_SUBJECT_STUDENT_SCHOOL') ?
                 JSON.parse((localStorage.getItem('ALL_SUBJECT_STUDENT_SCHOOL') || '[]')) : []},
     subjectAllChapterData:{prevId:'',loading:true,chapterData:[]},
+    allClassStandardGradesData:{loading:true,gradesData:[]},
     selectedSubjectData:{prevId:'',loading:true,selectedSubject:[]},
     selectedChapterData:{prevId:'',loading:true,selectedChapter:[]},
     chapterAllTopicsData:{prevId:'',loading:true,topicsData:[]},
@@ -65,6 +66,7 @@ const initialState = {
     //userVoiceAssistantSelection:localStorage?.getItem('userVoiceAssistantSelection') ? localStorage.getItem('userVoiceAssistantSelection') : 'minion',
 };
 export const rootReducer = combineReducers({
+    allClassStandardGradesData: allClassStandardGradesDataReducer,
     userVoiceAssistantSelection: userVoiceAssistantSelectionReducer,
     allClassStandardData: allClassStandardDataReducer,
     assistantSearchTestForSpeak: assistantSearchTestForSpeakReducer,

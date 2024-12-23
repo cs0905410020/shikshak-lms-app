@@ -73,6 +73,49 @@ export const actionToGetTeacherAllClassesDataQuery = (teacherId,schoolId)=>{
 
             WHERE school_teacher_class.teacher_id = '${teacherId}' GROUP BY school_class_with_section.id`;
 }
+
+// export const actionToGetTeacherAllClassesDataQuery = (teacherId,schoolId)=>{
+//     return `SELECT JSON_OBJECT(
+//                            'standard',class_standard.standard,
+//                            'class_data',class_wise_subject.jsdata,
+//                            'student_data',class_standard_student.jsdata
+//                        ) AS school_teacher_class from school_teacher_class
+//                                                           INNER JOIN school_class_with_section ON school_class_with_section.id = school_teacher_class.school_class_with_section_id
+//                                                           INNER JOIN class_standard ON school_class_with_section.class_standard_id = class_standard.id
+//                                                           LEFT JOIN (SELECT class_wise_subject.class_standard_id,
+//                                                                             json_arrayagg(
+//                                                                                     json_object('name',class_wise_subject.subject_name,'id',class_wise_subject.id)
+//                                                                                 ) jsdata
+//                                                                      FROM class_wise_subject
+//                                                                      GROUP BY class_wise_subject.class_standard_id) class_wise_subject ON class_wise_subject.class_standard_id = school_class_with_section.class_standard_id
+//                                                           LEFT JOIN (SELECT class_standard_student.id,
+//                                                                             json_arrayagg(
+//                                                                                     json_object('name', app_user.name,
+//                                                                                                 'id', app_user.id,
+//                                                                                                 'school_class_with_section_id', app_user.school_class_with_section_id,
+//                                                                                                 'school_syllabus_id', app_user.syllabus_type,
+//                                                                                                 'class_data',class_wise_subject_student.jsdata,
+//                                                                                                 'class_standard_id',class_standard_student.standard)
+//                                                                                 ) jsdata
+//                                                                      FROM class_standard AS class_standard_student
+//                                                                               INNER JOIN school_class_with_section ON school_class_with_section.class_standard_id = class_standard_student.id
+//                                                                               LEFT JOIN (SELECT class_wise_subject_student.class_standard_id,
+//                                                                                                 json_arrayagg(
+//                                                                                                         json_object(
+//                                                                                                                 'name', class_wise_subject_student.subject_name,
+//                                                                                                                 'id',class_wise_subject_student.id
+//                                                                                                             )
+//                                                                                                     ) jsdata
+//                                                                                          FROM class_wise_subject AS class_wise_subject_student
+//                                                                                          GROUP BY class_wise_subject_student.class_standard_id
+//                                                                      ) class_wise_subject_student ON class_wise_subject_student.class_standard_id = school_class_with_section.class_standard_id
+//                                                                               INNER JOIN app_user ON app_user.school_class_with_section_id = school_class_with_section.id
+//                                                                      WHERE app_user.school_id = '${schoolId}'
+//                                                                      GROUP BY class_standard_student.id) class_standard_student ON class_standard_student.id = class_standard.id
+//
+//             WHERE school_teacher_class.teacher_id = '${teacherId}' GROUP BY school_class_with_section.id`;
+// }
+
 export const actionToGetUserAllClassesSubjectDataQuery = (userId)=>{
     return `SELECT JSON_OBJECT(
                            'id',app_user.id,
@@ -95,48 +138,59 @@ export const actionToGetUserAllClassesSubjectDataQuery = (userId)=>{
 }
 export const actionToGetSubjectDataBySubjectIdQuery = (subjectId)=>{
     return `SELECT
-                class_wise_subject.id as id,
-                class_wise_subject.subject_name as name
-            from class_wise_subject
-            WHERE class_wise_subject.id = ${subjectId}`;
+                subjects.id as id,
+                subjects.name as name
+            from subjects
+            WHERE subjects.id = ${subjectId}`;
 }
-export const actionToGetChapterDataByChapterIdQuery = (chapterId)=>{
-    return `SELECT
-                subject_wise_chapter.id as id,
-                subject_wise_chapter.name as name,
-                subject_wise_chapter.description as description,
-                subject_wise_chapter.icon as icon
-            from subject_wise_chapter
-            WHERE subject_wise_chapter.id = ${chapterId}`;
+export const actionToGetChapterDataByChapterIdQuery = ()=>{
+    return `SELECT * FROM curriculum WHERE curriculum.id = ?`;
 }
 
-export const actionToGetSubjectAllChapterDataByIdQuery = (subject_id)=>{
+export const actionToGetSubjectAllChapterDataByIdQuery = ()=>{
     return `SELECT
-                subject_wise_chapter.id as id,
-                subject_wise_chapter.name as name,
-                subject_wise_chapter.description as description,
-                subject_wise_chapter.icon as icon,
-                count(chapter_wise_video_lessons.id) as total_topics
-            FROM subject_wise_chapter
-                LEFT join chapter_wise_video_lessons ON chapter_wise_video_lessons.chapter_id = subject_wise_chapter.id
-            WHERE subject_wise_chapter.subject_id = ${subject_id} GROUP BY subject_wise_chapter.id`;
+                c.id,
+                c.focus,
+                c.name,
+                c.description,
+                c.photo as icon,
+                c.slug,
+                c.show_in_detail_page,
+                (
+                    SELECT COUNT(*)
+                    FROM grade_subject_topic gst
+                    WHERE gst.subject_id = 3
+                ) AS total_topics
+            FROM curriculum c
+                     JOIN curriculum_grade_subject_topic cgst ON cgst.curriculum_id = c.id
+                     JOIN grade_subject_topic gst ON gst.id = cgst.grade_subject_topic_id
+            WHERE gst.subject_id = ?;
+    `;
+}
+export const actionToGetAllClassStandardGradesDataQuery = ()=>{
+    return `SELECT
+                g.id as id,
+                g.name as name,
+                g.photo as photo,
+                (
+                    SELECT JSON_ARRAYAGG(
+                                   JSON_OBJECT(
+                                           'id', s.id,
+                                           'name', s.name,
+                                           'photo', s.photo
+                                   )
+                           )
+                    FROM grade_subject gs
+                             JOIN subjects s ON gs.subject_id = s.id
+                    WHERE gs.grade_id = g.id
+                ) as subjects
+            FROM grades g
+    `;
 }
 export const actionToGetChaptersAllTopicsDataByIdQuery = (condition,user_id,limitQuery)=>{
     if(!limitQuery)
         limitQuery = '';
-    return `SELECT chapter_wise_video_lessons.id as id,
-                   school_students_topic_progress.id as school_students_topic_progress_id,
-                   chapter_wise_video_lessons.chapter_id as chapter_id,
-                   chapter_wise_video_lessons.name as name,
-                   school_students_topic_progress.progress_time_last_watched  AS progress_time_last_watched,
-                   chapter_wise_video_lessons.description as description,chapter_wise_video_lessons.video_url as video_url,
-                   chapter_wise_video_lessons.poster_url as poster_url,
-                   chapter_wise_video_lessons.video_duration_in_seconds as video_duration_in_seconds,
-                   ((100/chapter_wise_video_lessons.video_duration_in_seconds)*school_students_topic_progress.progress_time_last_watched) as lesson_completed_percentage
-
-            FROM chapter_wise_video_lessons
-                     LEFT join school_students_topic_progress ON school_students_topic_progress.topic_id = chapter_wise_video_lessons.id AND school_students_topic_progress.student_id = '${user_id}'
-            WHERE ${condition} GROUP BY chapter_wise_video_lessons.id,school_students_topic_progress.id ${limitQuery}`;
+    return `SELECT * FROM curriculum_content WHERE curriculum_id = ?`;
 }
 export const actionToGetChaptersAllTestDataByIdQuery = (chapterId)=>{
     return `SELECT *

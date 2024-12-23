@@ -18,7 +18,7 @@ export const ChapterAllTopicsMobileComponent = ()=>{
     useEffect(() => {
         dispatch(actionToGetChapterDataByChapterId(id));
         dispatch(actionToGetChapterAllTopicDataById(id));
-        dispatch(actionToGetChaptersAllTestDataById(id));
+        //dispatch(actionToGetChaptersAllTestDataById(id));
     }, [id]);
     return(
         <div className={"student_app_dashboard_app_view_container"}>

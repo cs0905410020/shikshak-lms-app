@@ -40,7 +40,6 @@ function LeftSideBarComponentFunction({isTeacherLeftSideBar}){
                     ]
                 }
             />
-            <div className={"left_side_bar_extra_div"}></div>
             <div className={"left_side_bar_logo_section"}>
                 <div className={"logo_main_div"}>
                     <img src={siteLogo}/>

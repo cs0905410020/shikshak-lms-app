@@ -27,6 +27,41 @@ const generateAccessToken = (user) => {
 const generateRefreshToken = (user) => {
   return JWT.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "30d" });
 };
+// De-authenticate - log out
+// Delete refresh token
+authRouter.delete("/logout", (req, res) => {
+  res.clearCookie("refreshToken"); // Remove the refresh token cookie
+  res.status(200).json({ message: "Logged out successfully" });
+});
+
+
+
+authRouter.post("/token", (req, res) => {
+  const refreshToken = req.cookies.refreshToken; // Get refresh token from cookie
+
+  if (!refreshToken) {
+    return res.status(403).json({ message: "Refresh token required" });
+  }
+
+  JWT.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+    if (err) {
+      // Token expired or invalid
+      if (err.name === "TokenExpiredError") {
+        return res.status(403).json({ message: "Refresh token expired. Please log in again." });
+      }
+
+      return res.status(403).json({ message: "Invalid refresh token" });
+    }
+    delete user['exp'];
+
+    // Generate a new access token
+    const newAccessToken = generateAccessToken(user);
+    res.json({
+      accessToken: newAccessToken,
+    });
+  });
+});
+
 // Sign up
 authRouter.post(
   "/signup",
@@ -243,11 +278,9 @@ authRouter.get("/users", actionToGetAllUserApiCall);
 // Log in
 authRouter.post("/login", async (req, res) => {
   const {email,source,password} = req.body;
-  console.log('email',email)
+
   // Look for user email in the database
   let user = await actionToGetUserIsExist(email,1)
-
-  console.log('user',user)
 
   // If user not found, send error message
   if (!user?.id) {
@@ -335,62 +368,7 @@ authRouter.post("/googleLogin", async (req, res) => {
 let refreshTokens = [];
 
 // Create new access token from refresh token
-authRouter.post("/token", async (req, res) => {
-  const refreshToken = req.header("x-auth-token");
 
-  // If token is not provided, send error message
-  if (!refreshToken) {
-    res.status(401).json({
-      errors: [
-        {
-          msg: "Token not found",
-        },
-      ],
-    });
-  }
-
-  // If token does not exist, send error message
-  if (!refreshTokens.includes(refreshToken)) {
-    res.status(403).json({
-      errors: [
-        {
-          msg: "Invalid refresh token",
-        },
-      ],
-    });
-  }
-
-  try {
-    const user = await JWT.verify(
-      refreshToken,
-      process.env.REFRESH_TOKEN_SECRET
-    );
-    // user = { email: 'jame@gmail.com', iat: 1633586290, exp: 1633586350 }
-   // const { email } = user;
-    const accessToken = await JWT.sign(
-      { user },
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "1m" }
-    );
-    res.json({ accessToken });
-  } catch (error) {
-    res.status(403).json({
-      errors: [
-        {
-          msg: "Invalid token",
-        },
-      ],
-    });
-  }
-});
-
-// De-authenticate - log out
-// Delete refresh token
-authRouter.delete("/logout", (req, res) => {
-  const refreshToken = req.header("x-auth-token");
-  refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
-  res.sendStatus(204);
-});
 // Forgot password
 authRouter.post("/forgot-password", async (req, res) => {
 

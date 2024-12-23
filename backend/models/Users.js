@@ -280,14 +280,26 @@ export const actionToGetUserRoleApiCall = () =>{
  * @param body
  * @returns {{query: string}}
  */
-export const actionToGetUserProfileDetailApiCall = async (body) => {
-    try {
-        const {id} = body;
-        let where = id ? `and u.id=${id}` : '';
-        const query = `select u.id,u.name,u.email,u.role,u.region_id,u.source,u.password,u.gender,u.date_of_birth,u.mobile from users u where u.is_active='1' ${where}`;
-        const [results] = await pool.query(query);
-        return results?.length ? results[0] : {};
-    } catch (error) {
-        return {success: 0, message:error.message};
-    }
+
+
+export const actionToGetUserProfileDetailApiCall = (body) =>{
+    return new Promise(function(resolve, reject) {
+        const { id } = body;
+        const whereClause = id ? `AND u.id = ?` : '';
+        const query = `
+            SELECT
+                u.id, u.name, u.email, u.role, u.region_id, u.source, u.avatar,
+                u.password, u.gender, u.date_of_birth, u.mobile
+            FROM users u
+            WHERE u.is_active = ? ${whereClause}`;
+
+        const queryParams = id ? ['1',id] : ['1'];
+        pool.query(query,queryParams, (error, results) => {
+            if (error) {
+                reject(error)
+            }
+            resolve(results?.length ? results[0] : {});
+        })
+    })
 }
+
