@@ -230,7 +230,7 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
         });
         dispatch({type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: [...data]});
         let foundIndex = null;
-        data?.response?.map((topic, key) => {
+        data?.map((topic, key) => {
             if (topic?.id === topicId) {
                 foundIndex = key;
             }
@@ -255,7 +255,7 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
 export const actionToGetChaptersAllTopicsHistoryDataByUserId = () => async (dispatch,getState) => {
     dispatch({type: USER_HISTORY_CHAPTER_SUBJECT_TOPIC_DATA_REQUEST,payload:'actionToGetChaptersAllTopicsHistoryDataByUserId'});
     const {data} = await api.post(`curriculum/get-chapters-all-topics-history-data`);
-    let finalData = modifyHistoryUserData(data?.response);
+    let finalData = modifyHistoryUserData(data);
     dispatch({type: USER_HISTORY_CHAPTER_SUBJECT_TOPIC_DATA_SUCCESS, payload: [...finalData]});
 }
 export const actionToGetChapterAllTopicDataBySearchData = (searchData,limitData) => async (dispatch,getState) => {
@@ -270,7 +270,7 @@ export const actionToGetChapterAllTopicDataBySearchData = (searchData,limitData)
             limitQuery,
             userId: userInfo?.id
         });
-        dispatch({type: CHAPTER_ALL_TOPICS_SEARCH_DATA_SUCCESS, payload: [...data?.response]});
+        dispatch({type: CHAPTER_ALL_TOPICS_SEARCH_DATA_SUCCESS, payload: [...data]});
     }else{
         dispatch({type: CHAPTER_ALL_TOPICS_SEARCH_DATA_SUCCESS, payload: []});
     }
@@ -285,7 +285,7 @@ export const actionToGetChapterAllTopicDataBySearchDataLoadMore = (searchData,li
         limitQuery,
         userId: userInfo?.id
     });
-    dispatch({type: CHAPTER_ALL_TOPICS_SEARCH_DATA_SUCCESS, payload: [...chapterAllTopicsSearchData,...data?.response]});
+    dispatch({type: CHAPTER_ALL_TOPICS_SEARCH_DATA_SUCCESS, payload: [...chapterAllTopicsSearchData,...data]});
 }
 export const actionToGetAllUserListByCondition = (condition) => async (dispatch) => {
     dispatch({type: ALL_SCHOOL_DATA_LIST_REQUEST});
@@ -314,7 +314,8 @@ export const actionToGetSubjectDataBySubjectId = (subjectId) => async (dispatch,
         dispatch({type: SELECTED_SUBJECT_DATA_REQUEST});
 
     const {data} = await api.post(`curriculum/get-subjects`,{subjectId});
-    dispatch({type: SELECTED_SUBJECT_DATA_SUCCESS, payload:data?.response});
+    console.log(data,'data')
+    dispatch({type: SELECTED_SUBJECT_DATA_SUCCESS, payload:subjectId ? data && data[0] : data});
 }
 export const actionToGetChapterDataByChapterId = (chapterId) => async (dispatch,getState) => {
     const selectedChapter = getState().selectedChapterData.selectedChapter;
@@ -358,7 +359,7 @@ export const actionToGetChartDataJsProgressDataSet = (subjectId,student) => asyn
     }
 
     const {data} = await api.post(url,{subject_id:subjectId});
-    const dataSet = getChartDataByFormat(data?.response);
+    const dataSet = getChartDataByFormat(data);
     setTimeout(function (){
         dispatch({type: CHAT_DATA_JS_PROGRESS_DATA_SET_SUCCESS, payload:cloneDeep(dataSet)});
     })
