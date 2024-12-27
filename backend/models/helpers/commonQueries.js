@@ -190,7 +190,12 @@ export const actionToGetAllClassStandardGradesDataQuery = ()=>{
 export const actionToGetChaptersAllTopicsDataByIdQuery = (condition,user_id,limitQuery)=>{
     if(!limitQuery)
         limitQuery = '';
-    return `SELECT * FROM curriculum_content WHERE curriculum_id = ?`;
+    return `SELECT curriculum_content.*, curriculum_content_progress.id as school_students_topic_progress_id,
+                   curriculum_content_progress.progress_time_last_watched  AS progress_time_last_watched,
+                   ((100/curriculum_content.video_duration_in_seconds)*curriculum_content_progress.progress_time_last_watched) as lesson_completed_percentage
+            FROM curriculum_content
+                     LEFT join curriculum_content_progress ON curriculum_content_progress.curriculum_content_id = curriculum_content.id AND curriculum_content_progress.created_by = 25
+            WHERE curriculum_id = ? GROUP BY curriculum_content.id,curriculum_content_progress.id ${limitQuery}`
 }
 export const actionToGetChaptersAllTestDataByIdQuery = (chapterId)=>{
     return `SELECT *

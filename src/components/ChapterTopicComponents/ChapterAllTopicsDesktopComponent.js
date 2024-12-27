@@ -23,7 +23,7 @@ export const ChapterAllTopicsDesktopComponent = ()=>{
                 :
                 <>
                     <StudentDashSubHeaderComponent pageName={'subject-chapters'} subjectName={selectedChapter?.name}/>
-                    <ChapterAllTopicsDataBodyComponent chapterId={selectedChapter?.id} chapterName={selectedChapter?.name}/>
+                    <ChapterAllTopicsDataBodyComponent chapterId={id} chapterName={selectedChapter?.name}/>
                 </>
             }
         </div>

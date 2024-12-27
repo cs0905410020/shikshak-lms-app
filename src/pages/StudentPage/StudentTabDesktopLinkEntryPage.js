@@ -19,7 +19,7 @@ export default function StudentTabDesktopLinkEntryPage() {
                 <div className={"col-10"}>
                     <Switch>
                         {/* Main dashboard routes */}
-                        <Route exact path={`/dashboard/home`} component={StudentDesktopDashboard} />
+                        <Route path={`/dashboard/home`} component={StudentDesktopDashboard} />
                         <Route exact path={`/dashboard/student-progress-page`} component={StudentDesktopProgressComponent} />
                         <Route exact path={`/dashboard/student-search-topic-page`} component={StudentSearchTopicDesktopComponent} />
                         <Route exact path={`/dashboard/student-profile-page`} component={ProfileDesktopComponent} />

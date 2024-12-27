@@ -66,24 +66,6 @@ function LoginComponentSection(){
         return valid;
     };
 
-    const callToSignInUserIntoApp = ()=>{
-        if(password?.trim()?.length && !onLoadingMode) {
-            setLoadingMode(true);
-            setTimeout(function () {
-                dispatch(actionToSignInUserIntoApp(password))
-            })
-        }
-    }
-
-    const callFunctionToSubmitLogin = (e)=>{
-        if(e.keyCode === 13 && password?.trim()?.length && !onLoadingMode) {
-            setLoadingMode(true);
-            setTimeout(function () {
-                dispatch(actionToSignInUserIntoApp(password))
-            })
-        }
-    }
-
     const handleLogin = async (e) => {
         e.preventDefault();
         if(formValid()){

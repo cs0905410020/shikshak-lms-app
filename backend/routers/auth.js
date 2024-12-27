@@ -280,7 +280,7 @@ authRouter.post("/login", async (req, res) => {
   const {email,source,password} = req.body;
 
   // Look for user email in the database
-  let user = await actionToGetUserIsExist(email,1)
+  let user = await actionToGetUserIsExist(email,source)
 
   // If user not found, send error message
   if (!user?.id) {

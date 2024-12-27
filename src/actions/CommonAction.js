@@ -59,7 +59,7 @@ import {api} from "../hooks/api/ApiConfig";
 export const actionToGetUserProfileData = () => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST });
     try {
-        api.post(`users/actionToGetUserProfileDataApiCall`,{}).then(response=>{
+        api.post(`users/get-user-profile`,{}).then(response=>{
             let userData = response.data;
             dispatch({ type: USER_SIGNIN_SUCCESS, payload: userData});
             // switch (Number(userData?.userData?.role)){
@@ -87,62 +87,12 @@ export const actionToGetUserProfileData = () => async (dispatch) => {
         });
     }
 }
-export const actionToSignInUserIntoApp = (password) => async (dispatch) => {
-    dispatch({ type: USER_SIGNIN_REQUEST });
-    try {
-        api.post(`common/login`,{password:password}).then(response=>{
-            let userData = response.data;
-            if(response.data){
-                if(response.data.success != 1){
-                    dispatch({
-                        type: USER_SIGNIN_FAIL,
-                        payload:'Wrong Password!',
-                    });
-                } else {
-                    dispatch({ type: USER_SIGNIN_SUCCESS, payload: userData.userData});
-                    console.log('userData',userData);
-                    switch (Number(userData?.userData?.role)){
-                        case 1:
-                            localStorage.setItem('superAdminAuthentication',JSON.stringify(userData.userData));
-                            break;
-                        case 2:
-                            localStorage.setItem('schoolMasterAuthentication',JSON.stringify(userData.userData));
-                            break;
-                        case 3:
-                            localStorage.setItem('teacherMasterAuthentication',JSON.stringify(userData.userData));
-                            break;
-                        case 4:
-                            localStorage.setItem('studentAuthentication',JSON.stringify(userData.userData));
-                            break;
-                    }
-                    document.location.href = '/';
-                }
-            }else{
-                dispatch({type: USER_SIGNIN_FAIL,
-                    payload:'Invalid Login!',
-                });
-            }
-        })
-    } catch (error) {
-        dispatch({
-            type: USER_SIGNIN_FAIL,
-            payload:
-                error.response && error.response.data.message
-                    ? error.response.data.message
-                    : error.message,
-        });
-    }
-};
 export const handleWebSocketEventCall = (data) => async (dispatch,getState) => {
     handleWebSocketEvent(dispatch,getState(),data);
 }
 export const signout = () => (dispatch) => {
     document.location.href = '/';
-    localStorage.removeItem('userInfo');
-    localStorage.removeItem('superAdminAuthentication');
-    localStorage.removeItem('schoolMasterAuthentication');
-    localStorage.removeItem('studentAuthentication');
-    localStorage.removeItem('teacherMasterAuthentication');
+    localStorage.removeItem('accessToken');
     setTimeout(function(){
         dispatch({ type: USER_SIGNOUT });
     },1000)
@@ -174,7 +124,21 @@ export const callDeleteDataFunction = (payload) => async () => {
         console.log(error,'error');
     }
 }
+export const actionToGetAllClassStandardGradesData = () => async (dispatch) => {
+    const {data} = await api.post(`curriculum/get-grades-subject`, {});
+    dispatch({type: ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS, payload: [...data]});
+}
+export const actionToGetSubjectAllChapterDataById = (subjectId) => async (dispatch,getState) => {
+    const {prevId} = getState().subjectAllChapterData;
 
+    if(prevId != subjectId) {
+        dispatch({type: SUBJECT_ALL_CHAPTER_DATA_REQUEST, payload:subjectId });
+        const {data} = await api.post(`curriculum/get-grades-subject-curriculum`, {
+            subjectId
+        });
+        dispatch({type: SUBJECT_ALL_CHAPTER_DATA_SUCCESS, payload: [...data]});
+    }
+}
 export const actionToSetWindowSizeCount = (count) => async (dispatch) => {
     dispatch({type: WINDOW_RESIZE_COUNT, payload:count});
 }
@@ -185,7 +149,7 @@ export const actionToChangeUserVoiceAssistantSelection = (name) => async (dispat
 export const actionToSetUserProfileInEditMode = (action) => (dispatch) => {
     dispatch({type: USER_PROFILE_IN_EDIT_MODE, payload:action});
 }
-export const actionToGetAllSyllabusTypeData = () => async (dispatch) => {
+/*export const actionToGetAllSyllabusTypeData = () => async (dispatch) => {
     const {data} = await api.post(`common/actionToGetAllSyllabusTypeDataApiCall`);
     dispatch({type: ALL_SYLLABUS_DATA, payload:[...data?.response]});
 }
@@ -196,7 +160,7 @@ export const actionToGetAllClassSectionTypeData = () => async (dispatch) => {
 export const actionToGetAllClassStandardData = () => async (dispatch) => {
     const {data} = await api.post(`common/actionToGetAllClassStandardDataApiCall`);
     dispatch({type: ALL_CLASS_STANDARD_DATA, payload:[...data?.response]});
-}
+}*/
 export const actionToGetTeacherAllClassesData = (teacherId,schoolId) => async (dispatch,getState) => {
     const {prevId} = getState().teacherAllClassesData;
 
@@ -238,22 +202,6 @@ export const actionToGetAllStudentClassDataByClassSectionId = (classStandardId) 
         dispatch({type: ALL_SUBJECT_STUDENT_SCHOOL_SUCCESS, payload: [...data?.response]});
     }
 }
-
-export const actionToGetAllClassStandardGradesData = () => async (dispatch) => {
-    const {data} = await api.post(`common/actionToGetAllClassStandardGradesDataApiCall`, {});
-    dispatch({type: ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS, payload: [...data?.response]});
-}
-export const actionToGetSubjectAllChapterDataById = (subjectId) => async (dispatch,getState) => {
-    const {prevId} = getState().subjectAllChapterData;
-
-    if(prevId != subjectId) {
-        dispatch({type: SUBJECT_ALL_CHAPTER_DATA_REQUEST, payload:subjectId });
-        const {data} = await api.post(`common/actionToGetSubjectAllChapterDataByIdApiCall`, {
-            subjectId
-        });
-        dispatch({type: SUBJECT_ALL_CHAPTER_DATA_SUCCESS, payload: [...data?.response]});
-    }
-}
 export const actionToSetTopicDataById = (data) => async (dispatch) => {
     dispatch({type: CHAPTER_TOPICS_DATA_BY_TOPIC_ID_SUCCESS, payload:cloneDeep(data)});
 }
@@ -262,7 +210,6 @@ export const actionToSetVideoProgressUpdate = (data) => async (dispatch) => {
 }
 export const actionToGetTestDataByTestId = (testId) => async (dispatch,getState) => {
     const {prevId} = getState().selectedTestDataByTestId;
-
     if(prevId != testId) {
         dispatch({type: TEST_DATA_BY_TEST_ID_REQUEST, payload:testId});
         const {data} = await api.post(`common/actionToGetTestDataByTestIdApiCall`, {testId});
@@ -277,11 +224,11 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
 
     if(prevId != chapterId) {
         dispatch({type: CHAPTER_ALL_TOPICS_DATA_REQUEST, payload: chapterId});
-        const {data} = await api.post(`common/actionToGetChaptersAllTopicsDataByIdApiCall`, {
+        const {data} = await api.post(`curriculum/get-curriculum-content-by-id`, {
             chapterId,
             userId: userInfo?.id
         });
-        dispatch({type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: [...data?.response]});
+        dispatch({type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: [...data]});
         let foundIndex = null;
         data?.response?.map((topic, key) => {
             if (topic?.id === topicId) {
@@ -289,7 +236,7 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
             }
         })
         if (foundIndex !== null) {
-            let topiData = cloneDeep(data?.response[foundIndex]);
+            let topiData = cloneDeep(data[foundIndex]);
             dispatch(actionToSetTopicDataById(cloneDeep(topiData)));
         }
     }else{
@@ -306,10 +253,8 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
     }
 }
 export const actionToGetChaptersAllTopicsHistoryDataByUserId = () => async (dispatch,getState) => {
-    const userInfo = getState().userSignin.userInfo;
-
     dispatch({type: USER_HISTORY_CHAPTER_SUBJECT_TOPIC_DATA_REQUEST,payload:'actionToGetChaptersAllTopicsHistoryDataByUserId'});
-    const {data} = await api.post(`common/actionToGetChaptersAllTopicsHistoryDataByUserIdApiCall`, {userId: userInfo?.id});
+    const {data} = await api.post(`curriculum/get-chapters-all-topics-history-data`);
     let finalData = modifyHistoryUserData(data?.response);
     dispatch({type: USER_HISTORY_CHAPTER_SUBJECT_TOPIC_DATA_SUCCESS, payload: [...finalData]});
 }
@@ -317,10 +262,11 @@ export const actionToGetChapterAllTopicDataBySearchData = (searchData,limitData)
     if(searchData?.trim()?.length) {
         const userInfo = getState().userSignin.userInfo;
         dispatch({type: CHAPTER_ALL_TOPICS_SEARCH_DATA_REQUEST});
-        //let condition = `chapter_wise_video_lessons.name LIKE '%${searchData}%' OR chapter_wise_video_lessons.description LIKE '%${searchData}%'`;
+        let condition = `curriculum_content.name LIKE '%${searchData}%'`;
         let limitQuery = `LIMIT ${limitData} OFFSET 0`;
-        const {data} = await api.post(`common/actionToGetChaptersAllTopicsDataByIdApiCall`, {
+        const {data} = await api.post(`curriculum/get-curriculum-content-by-id`, {
             searchData,
+            condition,
             limitQuery,
             userId: userInfo?.id
         });
@@ -334,7 +280,7 @@ export const actionToGetChapterAllTopicDataBySearchDataLoadMore = (searchData,li
     const chapterAllTopicsSearchData = getState().chapterAllTopicsSearchData.topicsData;
     let condition = `chapter_wise_video_lessons.name LIKE '%${searchData}%' OR chapter_wise_video_lessons.description LIKE '%${searchData}%'`;
     let limitQuery = `LIMIT ${limitData} OFFSET ${limitOffset}`;
-    const {data} = await api.post(`common/actionToGetChaptersAllTopicsDataByIdApiCall`, {
+    const {data} = await api.post(`curriculum/get-curriculum-content-by-id`, {
         condition,
         limitQuery,
         userId: userInfo?.id
@@ -367,7 +313,7 @@ export const actionToGetSubjectDataBySubjectId = (subjectId) => async (dispatch,
     if(!selectedSubject?.id)
         dispatch({type: SELECTED_SUBJECT_DATA_REQUEST});
 
-    const {data} = await api.post(`common/actionToGetSubjectDataBySubjectIdApiCall`,{subjectId});
+    const {data} = await api.post(`curriculum/get-subjects`,{subjectId});
     dispatch({type: SELECTED_SUBJECT_DATA_SUCCESS, payload:data?.response});
 }
 export const actionToGetChapterDataByChapterId = (chapterId) => async (dispatch,getState) => {
@@ -378,8 +324,8 @@ export const actionToGetChapterDataByChapterId = (chapterId) => async (dispatch,
         if (!selectedChapter?.id)
             dispatch({type: SELECTED_CHAPTER_DATA_REQUEST, payload:chapterId});
 
-        const {data} = await api.post(`common/actionToGetChapterDataByChapterIdApiCall`, {chapterId});
-        dispatch({type: SELECTED_CHAPTER_DATA_SUCCESS, payload: data?.response});
+        const {data} = await api.post(`curriculum/get-curriculum-by-id`, {chapterId});
+        dispatch({type: SELECTED_CHAPTER_DATA_SUCCESS, payload: data});
     }
 }
 export const actionToGetChaptersAllTestDataById = (chapterId) => async (dispatch,getState) => {
@@ -406,14 +352,12 @@ export const actionToCallFunctionToValidatePassword = (value) => async () => {
 }
 export const actionToGetChartDataJsProgressDataSet = (subjectId,student) => async (dispatch) => {
     dispatch({type: CHAT_DATA_JS_PROGRESS_DATA_SET_REQUEST});
-    let url = `common/actionToGetChartDataJsProgressDataSetApiCall`;
+    let url = `curriculum/get-chart-data-js-progress`;
     if(subjectId){
-        url = `common/actionToGetChartDataJsProgressSubjectWiseDataSetApiCall`;
+        url = `curriculum/get-chart-data-js-progress-data`;
     }
 
-    console.log('student',student);
-
-    const {data} = await api.post(url,{classStandardId:student?.class_standard_id,userId:student.id,schoolSyllabusId:student?.school_syllabus_id,subject_id:subjectId});
+    const {data} = await api.post(url,{subject_id:subjectId});
     const dataSet = getChartDataByFormat(data?.response);
     setTimeout(function (){
         dispatch({type: CHAT_DATA_JS_PROGRESS_DATA_SET_SUCCESS, payload:cloneDeep(dataSet)});

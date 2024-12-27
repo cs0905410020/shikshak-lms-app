@@ -4,9 +4,9 @@ import FingerprintJS from '@fingerprintjs/fingerprintjs'; // Optional library fo
 axios.defaults.withCredentials = true; // Ensure cookies are sent with requests
 
 const API_URL =
-    process.env.REACT_APP_DEVELOPMENT_MODE === 'development'
-        ? "http://localhost:4024/api/"
-        : "https://shikshaksolutions.com/api-call/";
+    process.env.REACT_APP_DEVELOPMENT_MODE === 'developmenta'
+        ? "https://shikshaksolutions.com/api-call/": process.env.REACT_APP_DEVELOPMENT_MODE === 'development' ?"http://localhost:4024/api/"
+        : "https://stemcity.in/api/";
 
 const api = axios.create({
     baseURL: API_URL,

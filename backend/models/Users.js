@@ -64,8 +64,10 @@ where app_user.source='${website}' and (app_user.email = '${email}' or app_user.
 export const actionToGetUserIsExist = async (email,company) => {
     try {
     return new Promise(function(resolve, reject) {
-        const query = `select * from users where source = ? and (email = ? or mobile = ?)`;
-        pool.query(query,[company,email,email], (error, results) => {
+        let where = company ? `and source = ? ` : '';
+        let value = company ? [company,email,email] : [email,email];
+        const query = `select * from users where (email = ? or mobile = ?) ${where}`;
+        pool.query(query,value, (error, results) => {
             if (error) {
                 reject(query)
             }

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {isSchoolMasterLogin, isStudentLogin, isSuperAdminLogin, isTeacherMasterLogin} from "../middlewear/auth";
+/*import {isSchoolMasterLogin, isStudentLogin, isSuperAdminLogin, isTeacherMasterLogin} from "../middlewear/auth";*/
 import {IonReactRouter} from "@ionic/react-router";
 import {Redirect, Route} from "react-router-dom";
 import SuperAdminDashboard from "./SuperAdminPage/SuperAdminDashboard";
@@ -7,10 +7,10 @@ import SuperAdminDashboard from "./SuperAdminPage/SuperAdminDashboard";
 import {useDispatch, useSelector} from "react-redux";
 import {getWebsocketConnectedMessage} from "../actions/helpers/WebSocketHelper";
 import {w3cwebsocket as W3CWebSocket} from "websocket";
-import {
+/*import {
     actionToGetAllClassSectionTypeData, actionToGetAllClassStandardData,
     actionToGetAllStudentClassDataByClassSectionId, actionToGetAllSyllabusTypeData,
-} from "../actions/CommonAction";
+} from "../actions/CommonAction";*/
 
 import {IonRouterOutlet} from "@ionic/react";
 // import $ from 'jquery';
@@ -58,7 +58,7 @@ export const AppEnterMainPage = ()=>{
 
     const StudentPrivateRoutes = () => {
         return (
-            <IonReactRouter basename="/app">
+            <IonReactRouter >
                 <IonRouterOutlet>
                     {/* Redirect root to "/dashboard" */}
                     <Redirect exact from="/" to="/dashboard" />
@@ -117,10 +117,10 @@ export const AppEnterMainPage = ()=>{
 
     useEffect(() => {
         getWebsocketConnectedMessage(W3CWebSocket,dispatch,userInfo);
-        dispatch(actionToGetAllStudentClassDataByClassSectionId(userInfo?.class_standard_id));
-        dispatch(actionToGetAllSyllabusTypeData());
-        dispatch(actionToGetAllClassSectionTypeData());
-        dispatch(actionToGetAllClassStandardData());
+        //dispatch(actionToGetAllStudentClassDataByClassSectionId(userInfo?.class_standard_id));
+        //dispatch(actionToGetAllSyllabusTypeData());
+       // dispatch(actionToGetAllClassSectionTypeData());
+        //dispatch(actionToGetAllClassStandardData());
     }, []);
 
     return(
