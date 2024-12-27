@@ -123,8 +123,10 @@ export const userProfileInEditModeReducer = (state = {}, action) => {
 export const selectedSubjectDataReducer = (state = {}, action) => {
     switch (action.type) {
         case SELECTED_SUBJECT_DATA_REQUEST:
+            console.log('128',action);
             return { loading: true,selectedSubject:[],prevId:action.payload};
         case SELECTED_SUBJECT_DATA_SUCCESS:
+            console.log('128',action);
             return { loading: false,selectedSubject:action.payload ,prevId:state.prevId};
         default:
             return state;

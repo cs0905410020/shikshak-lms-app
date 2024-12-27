@@ -228,6 +228,7 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
             chapterId,
             userId: userInfo?.id
         });
+        console.log(data,'data');
         dispatch({type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: [...data]});
         let foundIndex = null;
         data?.map((topic, key) => {
@@ -326,7 +327,8 @@ export const actionToGetChapterDataByChapterId = (chapterId) => async (dispatch,
             dispatch({type: SELECTED_CHAPTER_DATA_REQUEST, payload:chapterId});
 
         const {data} = await api.post(`curriculum/get-curriculum-by-id`, {chapterId});
-        dispatch({type: SELECTED_CHAPTER_DATA_SUCCESS, payload: data});
+        console.log(data,'data')
+        dispatch({type: SELECTED_CHAPTER_DATA_SUCCESS, payload: chapterId ? data && data[0] : ''});
     }
 }
 export const actionToGetChaptersAllTestDataById = (chapterId) => async (dispatch,getState) => {
@@ -588,17 +590,17 @@ export const actionToToSetTotalVideoProgressPlayedData = (payload) => async (dis
             const setData = `progress_time_last_watched = ?,updated_at = ?`;
             const whereCondition = `id = '${payload.school_students_topic_progress_id}'`;
             const value = [videoProgressUpdate,new Date().toISOString()];
-            const dataToSend = {column: setData, value, whereCondition, tableName: 'school_students_topic_progress'};
+            const dataToSend = {column: setData, value, whereCondition, tableName: 'curriculum_content_progress'};
             dispatch(commonUpdateFunction(dataToSend));
         }else{
             const school_students_topic_progress_id = _generateUniqueIdForBlock()+'-'+_generateUniqueIdForBlock()+'-'+_generateUniqueIdForBlock();
             const aliasArray = ['?','?','?','?'];
-            const columnArray = ['id','topic_id','progress_time_last_watched','student_id'];
+            const columnArray = ['id','topic_id','progress_time_last_watched','created_by'];
             const valuesArray = [school_students_topic_progress_id,payload.id,videoProgressUpdate,userInfo?.id];
-            const insertData = {alias:aliasArray,column:columnArray,values:valuesArray,tableName:'school_students_topic_progress'};
+            const insertData = {alias:aliasArray,column:columnArray,values:valuesArray,tableName:'curriculum_content_progress'};
             dispatch(callInsertDataFunction(insertData));
             payload.school_students_topic_progress_id = school_students_topic_progress_id;
         }
-        dispatch(actionToGetAllStudentClassDataByClassSectionId(userInfo?.class_standard_id));
+        //dispatch(actionToGetAllStudentClassDataByClassSectionId(userInfo?.class_standard_id));
     }
 }

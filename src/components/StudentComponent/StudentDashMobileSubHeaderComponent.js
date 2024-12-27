@@ -3,6 +3,7 @@ import {_getIconBySubjectKey} from "../../helpers/CommonHelper";
 import {useHistory} from "react-router-dom";
 
 export const StudentDashMobileSubHeaderComponent = ({subjectName})=>{
+    console.log(subjectName,'subjectName');
     const color = _getIconBySubjectKey(subjectName)?.color;
     const history = useHistory();
     const goBack = ()=>{
