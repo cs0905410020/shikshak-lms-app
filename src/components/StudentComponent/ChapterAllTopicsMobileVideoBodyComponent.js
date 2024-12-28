@@ -29,12 +29,9 @@ function ChapterAllTopicsMobileVideoBodyComponentFunction({topicId}){
                                 <ReactVideoPlayerCommonComponent openTopicVideoSection={chapterTopicsDataByTopicId}/>
                             </div>
                             :(chapterTopicsDataByTopicId?.type === 'image' || chapterTopicsDataByTopicId?.type === 'flipbook') ?
-                                <div className={"topic_pdf_wrapper"}>
-                                    <iframe
-                                        src={'https://www.sldttc.org/allpdf/21583473018.pdf'}
-                                        allow="fullscreen"
-                                        title="PDF Viewer"
-                                    />
+                                <div className={"topic_image_wrapper"}>
+                                    <img className={"topic_image_section"} src={chapterTopicsDataByTopicId?.url}
+                                         alt={"topic"}/>
                                 </div>
                                 : (chapterTopicsDataByTopicId?.type === 'file') ?
                                     <div className={"topic_pdf_wrapper"}>
