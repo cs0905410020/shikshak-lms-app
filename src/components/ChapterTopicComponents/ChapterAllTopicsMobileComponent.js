@@ -15,13 +15,13 @@ export const ChapterAllTopicsMobileComponent = ()=>{
     const {loading,selectedChapter} = useSelector((state) => state.selectedChapterData);
     const dispatch = useDispatch();
     const {id} = useParams();
-    console.log(selectedChapter,'selectedChapter');
+
     useEffect(() => {
-        console.log(id,'id')
         dispatch(actionToGetChapterDataByChapterId(id));
         dispatch(actionToGetChapterAllTopicDataById(id));
         //dispatch(actionToGetChaptersAllTestDataById(id));
     }, [id]);
+
     return(
         <div className={"student_app_dashboard_app_view_container"}>
             {(loading) ?

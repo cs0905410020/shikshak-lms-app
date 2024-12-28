@@ -222,17 +222,16 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
     const {prevId} = getState().chapterAllTopicsData;
     const {topicsData} = getState().chapterAllTopicsData;
 
-    if(prevId != chapterId) {
+    if(prevId !== chapterId) {
         dispatch({type: CHAPTER_ALL_TOPICS_DATA_REQUEST, payload: chapterId});
         const {data} = await api.post(`curriculum/get-curriculum-content-by-id`, {
             chapterId,
             userId: userInfo?.id
         });
-        console.log(data,'data');
         dispatch({type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: [...data]});
         let foundIndex = null;
         data?.map((topic, key) => {
-            if (topic?.id === topicId) {
+            if (Number(topic?.id) === Number(topicId)) {
                 foundIndex = key;
             }
         })
@@ -243,7 +242,7 @@ export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (
     }else{
         let foundIndex = null;
         topicsData?.map((topic, key) => {
-            if (topic?.id == topicId) {
+            if (topic?.id === topicId) {
                 foundIndex = key;
             }
         })

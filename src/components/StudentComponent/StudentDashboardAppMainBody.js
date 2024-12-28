@@ -52,8 +52,10 @@ function StudentDashboardAppMainBodyFunction(){
                                 <div key={key}
                                      onClick={() => callFunctionToGetClassData(gradesData)}
                                      className={"all_teacher_class_menu_loop"}>
-                                    Class {gradesData?.name}
-
+                                    <div className={"grade_name"}>{gradesData?.name}</div>
+                                    <div className={"grade_name_img"}>
+                                      <img alt={"img"} src={gradesData?.photo}/>
+                                    </div>
                                     {/*<div className={"course_tabs_in_app_panel_loop_inner"}>*/}
                                     {/*    <div className={"icon_section"}>*/}
                                     {/*        {_getIconBySubjectKey(subject?.name)?.icon}*/}
@@ -97,7 +99,7 @@ function StudentDashboardAppMainBodyFunction(){
                     </div>
 
                     <div className={"student_app_dashboard_app_main_body_inner_section"}>
-                        <div className={"app_inner_tab_main_section_container"}>
+                        <div className={"app_inner_tab_main_section_container_subject"}>
                             <div className={"app_inner_tab_heading_courses"}>Subjects</div>
                             <div className={"app_inner_tab_main_section_tabs"}>
                                 {(allClassStandardGradesData?.loading) ?
@@ -113,8 +115,7 @@ function StudentDashboardAppMainBodyFunction(){
                                                  className={"course_tabs_in_app_panel_loop"}>
                                                 <div className={"course_tabs_in_app_panel_loop_inner"}>
                                                     <div className={"icon_section"}>
-                                                        {_getIconBySubjectKey(subject?.name)?.icon}
-                                                        <br/>
+                                                        <img alt={'subject?.photo'} src={subject?.photo ? subject?.photo : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/subject/hindi.jpg'}/>
                                                         <div className={"heading"}>{subject?.name}</div>
                                                     </div>
                                                 </div>

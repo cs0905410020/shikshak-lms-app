@@ -38,12 +38,12 @@ function SubjectAllChapterDataBodyComponentFunction({subjectName}){
                                         <div className={"subject_name"}>{subjectName}</div>
                                         <div className={"chapter_name"}>{chapter?.name}</div>
                                         <div className={"chapter_description"}>{chapter?.description}</div>
-                                        <div className={"chapter_total_videos"}>{chapter?.total_topics ? chapter?.total_topics : 0} Video Topics</div>
+                                        <div className={"chapter_total_videos"}>{chapter?.total_topics ? chapter?.total_topics : 0} Topics</div>
                                     </div>
                                 </div>
                                 <div className={"col-3"}>
                                     <div className={"topics_inner_section"}>
-                                        <button onClick={()=>openChaptersTopics(chapter)}>View Video Topics</button>
+                                        <button onClick={()=>openChaptersTopics(chapter)}>View Topics</button>
                                     </div>
                                 </div>
                             </div>

@@ -45,7 +45,10 @@ function StudentAllCoursesComponentFunction(){
                                 <div key={key}
                                      onClick={() => callFunctionToGetClassData(gradesData)}
                                      className={"all_teacher_class_menu_loop"}>
-                                    Class {gradesData?.name}
+                                    <div className={"grade_name"}>{gradesData?.name}</div>
+                                    <div className={"grade_name_img"}>
+                                        <img alt={"img"} src={gradesData?.photo}/>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -57,9 +60,9 @@ function StudentAllCoursesComponentFunction(){
                                         <div key={key} className={"student_dash_all_courses_inner_section_loop"}>
                                             <div onClick={() => openSubjectChapters(subject)}
                                                  className={"student_dash_all_courses_inner_section_loop_inner class_detail"}>
-                                                <div
-                                                    className={"icon_section"}>
-                                                    {_getIconBySubjectKey(subject?.name)?.icon}
+                                                <div className={"icon_section"}>
+                                                    <img alt={'subject?.photo'}
+                                                         src={subject?.photo ? subject?.photo : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/subject/hindi.jpg'}/>
                                                 </div>
                                                 <div className={"detail_section"}>
                                                     <div className={"heading"}>{subject?.name}</div>

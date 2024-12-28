@@ -515,14 +515,16 @@
 }
 
 .student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .heading {
-    font-size: 19px;
-    font-weight: 900;
-    color: #707070;
+    font-size: 1rem;
+    color: #222529;
 }
 
 .student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .progress_bar_section {
     display: inline-flex;
     margin-top: 10px;
+}
+.student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .icon_section img {
+    border-radius: 10px;
 }
 
 .student_dash_all_courses_inner_section_loop .student_dash_all_courses_inner_section_loop_inner .detail_section .progress_bar_section .progress_bar span {
@@ -1146,22 +1148,6 @@ div#editPopupId {
     margin-top: 20px;
 }
 
-.all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu {
-    display: inline-flex;
-}
-
-.all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu .all_teacher_class_menu_loop {
-    margin-right: 20px;
-    padding: 5px 18px;
-    text-align: center;
-    background: #d1882a;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
 .all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu .all_teacher_class_menu_loop.active {
     background: #14a8f3;
 }
@@ -1219,13 +1205,32 @@ div#editPopupId {
 }
 .app_inner_tab_main_section_container .app_inner_tab_main_section_tabs .all_teacher_class_menu_loop {
     margin-right: 13px;
-    border-radius: 52px;
-    background: #f44336;
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
+    border-radius: 10px;
+    background: #fcfcfc;
+    color: #000000;
+    font-size: .8rem;
     padding: 10px 19px;
     margin-top: 13px;
+    flex: 0 1 calc(30% - 12px);
+}
+.all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu .all_teacher_class_menu_loop {
+    margin-right: 20px;
+    padding: 5px 18px;
+    text-align: center;
+    background: #d1882a;
+    border-radius: 5px;
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 2rem;
+    flex: 0 1 calc(10% - 12px);
+}
+.all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 .student_app_dashboard_app_main_body_inner_section .app_inner_tab_main_section_container.teacher_classes {
     padding: 0px 17px 0px 17px!important;
@@ -1233,3 +1238,43 @@ div#editPopupId {
 .app_inner_tab_main_section_container .app_inner_tab_main_section_tabs .all_teacher_class_menu_loop.active {
     background: #03a9f4!important;
 }
+.app_inner_tab_main_section_container .app_inner_tab_main_section_tabs {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.course_tabs_in_app_panel_loop .course_tabs_in_app_panel_loop_inner .icon_section img {
+    border-radius: 10px;
+    padding: .3rem;
+}
+.topic_in_chapter_container {
+    padding: 1rem;
+}
+
+.topic_in_chapter_container svg {
+    margin: auto;
+}
+
+.topic_in_chapter_container .cont_center {
+    display: flex;
+}
+
+.topic_in_chapter_container .topic_detail_name {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.topic_in_chapter_container .topic_detail_desc {
+    height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.subject_chapter_mobile_chapters_loop .topic_video_poster_screenshot_section_app svg {
+    padding: .2rem;
+    margin: auto;
+}
+.subject_chapter_mobile_main_container_section.video_section{
+    color:#000000;
+}
+
