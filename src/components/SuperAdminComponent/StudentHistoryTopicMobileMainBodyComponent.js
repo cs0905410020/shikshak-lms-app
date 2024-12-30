@@ -59,7 +59,7 @@ export const StudentHistoryTopicMobileMainBodyComponent = ()=>{
     return(
         <>
             <div className={"student_app_main_body_container_sub_pages_search"}>
-                <div className={"app_main_sub_header_container"} style={{background:'#2196f3'}}>
+                <div className={"app_main_sub_header_container"} style={{background:'#f58489'}}>
                     <div className={"app_sub_header_welcome_text"}>
                         <div className={"app_sub_header_main_text_heading_subject profile-page"}>Your learning history</div>
                     </div>

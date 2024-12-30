@@ -7,10 +7,10 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #00bcd4;
+    background: #f42c37;
 }
 .student_app_dashboard_app_main_body_container{
-    background-image: linear-gradient(180deg, #76d0ff, #fbd5a6);
+    background-image: linear-gradient(180deg, #fff, #f42c37);
     width: 100%;
     height: calc(100vh - 160px);
     overflow: auto;
@@ -68,7 +68,7 @@
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    background: #00bcd4;
+    background: #f58489;
     margin: auto;
 }
 
@@ -284,7 +284,7 @@
 }
 
 .student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop.active {
-    background: #2196f3;
+    background: #f42c37;
     border-radius: 25px;
     margin: unset!important;
 }
@@ -298,7 +298,7 @@
 
 .student_app_footer_tab_container .student_app_footer_tab_container_inner .student_app_footer_tab_loop svg {
     width: 25px;
-    fill: #2196f3;
+    fill: #f42c37;
     margin: auto;
 }
 
@@ -361,7 +361,7 @@
 }
 .speak_to_us_main_section .speak_to_us_inner_section {
     padding: 11px;
-    background: #2196f3;
+    background: #848b9a;
     border-radius: 10px;
     display: inline-flex;
     width: 100%;
@@ -422,7 +422,7 @@
 .speak_to_us_inner_section button.call_now_button_section {
     border-radius: 5px;
     color: #fff;
-    background: #3daed9;
+    background: #f42c37;
     padding: 5px 11px;
     font-size: 14px;
 }
@@ -869,7 +869,7 @@
     margin: auto;
     font-size: 15px;
     font-weight: 600;
-    color: #2196f3;
+    color: #f42c37;
 }
 .profile_edit_user_avatar_button_header .app_header_user_icon_section {
     margin: auto;
@@ -935,7 +935,7 @@
     resize: none;
 }
 .student_app_dashboard_app_view_container_scroll.profile_page {
-    background: #e4f3ff;
+    background-image: linear-gradient(180deg, #fff, #f42c37);
 }
 .profile_edit_user_profile_form_input_group textarea {
     border: unset;
@@ -1030,7 +1030,7 @@
 .profile_edit_user_profile_form_input_group button.btn.btn-primary {width: 100%;}
 
 .student_app_main_body_container_sub_pages {
-    background-image: linear-gradient(180deg, #76d0ff, #fbd5a6);
+    background-image: linear-gradient(180deg, #fff, #f42c37);
     width: 100%;
     height: calc(100vh - 71px);
     overflow-y: auto;
@@ -1038,7 +1038,7 @@
     overflow-x: hidden;
 }
 .student_app_main_body_container_sub_pages_search {
-    background-image: linear-gradient(180deg, #76d0ff, #fbd5a6);
+    background-image: linear-gradient(180deg, #fff, #f42c37);
     width: 100%;
     height: calc(100vh - 0px);
     overflow-y: hidden;
@@ -1084,10 +1084,10 @@
     line-height: 27px;
 }
 .student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section.all_section .icon_section {
-    background: #2196f3;
+    background: #f58489;
 }
 .student_app_main_body_container_sub_pages_inner .all_subject_menu_container .all_subject_loop_section.active {
-    border-bottom: 2px solid #2196f3;
+    border-bottom: 2px solid #f42c37;
 }
 /*.student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report {*/
 /*    padding: 20px;*/
@@ -1111,7 +1111,7 @@
 }
 
 .student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report .selected_sub_overall_heading .chart_menu_button.active {
-    border: 4px solid #2196f3!important;
+    border: 4px solid #f58489!important;
 }
 
 .student_app_main_body_container_sub_pages_inner .main_progress_bar_container_report .selected_sub_heading {

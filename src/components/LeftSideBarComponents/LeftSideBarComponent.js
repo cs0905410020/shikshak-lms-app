@@ -48,7 +48,7 @@ function LeftSideBarComponentFunction({isTeacherLeftSideBar}){
                 <div className={"logo_main_div"}>
                     <img src={siteLogo}/>
                     <br/>
-                    Shikshak Solutions
+                    STEM City
                 </div>
             </div>
             {(!isTeacherLeftSideBar) ?
