@@ -100,7 +100,7 @@ export const signout = () => (dispatch) => {
 
 export const callInsertDataFunction = (payload) => async () => {
     try {
-        const { data } = await api.post('common/insertCommonApiCall',payload);
+        const { data } = await api.post('common/insert-common-api-call',payload);
         return data;
     } catch (error) {
         console.log(error,'error');
@@ -109,7 +109,7 @@ export const callInsertDataFunction = (payload) => async () => {
 
 export const commonUpdateFunction = (payload) => async () => {
     try {
-        const { data } = await api.post('common/updateCommonApiCall',payload);
+        const { data } = await api.post('common/update-common-api-call',payload);
         return data;
     } catch (error) {
         console.log(error,'error');
@@ -118,7 +118,7 @@ export const commonUpdateFunction = (payload) => async () => {
 
 export const callDeleteDataFunction = (payload) => async () => {
     try {
-        const { data } = await api.post('common/deleteCommonApiCall',payload);
+        const { data } = await api.post('common/delete-common-api-call',payload);
         return data;
     } catch (error) {
         console.log(error,'error');
@@ -217,42 +217,32 @@ export const actionToGetTestDataByTestId = (testId) => async (dispatch,getState)
         dispatch({type: TEST_DATA_BY_TEST_ID_SUCCESS, payload: data?.response});
     }
 }
-export const actionToGetChapterAllTopicDataById = (chapterId,topicId) => async (dispatch,getState) => {
-    const userInfo = getState().userSignin.userInfo;
+export const actionToGetChapterAllTopicDataById = (chapterId, topicId) => async (dispatch, getState) => {
+    const state = getState();
+    const { prevId, topicsData } = state.chapterAllTopicsData;
+    const findTopicIndex = (topics, id) => topics?.findIndex(topic => Number(topic?.id) === Number(id));
 
-    const {prevId} = getState().chapterAllTopicsData;
-    const {topicsData} = getState().chapterAllTopicsData;
-
-    if(prevId !== chapterId) {
-        dispatch({type: CHAPTER_ALL_TOPICS_DATA_REQUEST, payload: chapterId});
-        const {data} = await api.post(`curriculum/get-curriculum-content-by-id`, {
-            chapterId,
-            userId: userInfo?.id
-        });
-        dispatch({type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: [...data]});
-        let foundIndex = null;
-        data?.map((topic, key) => {
-            if (Number(topic?.id) === Number(topicId)) {
-                foundIndex = key;
+    if (prevId !== chapterId) {
+        dispatch({ type: CHAPTER_ALL_TOPICS_DATA_REQUEST, payload: chapterId });
+        try {
+            const { data } = await api.post(`curriculum/get-curriculum-content-by-id`, {chapterId});
+            dispatch({ type: CHAPTER_ALL_TOPICS_DATA_SUCCESS, payload: data });
+            const foundIndex = findTopicIndex(data, topicId);
+            if (foundIndex !== -1) {
+                const topicData = cloneDeep(data[foundIndex]);
+                dispatch(actionToSetTopicDataById(topicData));
             }
-        })
-        if (foundIndex !== null) {
-            let topiData = cloneDeep(data[foundIndex]);
-            dispatch(actionToSetTopicDataById(cloneDeep(topiData)));
+        } catch (error) {
+            console.error('Error fetching chapter topics:', error);
         }
-    }else{
-        let foundIndex = null;
-        topicsData?.map((topic, key) => {
-            if (topic?.id === topicId) {
-                foundIndex = key;
-            }
-        })
-        if (foundIndex !== null) {
-            let topiDataFinal = cloneDeep(topicsData[foundIndex]);
-            dispatch(actionToSetTopicDataById(cloneDeep(topiDataFinal)));
+    } else {
+        const foundIndex = findTopicIndex(topicsData, topicId);
+        if (foundIndex !== -1) {
+            const topicData = cloneDeep(topicsData[foundIndex]);
+            dispatch(actionToSetTopicDataById(topicData));
         }
     }
-}
+};
 export const actionToGetChaptersAllTopicsHistoryDataByUserId = () => async (dispatch,getState) => {
     dispatch({type: USER_HISTORY_CHAPTER_SUBJECT_TOPIC_DATA_REQUEST,payload:'actionToGetChaptersAllTopicsHistoryDataByUserId'});
     const {data} = await api.post(`curriculum/get-chapters-all-topics-history-data`);

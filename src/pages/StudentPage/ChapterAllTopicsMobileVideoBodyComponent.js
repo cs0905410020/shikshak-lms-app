@@ -13,7 +13,6 @@ function ChapterAllTopicsMobileVideoBodyComponentFunction({topicId}){
 
     const dispatch = useDispatch();
     const openVideoInVideoPanel = (topic)=>{
-        console.log(topic,'topic');
         dispatch(actionToSetTopicDataById(topic));
     }
     useEffect(()=>{

@@ -13,6 +13,7 @@ export default function ChapterAllTopicsVideoDesktopComponent(){
     const {loading,selectedChapter} = useSelector((state) => state.selectedChapterData);
     const dispatch = useDispatch();
     const {chapter_id,topic_id} = useParams();
+    console.log(selectedChapter,'selectedChapter')
     useEffect(() => {
         dispatch(actionToGetChapterDataByChapterId(chapter_id));
         dispatch(actionToGetChapterAllTopicDataById(chapter_id,topic_id));
