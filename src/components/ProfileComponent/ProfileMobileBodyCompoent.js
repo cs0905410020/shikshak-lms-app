@@ -12,6 +12,7 @@ import minion from "../../theme/image/avatar/minion.png";
 import alien from "../../theme/image/avatar/alien.png";
 import akuaku from "../../theme/image/avatar/akuaku.png";
 import horror from "../../theme/image/avatar/horror.png";
+import useAuth from "../../hooks/useAuth";
 
 function ProfileMobileBodyComponentFunction(){
     const userVoiceAssistantSelection = useSelector((state) => state.userVoiceAssistantSelection);
@@ -24,18 +25,19 @@ function ProfileMobileBodyComponentFunction(){
     const [gender,setGender] = useState(userInfo?.gender);
     const [chooseIconDiv,setChooseIconDiv] = useState(false);
     const [userInEditMode,setUserInEditMode] = useState(false);
-    const [dob,setDob] = useState(userInfo?.dob);
+    const [dob,setDob] = useState(userInfo?.date_of_birth);
     const [savingMode, setSavingMode] = useState(false);
     const dispatch = useDispatch();
     const [showAlert,setShowAlert] = useState(false);
-
+    const { setAuth } = useAuth();
 
     const selectVoiceAssistantAvatar =(name)=>{
         if(name !== userVoiceAssistantSelection)
             dispatch(actionToChangeUserVoiceAssistantSelection(name));
     }
     const logOutMe = ()=>{
-        dispatch(signout())
+        setAuth({});
+        dispatch(signout());
     }
     const openChooseAvatarIcon = ()=>{
         setChooseIconDiv(!chooseIconDiv);

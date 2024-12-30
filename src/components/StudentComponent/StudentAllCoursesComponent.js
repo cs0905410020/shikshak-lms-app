@@ -41,16 +41,22 @@ function StudentAllCoursesComponentFunction(){
                     :
                     <div className={"all_teacher_classes_and_subject_data_main_container"}>
                         <div className={"all_teacher_class_menu"}>
-                            {allClassStandardGradesData?.gradesData?.map((gradesData, key) => (
-                                <div key={key}
-                                     onClick={() => callFunctionToGetClassData(gradesData)}
-                                     className={"all_teacher_class_menu_loop"}>
-                                    <div className={"grade_name"}>{gradesData?.name}</div>
-                                    <div className={"grade_name_img"}>
-                                        <img alt={"img"} src={gradesData?.photo}/>
-                                    </div>
-                                </div>
-                            ))}
+                            {allClassStandardGradesData?.gradesData?.map((gradesData, key) => {
+                                return (
+                                    gradesData?.subjects?.length > 0 && (
+                                        <div
+                                            key={key}
+                                            onClick={() => callFunctionToGetClassData(gradesData)}
+                                            className={"all_teacher_class_menu_loop"}
+                                        >
+                                            <div className={"grade_name"}>{gradesData?.name}</div>
+                                            <div className={"grade_name_img"}>
+                                                <img alt={"img"} src={gradesData?.photo} />
+                                            </div>
+                                        </div>
+                                    )
+                                );
+                            })}
                         </div>
                         <div className={"all_teacher_subject_data_container"}>
                             <div className={"student_dash_heading"}>Subjects</div>

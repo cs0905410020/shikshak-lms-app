@@ -4,13 +4,16 @@ import {signout} from "../../actions/CommonAction";
 import {IonAlert} from "@ionic/react";
 import {useRouteMatch,NavLink} from "react-router-dom";
 import {isTeacherMasterLogin} from "../../middlewear/auth";
+import useAuth from "../../hooks/useAuth";
 
 function StudentAppFooterTabComponentFunction(){
     const dispatch = useDispatch();
     const [showAlert,setShowAlert] = useState(false);
     const { path } = useRouteMatch();
+    const { setAuth } = useAuth();
     const logOutMe = ()=>{
-        dispatch(signout())
+        setAuth({});
+        dispatch(signout());
     }
     return (
         <div className={"student_app_footer_tab_container"}>

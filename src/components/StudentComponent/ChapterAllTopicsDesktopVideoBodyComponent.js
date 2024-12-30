@@ -9,7 +9,7 @@ import React from "react";
 function ChapterAllTopicsDesktopVideoBodyComponentFunction() {
     const chapterAllTopicsData = useSelector((state) => state.chapterAllTopicsData);
     const chapterTopicsDataByTopicId = useSelector((state) => state.chapterTopicsDataByTopicId);
-
+console.log(chapterTopicsDataByTopicId,'chapterTopicsDataByTopicId')
     const dispatch = useDispatch();
 
     const openContentInPanel = (topic) => {

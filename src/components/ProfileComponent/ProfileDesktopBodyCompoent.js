@@ -38,7 +38,7 @@ function ProfileDesktopBodyComponentFunction(){
     const [address,setAddress] = useState(userInfo?.address);
     const [gender,setGender] = useState(userInfo?.gender);
     const [chooseIconDiv,setChooseIconDiv] = useState(false);
-    const [dob,setDob] = useState(userInfo?.dob);
+    const [dob,setDob] = useState(userInfo?.date_of_birth);
     const [savingMode, setSavingMode] = useState(false);
     const dispatch = useDispatch();
     const modalPopupRef = useRef();

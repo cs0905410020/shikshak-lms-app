@@ -4,14 +4,18 @@ import {useDispatch} from "react-redux";
 import {signout} from "../../actions/CommonAction";
 import {IonAlert} from "@ionic/react";
 import {NavLink} from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+
 
 function LeftSideBarComponentFunction({isTeacherLeftSideBar}){
     const dispatch = useDispatch();
     const [showAlert,setShowAlert] = useState(false);
     const path = '/dashboard';
+    const { setAuth } = useAuth();
 
     const logOutMe = ()=>{
-        dispatch(signout())
+        setAuth({});
+        dispatch(signout());
     }
 
     return (

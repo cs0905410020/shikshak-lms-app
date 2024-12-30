@@ -1,140 +1,132 @@
-import React, {useEffect, useState} from "react";
-import {actionToGetUserProfileData, actionToSignInUserIntoApp} from "../../actions/CommonAction";
-import {useDispatch,useSelector} from "react-redux";
+import React, { useEffect, useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { actionToGetUserProfileData } from "../../actions/CommonAction";
 import useAuth from "../../hooks/useAuth";
 import {actionToLogin} from "../../actions/userAction";
-import {USER_SIGNIN_SUCCESS} from "../../constants/CommonConstants";
 
-function LoginComponentSection(){
-    const [password,setPassword] = useState('');
-    const [email,setEmail] = useState('');
-    const [errorPassword,serErrorPassword] = useState(false);
-    const [onLoadingMode,setLoadingMode] = useState(false);
-    const [disableActionButton, setDisableActionButton] = useState(false);
+function LoginComponentSection() {
+    const [credentials, setCredentials] = useState({ email: "", password: "" });
+    const [formErrors, setFormErrors] = useState({ email: "", password: "" });
+    const [loading, setLoading] = useState(false);
     const [signInError, setSignInError] = useState("");
-    const [formErrors,setFormErrors] = useState({
-        email: "",
-        password: ""
-    });
-    const {error} = useSelector((state) => state.userSignin);
+    const { error } = useSelector((state) => state.userSignin);
     const windowResizeCount = useSelector((state) => state.windowResizeCount);
     const { setAuth } = useAuth();
-
     const dispatch = useDispatch();
-    const handleChange = e => {
-        e.preventDefault();
+    const isMounted = React.useRef(true); // Track if the component is still mounted
+
+    useEffect(() => {
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false; // Mark as unmounted
+        };
+    }, []);
+
+    const handleChange = useCallback((e) => {
         const { name, value } = e.target;
-        let formError = { ...formErrors };
+        setCredentials((prev) => ({ ...prev, [name]: value }));
+        setFormErrors((prev) => ({
+            ...prev,
+            [name]: value.trim() ? "" : `Please Fill ${name === "email" ? "Email" : "Password"}`,
+        }));
+    }, []);
 
-        switch (name) {
-            case "email":
-                setEmail(value);
-                formError.email = value.length <1 ? "Please Fill Email or mobile number": "";
-                break;
-            case "password":
-                setPassword(value);
-                formError.password = value.length <1 ? "Please Fill Password" :"";
-                break;
-            default:
-                break;
-        }
-        setFormErrors(formError);
-    };
-    const formValid = () => {
+    const isFormValid = useCallback(() => {
+        const errors = {};
         let valid = true;
-        // validate form errors being empty
-        Object.values(formErrors).forEach(val => {
-            val.length > 0 && (valid = false);
-        });
-        let inputArray = {
-            email: email,
-            password: password
-        }
-        let errorArray = {
-            email: "Please Fill Email",
-            password: "Please Fill Password"
-        }
-        let formError ={...formErrors};
-        // validate the form was filled out
-        Object.keys(inputArray).map((key) => {
-            let val = inputArray[key];
-            if(val.trim().length === 0){
-                formError[key] = errorArray[key];
+
+        Object.entries(credentials).forEach(([key, value]) => {
+            if (!value.trim()) {
+                errors[key] = `Please Fill ${key === "email" ? "Email" : "Password"}`;
+                valid = false;
             }
         });
-        setFormErrors(formError);
+
+        setFormErrors(errors);
         return valid;
-    };
+    }, [credentials]);
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        if(formValid()){
+    const handleLogin = useCallback(
+        async (e) => {
+            e.preventDefault();
+
+            if (!isFormValid()) return;
+
+            setLoading(true);
+            setSignInError("");
+
             try {
-                setDisableActionButton(true);
-                dispatch(actionToLogin({email, password})).then(
-                    res => {
-                        setAuth({...res});
-                        dispatch(actionToGetUserProfileData());
-                        setDisableActionButton(false);
-                    },
-                    (error) => {
-                        setSignInError(error?.response?.data?.errors[0]?.msg)
-                        setDisableActionButton(false);
-                    }
-                )
+                const response = await dispatch(actionToLogin(credentials));
+                console.log(response,'response')
+                if (isMounted.current) {
+                    setAuth({ ...response });
+                    dispatch(actionToGetUserProfileData());
+                }
             } catch (err) {
-                console.log(err);
-                setDisableActionButton(false);
+                if (isMounted.current) {
+                    setSignInError(err?.response?.data?.errors?.[0]?.msg || "Login Failed");
+                }
+            } finally {
+                if (isMounted.current) {
+                    setLoading(false);
+                }
             }
-        }
+        },
+        [dispatch, credentials, isFormValid, setAuth]
+    );
 
-    };
-    useEffect(()=>{
-        if(error){
-            serErrorPassword(true);
-        }else{
-            serErrorPassword(false);
+    useEffect(() => {
+        if (error && isMounted.current) {
+            setFormErrors((prev) => ({ ...prev, password: "Invalid Password!" }));
         }
-        setLoadingMode(false);
-    },[error])
+    }, [error]);
 
     return (
-        <div className={"login_page_main_password_panel"}>
+        <div className="login_page_main_password_panel">
             <form onSubmit={handleLogin} className="login-form sign-in-form">
-            <div className={"login_page_main_password_inner_section_form"}>
-            {(windowResizeCount >= 800) ?
-                <div className={"login_page_heading_bar"}>
-                    <div></div>
-                </div>
-                : ''
-            }
-            <div className={"login_page_input_form_section"}>
-                {(errorPassword) ?
-                    <div className={"login_page_input_form_section_heading_error"}>
-                        Invalid Password!
+                <div className="login_page_main_password_inner_section_form">
+                    {windowResizeCount >= 800 && <div className="login_page_heading_bar" />}
+
+                    <div className="login_page_input_form_section">
+                        {formErrors.password && (
+                            <div className="login_page_input_form_section_heading_error">
+                                {formErrors.password}
+                            </div>
+                        )}
+
+                        <div className="login_page_input_form_section_password_input">
+                            <input
+                                className="form-control"
+                                type="text"
+                                name="email"
+                                placeholder="Email address or Mobile number"
+                                value={credentials.email}
+                                onChange={handleChange}
+                            />
+                            <input
+                                className="form-control"
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                value={credentials.password}
+                                onChange={handleChange}
+                            />
+                            <br />
+                            <button type="submit" disabled={loading}>
+                                {loading ? "Wait" : "Login"}
+                            </button>
+                        </div>
+
+                        {signInError && (
+                            <div className="error-message">
+                                {signInError}
+                            </div>
+                        )}
                     </div>
-                    : ''
-                }
-                <div className={"login_page_input_form_section_password_input"}>
-                    <input className={"form-control"} type="text" name={"email"} placeholder="Email address or Mobile number"
-                           value={email}
-                           onChange={handleChange}/>
-                    <input className={"form-control"} type={"password"} name={"password"} placeholder="Password"  value={password}
-                           onChange={handleChange}/>
-                    <br/>
-                    {/*<div className="d-flex justify-content-start">
-                        <button type="submit" disabled={disableActionButton} className="signin-btn m-0">Sign in</button>
-                    </div>*/}
-                    <button
-                        type={"submit"}
-                        disabled={disableActionButton}>
-                        {onLoadingMode ? 'Wait' : 'Login'}
-                    </button>
                 </div>
-            </div>
-            </div>
             </form>
         </div>
-    )
+    );
 }
+
 export const LoginComponent = React.memo(LoginComponentSection);

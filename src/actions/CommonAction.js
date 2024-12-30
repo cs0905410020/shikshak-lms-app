@@ -203,6 +203,7 @@ export const actionToGetAllStudentClassDataByClassSectionId = (classStandardId) 
     }
 }
 export const actionToSetTopicDataById = (data) => async (dispatch) => {
+    console.log(data,'data');
     dispatch({type: CHAPTER_TOPICS_DATA_BY_TOPIC_ID_SUCCESS, payload:cloneDeep(data)});
 }
 export const actionToSetVideoProgressUpdate = (data) => async (dispatch) => {

@@ -4,13 +4,16 @@ import {useDispatch, useSelector} from "react-redux";
 import siteLog from "../../theme/image/siteLog.png";
 import {signout} from "../../actions/CommonAction";
 import {useHistory} from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 export const SchoolMasterDashboardBodyComponent = ()=>{
     const {userInfo} = useSelector((state) => state.userSignin);
     const [showAlert,setShowAlert] = useState(false);
     const dispatch = useDispatch();
+    const { setAuth } = useAuth();
     const logOutMe = ()=>{
-        dispatch(signout())
+        setAuth({});
+        dispatch(signout());
     }
     const history = useHistory();
 
