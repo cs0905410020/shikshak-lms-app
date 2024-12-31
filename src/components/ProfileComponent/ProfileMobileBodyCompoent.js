@@ -122,7 +122,7 @@ function ProfileMobileBodyComponentFunction(){
                     ]
                 }
             />
-            <div className={"app_main_sub_header_container"} style={{background:'#f58489'}}>
+            <div className={"app_main_sub_header_container"} style={{background:'#f42c37'}}>
                 <div className={"app_sub_header_welcome_text"}>
                     <div className={"app_sub_header_main_text_heading_subject profile-page"}>My Profile</div>
                 </div>

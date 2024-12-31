@@ -33,7 +33,7 @@ export const StudentDashMobileSubSecondHeaderComponent = ({subjectName,pageName}
         }
     }
     return (
-        <div className={"app_main_sub_header_container"} style={{background:color}}>
+        <div className={"app_main_sub_header_container"} style={{background:'#f42c37'}}>
             <div className={"app_sub_header_welcome_text"}>
                 {getBreadcrumData(pageName)}
                 <div className={"app_sub_header_main_text_heading_subject "+pageName}>{subjectName}</div>
