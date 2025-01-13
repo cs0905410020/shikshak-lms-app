@@ -49,7 +49,7 @@ function StudentAllCoursesComponentFunction(){
                                             onClick={() => callFunctionToGetClassData(gradesData)}
                                             className={"all_teacher_class_menu_loop"}
                                         >
-                                            <div className={"grade_name"}>{gradesData?.name}</div>
+                                            {/*<div className={"grade_name"}>{gradesData?.name}</div>*/}
                                             <div className={"grade_name_img"}>
                                                 <img alt={"img"} src={gradesData?.photo} />
                                             </div>

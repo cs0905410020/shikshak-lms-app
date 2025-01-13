@@ -1221,21 +1221,24 @@ div#editPopupId {
     margin-right: 20px;
     padding: 5px 18px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #000;
-    box-shadow: 0px 0px 10px 1px #f42c37;
+    box-shadow: 0px 0px 10px 1px #bfbfbf;
     font-size: .8rem;
     font-weight: 600;
     cursor: pointer;
-    width: 2rem;
+    width: 170px;
     flex: 0 1 calc(10% - 12px);
+    margin-bottom: 10px;
 }
 .all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+    width: 90%;
     gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-left: 40px;
 }
+
 .student_app_dashboard_app_main_body_inner_section .app_inner_tab_main_section_container.teacher_classes {
     padding: 0px 17px 0px 17px!important;
 }
