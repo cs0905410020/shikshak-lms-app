@@ -19,7 +19,6 @@ function ChapterAllTopicsMobileDataBodyComponentFunction(){
     const openVideoInVideoPanel = (topic)=>{
         goToPage(`/dashboard/home/chapter-topics-video/${topic?.curriculum_id}/${topic?.id}`);
     }
-
     return (
         <div className={"subject_chapter_mobile_main_container_section"}>
             <div className={"chapter_heading_section"}>Topics</div>

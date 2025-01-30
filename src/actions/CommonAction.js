@@ -322,12 +322,13 @@ export const actionToGetSubjectDataBySubjectId = (subjectId) => async (dispatch,
     dispatch({type: SELECTED_SUBJECT_DATA_SUCCESS, payload:subjectId ? data && data[0] : data});
 }
 export const actionToGetGradeSubjectDataByTopicId = (id) => async (dispatch,getState) => {
-    const selectedSubject = getState().selectedGradeSubjectData.selectedSubject;
+    const selectedGradeSubjectData = getState().selectedGradeSubjectData.selectedGradeSubjectData;
 
-    if(!selectedSubject?.id)
+    if(!selectedGradeSubjectData?.id)
         dispatch({type: SELECTED_GRADE_SUBJECT_DATA_REQUEST});
 
     const {data} = await api.post(`curriculum/get-subject-grade-topic`,{id});
+    console.log(data,'data',id)
     dispatch({type: SELECTED_GRADE_SUBJECT_DATA_SUCCESS, payload:id ? data && data[0] : data});
 }
 export const actionToGetChapterDataByChapterId = (chapterId) => async (dispatch,getState) => {

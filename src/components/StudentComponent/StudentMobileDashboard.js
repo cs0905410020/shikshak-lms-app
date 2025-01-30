@@ -7,6 +7,8 @@ import {SubjectAllChaptersMobileComponent} from "./SubjectAllChaptersMobileCompo
 import {ChapterAllTopicsMobileComponent} from "../ChapterTopicComponents/ChapterAllTopicsMobileComponent";
 import {ChapterAllTopicsVideoMobileComponent} from "./ChapterAllTopicsVideoMobileComponent";
 import {ChapterTestDetailPageComponent} from "./ChapterTestDetailPageComponent";
+import {SubjectAllSubjectTopicDesktopComponent} from "./SubjectAllSubjectTopicDesktopComponent";
+import {SubjectAllSubjectTopicMobileComponent} from "./SubjectAllSubjectTopicMobileComponent";
 
 
 function StudentMobileDashboardFunction(){
@@ -24,6 +26,9 @@ function StudentMobileDashboardFunction(){
             </Route>
             <Route exact path={`${path}/subject-chapters/:id`}>
                 <SubjectAllChaptersMobileComponent/>
+            </Route>
+            <Route path={`${path}/grade-subject/:id/:grade`}>
+                <SubjectAllSubjectTopicMobileComponent/>
             </Route>
             <Route exact path={`${path}/chapter-topics/:id`}>
                 <ChapterAllTopicsMobileComponent/>
