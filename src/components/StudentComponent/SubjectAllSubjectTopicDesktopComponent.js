@@ -1,24 +1,23 @@
 import React, {useEffect} from 'react';
 import {StudentDashSubHeaderComponent} from "./StudentDashSubHeaderComponent";
-import {SubjectAllChapterDataBodyComponent} from "./SubjectAllChapterDataBodyComponent";
 import {useDispatch, useSelector} from "react-redux";
 import {FacebookLoader} from "../Loader/FacebookLoader";
 import {useParams} from "react-router";
 import {
-    actionToGetGradeSubjectDataByTopicId,
-    actionToGetSubjectAllChapterDataById,
+    actionToGetGradeSubjectChapterDataById,
     actionToGetSubjectDataBySubjectId
 } from "../../actions/CommonAction";
+import {SubjectAllSubjectTopicDataBodyComponent} from "./SubjectAllSubjectTopicDataBodyComponent";
 
-export const SubjectAllChaptersDesktopComponent = ()=>{
-    const {loading,selectedGradeSubjectData} = useSelector((state) => state.selectedGradeSubjectData);
+export const SubjectAllSubjectTopicDesktopComponent = ()=>{
+    const {loading,selectedSubject} = useSelector((state) => state.selectedSubjectData);
     const dispatch = useDispatch();
-    const {id} = useParams();
+    const {id,grade} = useParams();
 
     useEffect(() => {
-        dispatch(actionToGetGradeSubjectDataByTopicId(id));
-        dispatch(actionToGetSubjectAllChapterDataById(id));
-    }, [id]);
+        dispatch(actionToGetSubjectDataBySubjectId(id));
+        dispatch(actionToGetGradeSubjectChapterDataById(id,grade));
+    }, [id,grade]);
     return(
         <div className={"main_body_content_section"}>
             {(loading) ?
@@ -27,8 +26,8 @@ export const SubjectAllChaptersDesktopComponent = ()=>{
                 </div>
                 :
                 <>
-                    <StudentDashSubHeaderComponent pageName={'subject-chapters'} subjectName={selectedGradeSubjectData?.subject_name}/>
-                    <SubjectAllChapterDataBodyComponent subjectName={selectedGradeSubjectData?.subject_name}/>
+                    <StudentDashSubHeaderComponent pageName={'subject-chapters'} subjectName={selectedSubject?.name}/>
+                    <SubjectAllSubjectTopicDataBodyComponent subjectName={selectedSubject?.name}/>
                 </>
             }
         </div>

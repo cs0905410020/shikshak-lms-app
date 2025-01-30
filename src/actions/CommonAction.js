@@ -17,7 +17,6 @@ import {
     WAKEUP_ASSISTANT,
     ALL_SCHOOL_DATA_LIST_REQUEST,
     ALL_SCHOOL_DATA_LIST_SUCCESS,
-    ALL_SYLLABUS_DATA,
     ALL_SUBJECT_DATA_LIST_REQUEST,
     ALL_SUBJECT_DATA_LIST_SUCCESS,
     ALL_CHAPTER_DATA_LIST_REQUEST,
@@ -41,12 +40,15 @@ import {
     TEST_DATA_BY_TEST_ID_SUCCESS,
     TEACHER_ALL_CLASSES_DATA_REQUEST,
     TEACHER_ALL_CLASSES_DATA_SUCCESS,
-    ALL_CLASS_SECTION_DATA,
     USER_CLASS_SUBJECT_DATA_REQUEST,
     USER_CLASS_SUBJECT_DATA_SUCCESS,
     ASSISTANT_SEARCH_TEST_FOR_SPEAK,
-    ALL_CLASS_STANDARD_DATA,
-    USER_VOICE_ASSISTANT_SELECTION, ALL_CLASS_STANDARD_GRADES_DATA_REQUEST, ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS
+    USER_VOICE_ASSISTANT_SELECTION,
+    ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS,
+    GRADE_SUBJECT_CHAPTER_DATA_REQUEST,
+    GRADE_SUBJECT_CHAPTER_DATA_SUCCESS,
+    SELECTED_GRADE_SUBJECT_DATA_REQUEST,
+    SELECTED_GRADE_SUBJECT_DATA_SUCCESS
 } from "../constants/CommonConstants";
 import {handleWebSocketEvent} from "./helpers/WebSocketHelper";
 import {storeDataIntoLocalstorage} from "./helpers/LocalStorageHelper";
@@ -137,6 +139,17 @@ export const actionToGetSubjectAllChapterDataById = (subjectId) => async (dispat
             subjectId
         });
         dispatch({type: SUBJECT_ALL_CHAPTER_DATA_SUCCESS, payload: [...data]});
+    }
+}
+export const actionToGetGradeSubjectChapterDataById = (subjectId,gradeId) => async (dispatch,getState) => {
+    const {prevId} = getState().gradeSubjectChapterData;
+
+    if(prevId != subjectId+'-grade-'+gradeId) {
+        dispatch({type: GRADE_SUBJECT_CHAPTER_DATA_REQUEST, payload:subjectId+'-grade-'+gradeId });
+        const {data} = await api.post(`curriculum/get-grades-subject-topic`, {
+            subjectId,gradeId
+        });
+        dispatch({type: GRADE_SUBJECT_CHAPTER_DATA_SUCCESS, payload: [...data]});
     }
 }
 export const actionToSetWindowSizeCount = (count) => async (dispatch) => {
@@ -307,6 +320,15 @@ export const actionToGetSubjectDataBySubjectId = (subjectId) => async (dispatch,
     const {data} = await api.post(`curriculum/get-subjects`,{subjectId});
     console.log(data,'data')
     dispatch({type: SELECTED_SUBJECT_DATA_SUCCESS, payload:subjectId ? data && data[0] : data});
+}
+export const actionToGetGradeSubjectDataByTopicId = (id) => async (dispatch,getState) => {
+    const selectedSubject = getState().selectedGradeSubjectData.selectedSubject;
+
+    if(!selectedSubject?.id)
+        dispatch({type: SELECTED_GRADE_SUBJECT_DATA_REQUEST});
+
+    const {data} = await api.post(`curriculum/get-subject-grade-topic`,{id});
+    dispatch({type: SELECTED_GRADE_SUBJECT_DATA_SUCCESS, payload:id ? data && data[0] : data});
 }
 export const actionToGetChapterDataByChapterId = (chapterId) => async (dispatch,getState) => {
     const selectedChapter = getState().selectedChapterData.selectedChapter;

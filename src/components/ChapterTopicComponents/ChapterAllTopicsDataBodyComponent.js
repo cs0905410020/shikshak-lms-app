@@ -69,7 +69,7 @@ function ChapterAllTopicsDataBodyComponentFunction({chapterId,chapterName}){
                 </div>
                 <div className={"col-3"}>
                     <div className={"topics_inner_section"}>
-                        <button onClick={() => openVideoInVideoPanel(topic)}>View Topic</button>
+                        <button onClick={() => openVideoInVideoPanel(topic)}>View</button>
                     </div>
                 </div>
             </div>

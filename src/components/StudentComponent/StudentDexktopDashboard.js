@@ -4,6 +4,7 @@ import {Route, Switch, useRouteMatch} from "react-router-dom";
 import ChapterAllTopicsVideoDesktopComponent from "./ChapterAllTopicsVideoDesktopComponent";
 import {SubjectAllChaptersDesktopComponent} from "./SubjectAllChaptersDesktopComponent";
 import {ChapterAllTopicsDesktopComponent} from "../ChapterTopicComponents/ChapterAllTopicsDesktopComponent";
+import {SubjectAllSubjectTopicDesktopComponent} from "./SubjectAllSubjectTopicDesktopComponent";
 
 function StudentDesktopDashboardFunction(){
     const { path } = useRouteMatch();
@@ -17,6 +18,9 @@ function StudentDesktopDashboardFunction(){
             </Route>
             <Route path={`/dashboard/home/subject-chapters/:id`}>
                 <SubjectAllChaptersDesktopComponent/>
+            </Route>
+            <Route path={`/dashboard/home/grade-subject/:id/:grade`}>
+                <SubjectAllSubjectTopicDesktopComponent/>
             </Route>
             <Route path={`/dashboard/home/chapter-topics/:id`}>
                 <ChapterAllTopicsDesktopComponent/>

@@ -4,26 +4,27 @@ import {FacebookLoader} from "../Loader/FacebookLoader";
 import {useHistory} from "react-router-dom";
 import noDataFound from "../../theme/image/no-data-found-desktop.png";
 
-function SubjectAllChapterDataBodyComponentFunction({subjectName}){
-    const subjectAllChapterData = useSelector((state) => state.subjectAllChapterData);
+function SubjectAllSubjectTopicDataBodyComponentFunction({subjectName}){
+    const gradeSubjectChapterData = useSelector((state) => state.gradeSubjectChapterData);
     const history = useHistory();
+    const path = '/dashboard/home';
 
     const openChaptersTopics = (chapter)=>{
-        history.push(`/dashboard/home/chapter-topics/${chapter?.id}`);
+        history.push(`${path}/subject-chapters/${chapter?.id}`);
     }
 
     return (
         <div className={"subject_chapter_main_container_section"}>
             <div className={"subject_chapter_main_container_inner_section"}>
-                {(subjectAllChapterData?.loading) ?
+                {(gradeSubjectChapterData?.loading) ?
                     <div className={"loader_section"}>
                         <div className={"loading_in_chapter_page_desktop"}>
                             <FacebookLoader type={"facebookStyleBigLoader"} item={4}/>
                         </div>
                     </div>
                     :
-                    (subjectAllChapterData?.chapterData?.length) ?
-                    subjectAllChapterData?.chapterData?.map((chapter,key)=>(
+                    (gradeSubjectChapterData?.chapterData?.length) ?
+                        gradeSubjectChapterData?.chapterData?.map((chapter,key)=>(
                         <div key={key} className={"chapter_section_loop_area_main_section"}>
                             <div className={"chapter_section_loop_area_inner_section"}>
                                 <div className={"col-2 chapter_icon_section_col"}>
@@ -37,13 +38,12 @@ function SubjectAllChapterDataBodyComponentFunction({subjectName}){
                                     <div className={"chapter_name_section"}>
                                         <div className={"subject_name"}>{subjectName}</div>
                                         <div className={"chapter_name"}>{chapter?.name}</div>
-                                        <div className={"chapter_description"}>{chapter?.description}</div>
                                         <div className={"chapter_total_videos"}>{chapter?.total_topics ? chapter?.total_topics : 0} Topics</div>
                                     </div>
                                 </div>
                                 <div className={"col-3"}>
                                     <div className={"topics_inner_section"}>
-                                        <button onClick={()=>openChaptersTopics(chapter)}>View Curriculum</button>
+                                        <button onClick={()=>openChaptersTopics(chapter)}>View Topics</button>
                                     </div>
                                 </div>
                             </div>
@@ -58,4 +58,4 @@ function SubjectAllChapterDataBodyComponentFunction({subjectName}){
         </div>
     )
 }
-export const SubjectAllChapterDataBodyComponent = React.memo(SubjectAllChapterDataBodyComponentFunction);
+export const SubjectAllSubjectTopicDataBodyComponent = React.memo(SubjectAllSubjectTopicDataBodyComponentFunction);

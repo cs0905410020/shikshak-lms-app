@@ -53,8 +53,6 @@ function ProfileDesktopBodyComponentFunction(){
             return false;
         }else if(!email?.trim()?.length){
             return false;
-        }else if(!email?.trim()?.length){
-            return false;
         }else if(!avatar?.trim()?.length){
             return false;
         }else if(!mobile?.trim()?.length){

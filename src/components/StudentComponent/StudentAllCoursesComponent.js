@@ -24,7 +24,7 @@ function StudentAllCoursesComponentFunction(){
     }
 
     const openSubjectChapters = (subject)=>{
-        history.push(`${path}/subject-chapters/${subject?.id}`);
+        history.push(`${path}/grade-subject/${subject?.id}/${teacherClassData?.id}`);
     }
 
     return (
@@ -67,7 +67,7 @@ function StudentAllCoursesComponentFunction(){
                                             <div onClick={() => openSubjectChapters(subject)}
                                                  className={"student_dash_all_courses_inner_section_loop_inner class_detail"}>
                                                 <div className={"icon_section"}>
-                                                    <img alt={'subject?.photo'}
+                                                    <img alt={'subject-photo'}
                                                          src={subject?.photo ? subject?.photo : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/subject/hindi.jpg'}/>
                                                 </div>
                                                 <div className={"detail_section"}>

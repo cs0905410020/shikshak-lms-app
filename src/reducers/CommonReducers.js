@@ -46,7 +46,13 @@ import {
     USER_CLASS_SUBJECT_DATA_SUCCESS,
     ASSISTANT_SEARCH_TEST_FOR_SPEAK,
     ALL_CLASS_STANDARD_DATA,
-    USER_VOICE_ASSISTANT_SELECTION, ALL_CLASS_STANDARD_GRADES_DATA_REQUEST, ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS,
+    USER_VOICE_ASSISTANT_SELECTION,
+    ALL_CLASS_STANDARD_GRADES_DATA_REQUEST,
+    ALL_CLASS_STANDARD_GRADES_DATA_SUCCESS,
+    GRADE_SUBJECT_CHAPTER_DATA_SUCCESS,
+    GRADE_SUBJECT_CHAPTER_DATA_REQUEST,
+    SELECTED_GRADE_SUBJECT_DATA_REQUEST,
+    SELECTED_GRADE_SUBJECT_DATA_SUCCESS,
 } from "../constants/CommonConstants";
 
 export const userSigninReducer = (state = {}, action) => {
@@ -123,10 +129,18 @@ export const userProfileInEditModeReducer = (state = {}, action) => {
 export const selectedSubjectDataReducer = (state = {}, action) => {
     switch (action.type) {
         case SELECTED_SUBJECT_DATA_REQUEST:
-            console.log('128',action);
             return { loading: true,selectedSubject:[],prevId:action.payload};
         case SELECTED_SUBJECT_DATA_SUCCESS:
-            console.log('128',action);
+            return { loading: false,selectedSubject:action.payload ,prevId:state.prevId};
+        default:
+            return state;
+    }
+};
+export const selectedGradeSubjectDataReducer = (state = {}, action) => {
+    switch (action.type) {
+        case SELECTED_GRADE_SUBJECT_DATA_REQUEST:
+            return { loading: true,selectedTopic:[],prevId:action.payload};
+        case SELECTED_GRADE_SUBJECT_DATA_SUCCESS:
             return { loading: false,selectedSubject:action.payload ,prevId:state.prevId};
         default:
             return state;
@@ -272,6 +286,16 @@ export const subjectAllChapterDataReducer = (state = {}, action) => {
         case SUBJECT_ALL_CHAPTER_DATA_REQUEST:
             return { loading: true,chapterData:[],prevId:action.payload};
         case SUBJECT_ALL_CHAPTER_DATA_SUCCESS:
+            return { loading: false,chapterData:action.payload,prevId:state.prevId};
+        default:
+            return state;
+    }
+};
+export const gradeSubjectAllChapterDataReducer = (state = {}, action) => {
+    switch (action.type) {
+        case GRADE_SUBJECT_CHAPTER_DATA_REQUEST:
+            return { loading: true,chapterData:[],prevId:action.payload};
+        case GRADE_SUBJECT_CHAPTER_DATA_SUCCESS:
             return { loading: false,chapterData:action.payload,prevId:state.prevId};
         default:
             return state;
