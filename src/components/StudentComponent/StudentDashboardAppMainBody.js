@@ -23,7 +23,7 @@ function StudentDashboardAppMainBodyFunction(){
     }
 
     const openSubjectChapters = (subject)=>{
-        history.push(`${path}/subject-chapters/${subject?.id}`);
+        history.push(`${path}/grade-subject/${subject?.id}/${teacherClassData?.id}`);
     }
     const goToThePage = (type)=>{
         history.push(type);

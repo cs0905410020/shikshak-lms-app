@@ -159,9 +159,10 @@ export const selectedSubjectDataReducer = (state = {}, action) => {
 export const selectedGradeSubjectDataReducer = (state = {}, action) => {
     switch (action.type) {
         case SELECTED_GRADE_SUBJECT_DATA_REQUEST:
-            return { loading: true,selectedTopic:[],prevId:action.payload};
+            return { loading: true,selectedGradeSubjectData:[],prevId:action.payload};
         case SELECTED_GRADE_SUBJECT_DATA_SUCCESS:
-            return { loading: false,selectedSubject:action.payload ,prevId:state.prevId};
+            console.log(action.payload)
+            return { loading: false,selectedGradeSubjectData:{...action.payload} ,prevId:state.prevId};
         default:
             return state;
     }

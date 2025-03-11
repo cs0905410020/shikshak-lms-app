@@ -43,7 +43,7 @@ const initialState = {
     gradeSubjectChapterData:{prevId:'',loading:true,chapterData:[]},
     allClassStandardGradesData:{loading:true,gradesData:[]},
     selectedSubjectData:{prevId:'',loading:true,selectedSubject:[]},
-    selectedGradeSubjectData:{prevId:'',loading:true,selectedSubject:[]},
+    selectedGradeSubjectData:{prevId:'',loading:true,selectedGradeSubjectData:[]},
     selectedChapterData:{prevId:'',loading:true,selectedChapter:[]},
     chapterAllTopicsData:{prevId:'',loading:true,topicsData:[]},
     chapterAllTopicsSearchData:{prevId:'',loading:false,topicsData:[]},

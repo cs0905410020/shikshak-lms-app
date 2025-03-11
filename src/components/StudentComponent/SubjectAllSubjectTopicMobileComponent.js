@@ -6,20 +6,20 @@ import {useDispatch, useSelector} from "react-redux";
 import {FacebookLoader} from "../Loader/FacebookLoader";
 import {useParams} from "react-router";
 import {
-    actionToGetGradeSubjectDataByTopicId,
+    actionToGetGradeSubjectChapterDataById,
     actionToGetSubjectAllChapterDataById,
     actionToGetSubjectDataBySubjectId
 } from "../../actions/CommonAction";
+import {SubjectAllSubjectTopicMobileDataBodyComponent} from "./SubjectAllSubjectTopicMobileDataBodyComponent";
 
-export const SubjectAllChaptersMobileComponent = ()=>{
-    const {loading,selectedGradeSubjectData} = useSelector((state) => state.selectedGradeSubjectData);
+export const SubjectAllSubjectTopicMobileComponent = ()=>{
+    const {loading,selectedSubject} = useSelector((state) => state.selectedSubjectData);
     const dispatch = useDispatch();
-    const {id} = useParams();
-    console.log(selectedGradeSubjectData,'selectedGradeSubjectData');
+    const {id,grade} = useParams();
     useEffect(() => {
-        dispatch(actionToGetGradeSubjectDataByTopicId(id));
-        dispatch(actionToGetSubjectAllChapterDataById(id));
-    }, [id]);
+        dispatch(actionToGetSubjectDataBySubjectId(id));
+        dispatch(actionToGetGradeSubjectChapterDataById(id,grade));
+    }, [id,grade]);
     return(
         <div className={"student_app_dashboard_app_view_container"}>
             {(loading) ?
@@ -28,11 +28,11 @@ export const SubjectAllChaptersMobileComponent = ()=>{
                 </div>
                 :
                 <>
-                    <StudentDashMobileSubHeaderComponent subjectName={selectedGradeSubjectData?.subject_name}/>
+                    <StudentDashMobileSubHeaderComponent subjectName={selectedSubject?.name}/>
                     <div className={"student_app_dashboard_app_view_container_scroll"}>
                         <StudentDashMobileSubSecondHeaderComponent pageName={'subject-chapters'}
-                                                                   subjectName={selectedGradeSubjectData?.subject_name}/>
-                        <SubjectAllChapterMobileDataBodyComponent subjectName={selectedGradeSubjectData?.subject_name}/>
+                                                                   subjectName={selectedSubject?.name}/>
+                        <SubjectAllSubjectTopicMobileDataBodyComponent subjectName={selectedSubject?.name}/>
                     </div>
                 </>
             }
