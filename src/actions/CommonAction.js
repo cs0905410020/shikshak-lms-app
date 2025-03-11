@@ -616,3 +616,12 @@ export const actionToToSetTotalVideoProgressPlayedData = (payload) => async (dis
         //dispatch(actionToGetAllStudentClassDataByClassSectionId(userInfo?.class_standard_id));
     }
 }
+export const actionToForgotPassword = (param) => async (dispatch,getState) =>{
+    let company_id = getState().webSetting.company_id;
+    console.log(company_id, 'company_id')
+    param['source_id'] = company_id;
+    return api.post("/auth/forgot-password", param);
+}
+export const actionToResetPassword = (param) => async (dispatch) =>{
+    return api.post("/auth/reset-password", param);
+}

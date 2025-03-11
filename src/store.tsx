@@ -24,7 +24,7 @@ import {
     userProfileInEditModeReducer,
     userSigninReducer, userVoiceAssistantSelectionReducer,
     videoProgressUpdateReducer,
-    wakeupAssistantReducer,
+    wakeupAssistantReducer, webSettingReducer,
     windowResizeCountReducer
 } from "./reducers/CommonReducers";
 
@@ -99,6 +99,7 @@ export const rootReducer = combineReducers({
     allSubjectStudentClassSectionWise: allSubjectStudentClassSectionWiseReducer,
     userSignin: userSigninReducer,
     windowResizeCount: windowResizeCountReducer,
+    webSetting: webSettingReducer,
 });
 
 declare global {

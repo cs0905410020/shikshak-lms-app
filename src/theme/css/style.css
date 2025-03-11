@@ -122,7 +122,57 @@
     right: 0px;
     width: 300px;
 }
-
+.forgot-password{
+    text-decoration: none;
+    cursor: pointer;
+    color: #EC2025;
+}
+.form-box h1{
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #ED2126;
+    position: relative;
+}
+.form-box h1::after{
+    content: '';
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background: #ED2126;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+}
+.forgot{
+    padding-top: 10px;
+}
+.form-box h2{
+    font-size: 16px;
+    text-align: left;
+}
+.btn-field{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.btn-field button{
+    flex-basis: 60%;
+    background: #ED2126;
+    color: #fff;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid #ED2126;
+    outline: 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+}
+.btn-field button:hover{
+    border: 1px solid #ED2126;
+    background: #fff;
+    color: #ED2126;
+}
 .login_page_main_inner_section .login_trophy_image {
     bottom: 0px;
     position: absolute;
@@ -204,15 +254,15 @@
     border: unset!important;
     border-bottom: 2px solid #000;
 }
-.login_page_main_password_inner_section_form .login_page_input_form_section_password_input button {
-    margin-top: 26px;
-    padding: 12px 88px;
-    border-radius: 27px;
-    background: #f42c37!important;
-    color: #fff!important;
-    font-size: 20px;
-    font-weight: 600;
-}
+/*.login_page_main_password_inner_section_form .login_page_input_form_section_password_input button {*/
+/*    margin-top: 26px;*/
+/*    padding: 12px 88px;*/
+/*    border-radius: 27px;*/
+/*    background: #f42c37!important;*/
+/*    color: #fff!important;*/
+/*    font-size: 20px;*/
+/*    font-weight: 600;*/
+/*}*/
 .main_padding_main_page {
     padding: 9px;
 }

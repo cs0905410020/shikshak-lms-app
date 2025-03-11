@@ -37,6 +37,7 @@ import {useEffectOnce} from "./hooks/useEffectOnce";
 import {setHeaderForAuthorization} from "./hooks/api/ApiConfig";
 import {parseJwt} from "./hooks/jwtUtils";
 import {USER_SIGNIN_SUCCESS} from "./constants/CommonConstants";
+import ForgotPasswordPage from "./pages/LoginPage/ForgotPasswordPage";
 setupIonicReact();
 
 
@@ -44,6 +45,7 @@ const PublicRoutes = () => {
   return (
       <IonReactRouter basename={"/app"}>
         <Route path="/login" exact={true} component={LoginPage} />
+        <Route path="/forgot-password" exact={true} component={ForgotPasswordPage} />
         <Redirect  exact from="/"  to="/login" />
         <Route render={() => <Redirect to="/login" />} />
       </IonReactRouter>

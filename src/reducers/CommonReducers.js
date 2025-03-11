@@ -52,9 +52,29 @@ import {
     GRADE_SUBJECT_CHAPTER_DATA_SUCCESS,
     GRADE_SUBJECT_CHAPTER_DATA_REQUEST,
     SELECTED_GRADE_SUBJECT_DATA_REQUEST,
-    SELECTED_GRADE_SUBJECT_DATA_SUCCESS,
+    SELECTED_GRADE_SUBJECT_DATA_SUCCESS,BRAND_LIST_DATA,
+    CATEGORY_DATA,
+    COMPANY_DATA, CURRICULUM_FILE_LIST_DATA, CURRICULUM_LIST_DATA, BLOG_LIST_DATA,
+    GRADE_LIST_DATA,
+    MENU_LIST_DATA,
+    SEO_META_DATA,
+    WEBSITE_CONTENT, WEBSITE_LOADING
 } from "../constants/CommonConstants";
 
+const initialState = {
+    seoMetaData:[],
+    websiteContentData:[],
+    menuListData:false,
+    companyData:false,
+    categoryListData:false,
+    gradeListData:false,
+    brandListData:false,
+    curriculumListData:false,
+    blogListData:false,
+    curriculumFileListData:[],
+    company_id:process.env.COMPANY_ID ?? 2,
+    websiteLoading:true
+}
 export const userSigninReducer = (state = {}, action) => {
     switch (action.type) {
         case USER_SIGNIN_REQUEST:
@@ -351,3 +371,32 @@ export const allSchoolDataListReducer = (state = {}, action) => {
             return state;
     }
 };
+
+export  const webSettingReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case SEO_META_DATA:
+            return { ...state, seoMetaData: action.payload };
+        case WEBSITE_CONTENT:
+            return { ...state, websiteContentData: action.payload };
+        case MENU_LIST_DATA:
+            return { ...state, menuListData: action.payload };
+        case GRADE_LIST_DATA:
+            return { ...state, gradeListData: action.payload };
+        case BRAND_LIST_DATA:
+            return { ...state, brandListData: action.payload };
+        case COMPANY_DATA:
+            return { ...state, companyData: action.payload };
+        case CATEGORY_DATA:
+            return { ...state, categoryListData: action.payload };
+        case CURRICULUM_FILE_LIST_DATA:
+            return { ...state, curriculumFileListData: action.payload };
+        case CURRICULUM_LIST_DATA:
+            return { ...state, curriculumListData: action.payload };
+        case BLOG_LIST_DATA:
+            return { ...state, blogListData: action.payload };
+        case WEBSITE_LOADING:
+            return { ...state, websiteLoading: action.payload };
+        default:
+            return state
+    }
+}

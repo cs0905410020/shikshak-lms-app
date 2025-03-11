@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom";
 import {Capacitor} from "@capacitor/core";
 import {StatusBar} from "@capacitor/status-bar";
 
-export const StudentDashMobileSubSecondHeaderComponent = ({subjectName,pageName})=>{
+export const StudentDashMobileSubSecondHeaderComponent = ({subjectName,pageName, topicName})=>{
     const color = _getIconBySubjectKey(subjectName)?.color;
     const icon = _getIconBySubjectKey(subjectName)?.icon;
     const history = useHistory();
@@ -36,7 +36,7 @@ export const StudentDashMobileSubSecondHeaderComponent = ({subjectName,pageName}
         <div className={"app_main_sub_header_container"} style={{background:'#f42c37'}}>
             <div className={"app_sub_header_welcome_text"}>
                 {getBreadcrumData(pageName)}
-                <div className={"app_sub_header_main_text_heading_subject "+pageName}>{subjectName}</div>
+                <div className={"app_sub_header_main_text_heading_subject "+pageName +topicName}>{subjectName}</div>
             </div>
             <div className={"icon_section"}>
                 {icon}

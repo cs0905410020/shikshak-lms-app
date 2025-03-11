@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionToGetUserProfileData } from "../../actions/CommonAction";
 import useAuth from "../../hooks/useAuth";
 import {actionToLogin} from "../../actions/userAction";
+import {Link} from "react-router-dom";
 
 function LoginComponentSection() {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -93,7 +94,9 @@ function LoginComponentSection() {
                                 {formErrors.password}
                             </div>
                         )}
-
+                        <div className='form-box'>
+                            <h1>Login</h1>
+                        </div>
                         <div className="login_page_input_form_section_password_input">
                             <input
                                 className="form-control"
@@ -112,9 +115,16 @@ function LoginComponentSection() {
                                 onChange={handleChange}
                             />
                             <br />
-                            <button type="submit" disabled={loading}>
-                                {loading ? "Wait" : "Login"}
-                            </button>
+                            <div className='btn-field'>
+                                <button type="submit" disabled={loading} >
+                                    {loading ? "Wait" : "Login"}
+                                </button>
+                            </div>
+                            <br />
+                            <div className='forgot'>
+                                Forgot Password?<Link className='forgot-password' to='/forgot-password'> Click Here to reset</Link>
+                            </div>
+
                         </div>
 
                         {signInError && (
