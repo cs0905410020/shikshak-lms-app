@@ -619,9 +619,18 @@ export const actionToToSetTotalVideoProgressPlayedData = (payload) => async (dis
 }
 export const actionToForgotPassword = (param) => async (dispatch,getState) =>{
     let company_id = getState().webSetting.company_id;
-    console.log(company_id, 'company_id')
-    param['source_id'] = company_id;
+    param['source'] = company_id;
     return api.post("/auth/forgot-password", param);
+}
+export const actionToGetUserDataByForgotPasswordToken = (param) => async (dispatch,getState) =>{
+    let company_id = getState().webSetting.company_id;
+    param['source_id'] = company_id;
+    return api.post("/auth/get-user-data-by-forgot-password-token", param);
+}
+export const actionUpdateNewPassword = (param) => async (dispatch,getState) =>{
+    let company_id = getState().webSetting.company_id;
+    param['source_id'] = company_id;
+    return api.post("/auth/update-new-password", param);
 }
 export const actionToResetPassword = (param) => async (dispatch) =>{
     return api.post("/auth/reset-password", param);
