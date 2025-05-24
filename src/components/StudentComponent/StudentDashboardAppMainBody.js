@@ -51,7 +51,7 @@ function StudentDashboardAppMainBodyFunction(){
                             : allClassStandardGradesData?.gradesData?.map((gradesData, key) => (
                                 <div key={key}
                                      onClick={() => callFunctionToGetClassData(gradesData)}
-                                     className={"all_teacher_class_menu_loop"}>
+                                     className={`all_teacher_class_menu_loop${teacherClassData?.id === gradesData?.id ? ' active' : ''}`}>
                                     {/*<div className={"grade_name"}>{gradesData?.name}</div>*/}
                                     <div className={"grade_name_img"}>
                                       <img alt={"img"} src={gradesData?.photo}/>

@@ -1201,6 +1201,20 @@ div#editPopupId {
 .all_teacher_classes_and_subject_data_main_container {
     margin-top: 20px;
 }
+.all_teacher_class_menu_loop {
+    border: 4px solid transparent;
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: border 0.3s ease;
+}
+
+.all_teacher_class_menu_loop.active-grade {
+    background: #f5babf;
+    transform: scale(1.1);
+}
+
 
 .all_teacher_classes_and_subject_data_main_container .all_teacher_class_menu .all_teacher_class_menu_loop.active {
     background: #f42c37;
