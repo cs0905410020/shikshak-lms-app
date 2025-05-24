@@ -1,19 +1,14 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {actionToForgotPassword, actionToGetUserProfileData} from "../../actions/CommonAction";
-import useAuth from "../../hooks/useAuth";
-import {actionToLogin} from "../../actions/userAction";
+import {actionToForgotPassword} from "../../actions/CommonAction";
 
 function ForgotPasswordComponentSection() {
-    const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [credentials, setCredentials] = useState({ email: "", password: "" });
-    const [formErrors, setFormErrors] = useState({ email: "", password: "" });
+    const [credentials, setCredentials] = useState({ email: ""});
+    const [formErrors, setFormErrors] = useState({ email: ""});
     const [loading, setLoading] = useState(false);
     const [signInError, setSignInError] = useState("");
-    const { error } = useSelector((state) => state.userSignin);
     const windowResizeCount = useSelector((state) => state.windowResizeCount);
-    const { setAuth } = useAuth();
     const dispatch = useDispatch();
     const isMounted = React.useRef(true); // Track if the component is still mounted
 
@@ -35,14 +30,28 @@ function ForgotPasswordComponentSection() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+    
+        // Validate email
+        if (!credentials.email.trim()) {
+            setFormErrors({ email: "Please enter your email address." });
+            setMessage('');
+            return;
+        }
+    
         try {
-            dispatch(actionToForgotPassword({email:email})).then(response => {
-                setMessage(response.data.message);
-            });
+            setLoading(true);
+            setFormErrors({}); // Clear any previous errors
+            const response = await dispatch(actionToForgotPassword({ email: credentials.email }));
+            setMessage(response.data.message || "Check your email for further instructions.");
+            setCredentials({ email: ""})
         } catch (error) {
-            setMessage('Error: ' + error.response.data.message);
+            const errorMsg = error?.response?.data?.message || "Something went wrong. Please try again.";
+            setMessage(`Error: ${errorMsg}`);
+        } finally {
+            setLoading(false);
         }
     };
+    
 
     return (
         <div className="login_page_main_password_panel">
@@ -50,9 +59,10 @@ function ForgotPasswordComponentSection() {
                 <div className="login_page_main_password_inner_section_form">
                     {windowResizeCount >= 800 && <div className="login_page_heading_bar" />}
                     <div className="login_page_input_form_section">
+                    
                         <div className='form-box'>
                             <h1>Reset Your Password</h1>
-                            <h2>Please Provide the Email address that you used when you signed up for your account.</h2>
+                            <h2>Please enter the email address you used to sign up for your account.</h2>
                         </div>
                         <div className="login_page_input_form_section_password_input">
                             <input
@@ -63,9 +73,9 @@ function ForgotPasswordComponentSection() {
                                 value={credentials.email}
                                 onChange={handleChange}
                             />
-
+                         {formErrors.email && <div className="error-message">{formErrors.email}</div>}
                             <div className='form-box'>
-                                {message ?<h2>{message}</h2>:<h2>We will Send you an Email that will Allow you to Reset your Password.</h2>}
+                                {message ?<h2>{message}</h2>:<h2>We'll send you an email with a link to reset your password.</h2>}
                             </div>
                             <br />
                             <div className='btn-field'>
