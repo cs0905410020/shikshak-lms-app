@@ -36,7 +36,7 @@ function ChapterAllTopicsMobileVideoBodyComponentFunction({topicId}){
                                 : (chapterTopicsDataByTopicId?.type === 'file') ?
                                     <div className={"topic_pdf_wrapper"}>
                                         <iframe
-                                            src={'https://www.sldttc.org/allpdf/21583473018.pdf'}
+                                            src={chapterTopicsDataByTopicId?.url}
                                             allow="fullscreen"
                                             title="PDF Viewer"
                                         />

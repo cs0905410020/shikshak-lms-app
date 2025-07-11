@@ -1315,8 +1315,9 @@ div#editPopupId {
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 25px;
+    margin-top: 25px;
 }
-.course_tabs_in_app_panel_loop .course_tabs_in_app_panel_loop_inner .icon_section img {
+.course_tabs_in_app_panel_loop . course_tabs_in_app_panel_loop_inner .icon_section img {
     border-radius: 10px;
     /*padding: .3rem;*/
 }
@@ -1353,12 +1354,12 @@ div#editPopupId {
 .password-input-wrapper {
     position: relative;
   }
-  
+
   .password-input-wrapper input {
     width: 100%;
     padding-right: 40px;
   }
-  
+
   .eye-icon {
     position: absolute;
     right: 10px;
@@ -1367,4 +1368,70 @@ div#editPopupId {
     cursor: pointer;
     color: #888;
   }
-  
+/* Medium and below: max-width 1024px */
+@media (max-width: 1024px) {
+    .icon_section img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+
+/* Heading */
+.icon_section .heading {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    word-break: break-word;
+    text-align: center;
+    width: 100%;
+}
+
+/* Loader */
+.loader_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+/* No Data */
+.desktop_no_data_found_icon_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.desktop_no_data_found_icon_container img {
+    max-width: 180px;
+    width: 100%;
+}
+
+/* Tablet: 2 per row */
+@media (max-width: 768px) {
+    .course_tabs_in_app_panel_loop {
+        flex: 1 1 calc(50% - 12px);
+        max-width: calc(50% - 12px);
+    }
+
+    .icon_section img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Mobile: 1 per row */
+@media (max-width: 480px) {
+    .course_tabs_in_app_panel_loop {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .icon_section img {
+        width: 60px;
+        height: 60px;
+    }
+}
+

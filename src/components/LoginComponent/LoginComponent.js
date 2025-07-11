@@ -4,8 +4,8 @@ import { actionToGetUserProfileData } from "../../actions/CommonAction";
 import { actionToLogin } from "../../actions/userAction";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react"; // Eye icons from lucide-react (you can also use font-awesome or any icon lib)
 import { useLocation,useHistory } from "react-router-dom";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function LoginComponentSection() {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -132,13 +132,13 @@ function LoginComponentSection() {
                                         cursor: "pointer"
                                     }}
                                 >
-                                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                                <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
                                 </span>
                             </div>
                             {formErrors.password && <div className="error-message">{formErrors.password}</div>}
 
                             {signInError && <div className="error-message">{signInError}</div>}
-                            
+
 
                             <br />
                             <div className="btn-field">

@@ -6,7 +6,7 @@ import {
 } from "../../actions/CommonAction";
 import { useParams, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { Eye, EyeOff } from "lucide-react"; // using lucide icons, you can change as needed
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function ResetPasswordComponentSection() {
   const [credentials, setCredentials] = useState({ new_password: "", confirm_password: "" });
@@ -116,7 +116,7 @@ function ResetPasswordComponentSection() {
                     onChange={handleChange}
                   />
                   <span onClick={() => handleToggleVisibility("new")} className="eye-icon">
-                    {showPassword.new ? <EyeOff /> : <Eye />}
+                     <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
                   </span>
                 </div>
                 {formErrors.new_password && (
@@ -136,7 +136,7 @@ function ResetPasswordComponentSection() {
                     onChange={handleChange}
                   />
                   <span onClick={() => handleToggleVisibility("confirm")} className="eye-icon">
-                    {showPassword.confirm ? <EyeOff /> : <Eye />}
+                     <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
                   </span>
                 </div>
                 {formErrors.confirm_password && (
