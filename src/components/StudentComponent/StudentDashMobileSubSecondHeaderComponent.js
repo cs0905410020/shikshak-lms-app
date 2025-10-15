@@ -3,6 +3,7 @@ import {_getIconBySubjectKey} from "../../helpers/CommonHelper";
 import {useHistory} from "react-router-dom";
 import {Capacitor} from "@capacitor/core";
 import {StatusBar} from "@capacitor/status-bar";
+import bgImage from "../../theme/image/side-panel.webp";
 
 export const StudentDashMobileSubSecondHeaderComponent = ({subjectName,pageName, topicName})=>{
     const color = _getIconBySubjectKey(subjectName)?.color;
@@ -33,7 +34,7 @@ export const StudentDashMobileSubSecondHeaderComponent = ({subjectName,pageName,
         }
     }
     return (
-        <div className={"app_main_sub_header_container"} style={{background:'#f42c37'}}>
+        <div className={"app_main_sub_header_container"} style={{ background: `url(${bgImage}) no-repeat center center / cover`, }}>
             <div className={"app_sub_header_welcome_text"}>
                 {getBreadcrumData(pageName)}
                 <div className={"app_sub_header_main_text_heading_subject "+pageName +topicName}>{subjectName}</div>

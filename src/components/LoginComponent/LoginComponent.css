@@ -1,0 +1,223 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.login-wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Large screen (desktop/laptop) */
+.bg-image-large {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    display: block;
+}
+
+/* Medium screen (tablet) */
+.bg-image-medium {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    display: none;
+}
+
+/* Small screen (mobile) */
+.bg-image-small {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    display: none;
+}
+
+/* Media Queries */
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .bg-image-large { display: none; }
+    .bg-image-medium { display: block; }
+}
+
+/* Mobile: <=767px */
+@media (max-width: 767px) {
+    .bg-image-large, .bg-image-medium { display: none; }
+    .bg-image-small { display: block; }
+}
+
+/* Login Card always on top */
+.login-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 40px 35px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Titles */
+.login-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ED2126;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* Form Inputs */
+.form-group {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccd7e0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #ED2126;
+    box-shadow: 0 0 4px rgba(14, 165, 233, 0.3);
+}
+
+/* Error Styles */
+.error-input {
+    border-color: #e74c3c !important;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Password Toggle */
+.password-group {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 39px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #ED2126;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    background: #ED2126;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+    background: #ED2126;
+    transform: scale(1.02);
+}
+
+.login-btn:disabled {
+    background: #e3777a;
+    cursor: not-allowed;
+}
+
+/* Links */
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.forgot-link,
+.register-link {
+    color: #ED2126;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover,
+.register-link:hover {
+    text-decoration: underline;
+    color: #ED2126;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 25px;
+    }
+
+    .login-title {
+        font-size: 24px;
+    }
+}
+@media (min-width: 1025px) {
+    .login-card {
+        margin-top: 140px;
+    }
+}
+/* Mobile adjustments (≤480px) */
+@media (max-width: 480px) {
+    .login-title {
+        font-size: 24px;
+    }
+}

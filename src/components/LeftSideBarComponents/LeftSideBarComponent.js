@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import siteLogo from "../../theme/image/siteLog.png";
+import siteLogo from "../../theme/image/stemcity curriculum-01.png";
 import {useDispatch} from "react-redux";
 import {signout} from "../../actions/CommonAction";
 import {IonAlert} from "@ionic/react";
 import {NavLink} from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import bgImage from "../../theme/image/side-panel.webp";
 
 
 function LeftSideBarComponentFunction({isTeacherLeftSideBar}){
@@ -19,7 +20,7 @@ function LeftSideBarComponentFunction({isTeacherLeftSideBar}){
     }
 
     return (
-        <div className={"left_side_bar_main_section_container"}>
+        <div className={"left_side_bar_main_section_container"} style={{ background: `url(${bgImage}) no-repeat center center / cover`, }}>
             <IonAlert
                 isOpen={showAlert}
                 onDidDismiss={() => setShowAlert(false)}
@@ -48,7 +49,6 @@ function LeftSideBarComponentFunction({isTeacherLeftSideBar}){
                 <div className={"logo_main_div"}>
                     <img src={siteLogo}/>
                     <br/>
-                    STEM City
                 </div>
             </div>
             {(!isTeacherLeftSideBar) ?

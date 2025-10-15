@@ -5,6 +5,7 @@ import {FacebookLoader} from "../Loader/FacebookLoader";
 import {useHistory} from "react-router-dom";
 
 import noDataFound from "../../theme/image/no-data-found-mobile.png";
+import bgImage from "../../theme/image/side-panel.webp";
 
 function StudentDashboardAppMainBodyFunction(){
     const allClassStandardGradesData = useSelector((state) => state.allClassStandardGradesData);
@@ -29,7 +30,7 @@ function StudentDashboardAppMainBodyFunction(){
         history.push(type);
     }
     return (
-        <div className={"student_app_dashboard_app_main_body_container"}>
+        <div className={"student_app_dashboard_app_main_body_container"} style={{ background: `url(${bgImage}) no-repeat center center / cover`, }} >
             <div className={"header_sudo_search_section_main_container"}>
                 <div onClick={() => goToThePage(`/dashboard/student-search-topic-page`)}
                      className={"header_sudo_search_section"}>

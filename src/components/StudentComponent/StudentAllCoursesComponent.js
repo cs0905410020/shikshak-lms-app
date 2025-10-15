@@ -6,6 +6,7 @@ import {useHistory} from "react-router-dom";
 import {StudentDashHeaderComponent} from "./StudentDashHeaderComponent";
 import {actionToGetAllStudentClassDataByClassSectionId} from "../../actions/CommonAction";
 import noDataFound from "../../theme/image/no-data-found-desktop.png";
+import bgImage from "../../theme/image/side-panel.webp";
 
 function StudentAllCoursesComponentFunction(){
     const allClassStandardGradesData = useSelector((state) => state.allClassStandardGradesData);
@@ -28,7 +29,7 @@ function StudentAllCoursesComponentFunction(){
     }
 
     return (
-        <div className={"main_body_content_section all_student_subject_main_container"}>
+        <div className={"main_body_content_section all_student_subject_main_container"} >
             <StudentDashHeaderComponent type={"StudentAllCoursesComponent"}/>
             <div className={"student_dash_all_courses_main_section"}>
                 <div className={"student_dash_heading"}>Classes</div>

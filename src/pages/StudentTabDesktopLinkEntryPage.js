@@ -11,7 +11,7 @@ import {StudentDesktopDashboard} from "../components/StudentComponent/StudentDex
 export default function StudentTabDesktopLinkEntryPage() {
     const { path } = useRouteMatch();
     return (
-        <IonPage className={"main_padding_main_page dashboard_container"}>
+        <IonPage className={"main_padding_main_page dashboard_container"} >
             <div className={"row"}>
                 <div className={"col-2"}>
                     <LeftSideBarComponent/>

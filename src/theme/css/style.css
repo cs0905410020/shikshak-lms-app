@@ -275,7 +275,6 @@
     height: 98vh;
     display: block;
     overflow: auto;
-    background-image: linear-gradient(300deg, #f42c37, #BDBDBD );
     margin: 0px;
     position: relative;
     border-radius: 15px;
@@ -296,7 +295,7 @@
 }
 
 .left_side_bar_main_section_container .left_side_bar_logo_section .logo_main_div img {
-    width: 65px;
+    width: 200px;
     margin: 7px 10px;
 }
 .left_side_bar_extra_div {
@@ -333,7 +332,7 @@
     width: 94%;
     text-decoration: none;
     padding: 8px 0px;
-    color:#fff;
+    color:#000000;
     padding-left: 1.5rem;
 }
 .left_side_content_menu_section .menu_loop_section{
@@ -350,7 +349,7 @@
     margin-right: 12px;
 }
 .left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section svg {
-    fill:#fff;
+    fill:#000000;
 }
 .left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section.active svg {
     fill:#f42c37!important;
@@ -1211,7 +1210,7 @@ div#editPopupId {
 }
 
 .all_teacher_class_menu_loop.active-grade {
-    background: #f5babf;
+    background: #e1eff6;
     transform: scale(1.1);
 }
 
@@ -1307,7 +1306,8 @@ div#editPopupId {
     padding: 0px 17px 0px 17px!important;
 }
 .app_inner_tab_main_section_container .app_inner_tab_main_section_tabs .all_teacher_class_menu_loop.active {
-    background: #f58489!important;
+    background: #b8dcf1 !important;
+    transform: scale(1.1);
 }
 .app_inner_tab_main_section_container .app_inner_tab_main_section_tabs {
     display: flex;

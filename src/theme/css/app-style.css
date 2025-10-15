@@ -10,7 +10,6 @@
     background: #f42c37;
 }
 .student_app_dashboard_app_main_body_container{
-    background-image: linear-gradient(180deg, #fff, #f42c37);
     width: 100%;
     height: calc(100vh - 160px);
     overflow: auto;

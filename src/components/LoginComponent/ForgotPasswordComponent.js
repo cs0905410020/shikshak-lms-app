@@ -1,22 +1,23 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {actionToForgotPassword} from "../../actions/CommonAction";
+import React, { useEffect, useState, useCallback, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { actionToForgotPassword } from "../../actions/CommonAction";
+import { Link } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./LoginComponent.css";
+import largeBg from "../../theme/image/new-stem-curriculum-login-bg-img.webp";
+import mediumBg from "../../theme/image/stem-curriculum-login-bg-medium.webp";
+import smallBg from "../../theme/image/stem-curriculum-login-bg-small.webp";
 
 function ForgotPasswordComponentSection() {
-    const [message, setMessage] = useState('');
-    const [credentials, setCredentials] = useState({ email: ""});
-    const [formErrors, setFormErrors] = useState({ email: ""});
+    const [credentials, setCredentials] = useState({ email: "" });
+    const [formErrors, setFormErrors] = useState({});
     const [loading, setLoading] = useState(false);
-    const [signInError, setSignInError] = useState("");
-    const windowResizeCount = useSelector((state) => state.windowResizeCount);
+    const [message, setMessage] = useState("");
     const dispatch = useDispatch();
-    const isMounted = React.useRef(true); // Track if the component is still mounted
+    const isMounted = useRef(true);
 
     useEffect(() => {
-        isMounted.current = true;
-        return () => {
-            isMounted.current = false; // Mark as unmounted
-        };
+        return () => (isMounted.current = false);
     }, []);
 
     const handleChange = useCallback((e) => {
@@ -24,73 +25,72 @@ function ForgotPasswordComponentSection() {
         setCredentials((prev) => ({ ...prev, [name]: value }));
         setFormErrors((prev) => ({
             ...prev,
-            [name]: value.trim() ? "" : `Please Fill ${name === "email" ? "Email" : "Password"}`,
+            [name]: value.trim() ? "" : "Please enter your email.",
         }));
     }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
-        // Validate email
         if (!credentials.email.trim()) {
-            setFormErrors({ email: "Please enter your email address." });
-            setMessage('');
+            setFormErrors({ email: "Please enter your email." });
+            setMessage("");
             return;
         }
-    
+
         try {
             setLoading(true);
-            setFormErrors({}); // Clear any previous errors
             const response = await dispatch(actionToForgotPassword({ email: credentials.email }));
-            setMessage(response.data.message || "Check your email for further instructions.");
-            setCredentials({ email: ""})
+            if (isMounted.current) {
+                setMessage(response?.data?.message || "Check your email for further instructions.");
+                setCredentials({ email: "" });
+            }
         } catch (error) {
-            const errorMsg = error?.response?.data?.message || "Something went wrong. Please try again.";
-            setMessage(`Error: ${errorMsg}`);
+            if (isMounted.current) {
+                const errorMsg = error?.response?.data?.message || "Something went wrong. Please try again.";
+                setMessage(`Error: ${errorMsg}`);
+            }
         } finally {
-            setLoading(false);
+            if (isMounted.current) setLoading(false);
         }
     };
-    
 
     return (
-        <div className="login_page_main_password_panel">
-            <form onSubmit={handleSubmit} className="login-form sign-in-form">
-                <div className="login_page_main_password_inner_section_form">
-                    {windowResizeCount >= 800 && <div className="login_page_heading_bar" />}
-                    <div className="login_page_input_form_section">
-                    
-                        <div className='form-box'>
-                            <h1>Reset Your Password</h1>
-                            <h2>Please enter the email address you used to sign up for your account.</h2>
-                        </div>
-                        <div className="login_page_input_form_section_password_input">
-                            <input
-                                className="form-control"
-                                type="text"
-                                name="email"
-                                placeholder="Enter Email Address"
-                                value={credentials.email}
-                                onChange={handleChange}
-                            />
-                         {formErrors.email && <div className="error-message">{formErrors.email}</div>}
-                            <div className='form-box'>
-                                {message ?<h2>{message}</h2>:<h2>We'll send you an email with a link to reset your password.</h2>}
-                            </div>
-                            <br />
-                            <div className='btn-field'>
-                                <button type="submit" disabled={loading} >
-                                    {loading ? "Wait" : "Send Mail"}
-                                </button>
-                            </div>
-                            <br />
-                        </div>
-                        {signInError && (
-                            <div className="error-message">
-                                {signInError}
-                            </div>
-                        )}
-                    </div>
+        <div className="login-wrapper">
+            {/* Responsive background layers */}
+            <div className="bg-image-large" style={{ backgroundImage: `url(${largeBg})` }} />
+            <div className="bg-image-medium" style={{ backgroundImage: `url(${mediumBg})` }} />
+            <div className="bg-image-small" style={{ backgroundImage: `url(${smallBg})` }} />
+
+            {/* Forgot Password Form */}
+            <form onSubmit={handleSubmit} className="login-card">
+                <h1 className="login-title">Forgot Password?</h1>
+                <p className="login-subtitle">
+                    Enter the email you used to sign up and we’ll send you a reset link.
+                </p>
+
+                <div className="form-group">
+                    <label>Email Address</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        value={credentials.email}
+                        onChange={handleChange}
+                        className={formErrors.email ? "error-input" : ""}
+                    />
+                    {formErrors.email && <p className="error-message">{formErrors.email}</p>}
+                </div>
+
+                {message && <div className="success-message text-center">{message}</div>}
+
+                <button type="submit" disabled={loading} className="login-btn">
+                    {loading ? "Please wait..." : "Send Reset Link"}
+                </button>
+
+                <div className="links">
+                    <Link to="/login" className="forgot-link">
+                        <i className="fas fa-arrow-left"></i> Back to Login
+                    </Link>
                 </div>
             </form>
         </div>
