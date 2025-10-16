@@ -29,7 +29,7 @@ function SubjectAllChapterDataBodyComponentFunction({subjectName}){
                                 <div className={"col-2 chapter_icon_section_col"}>
                                     <div className={"chapter_icon_section"}>
                                         <img
-                                            src={chapter?.icon ? chapter?.icon : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/steam-park-8.png'}
+                                            src={chapter?.icon ? chapter?.icon : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/save-electricity-kit-58-0.8274624174228714.webp'}
                                             alt={"chapter?.icon"}/>
                                     </div>
                                 </div>

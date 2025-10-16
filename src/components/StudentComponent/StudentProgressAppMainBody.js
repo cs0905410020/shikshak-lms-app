@@ -4,6 +4,7 @@ import {_getIconBySubjectKey} from "../../helpers/CommonHelper";
 import {ChartComponent} from "../../helpers/chart/ChartComponent";
 import {actionToGetChartDataJsProgressDataSet} from "../../actions/CommonAction";
 import {FacebookLoader} from "../Loader/FacebookLoader";
+import bgImage from "../../theme/image/side-panel.webp";
 
 function StudentProgressAppMainBodyFunction(){
     const allSubjectStudentClassSectionWise = useSelector((state) => state.allSubjectStudentClassSectionWise);
@@ -27,7 +28,7 @@ function StudentProgressAppMainBodyFunction(){
     },[])
 
     return (
-        <div className={"student_app_main_body_container_sub_pages"}>
+        <div className={"student_app_main_body_container_sub_pages"} style={{ background: `url(${bgImage}) no-repeat center center / cover`, }}>
             <div className={"student_app_main_body_container_header_section"}>
                 <div>Your Progress</div>
             </div>

@@ -111,12 +111,11 @@ function StudentDashboardAppMainBodyFunction(){
                                     teacherClassData?.subjects ?
                                         (teacherClassData?.subjects?.map((subject, key) => (
                                             <div key={key}
-                                                 style={{background: _getIconBySubjectKey(subject?.name)?.color}}
                                                  onClick={() => openSubjectChapters(subject)}
                                                  className={"course_tabs_in_app_panel_loop"}>
                                                 <div className={"course_tabs_in_app_panel_loop_inner"}>
                                                     <div className={"icon_section"}>
-                                                        <img alt={'subject?.photo'} src={subject?.photo ? subject?.photo : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/subject/hindi.jpg'}/>
+                                                        <img alt={'subject?.photo'} src={subject?.photo ? subject?.photo : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/save-electricity-kit-58-0.8274624174228714.webp'}/>
                                                         <div className={"heading"}>{subject?.name}</div>
                                                     </div>
                                                 </div>

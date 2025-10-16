@@ -13,6 +13,7 @@ import alien from "../../theme/image/avatar/alien.png";
 import akuaku from "../../theme/image/avatar/akuaku.png";
 import horror from "../../theme/image/avatar/horror.png";
 import useAuth from "../../hooks/useAuth";
+import bgImage from "../../theme/image/side-panel.webp";
 
 function ProfileMobileBodyComponentFunction(){
     const userVoiceAssistantSelection = useSelector((state) => state.userVoiceAssistantSelection);
@@ -97,7 +98,7 @@ function ProfileMobileBodyComponentFunction(){
     }
 
     return (
-        <div className={"student_app_dashboard_app_view_container_scroll profile_page"}>
+        <div className={"student_app_dashboard_app_view_container_scroll profile_page"} style={{ background: `url(${bgImage}) no-repeat center center / cover`, }}>
             <IonAlert
                 isOpen={showAlert}
                 onDidDismiss={() => setShowAlert(false)}
@@ -122,7 +123,7 @@ function ProfileMobileBodyComponentFunction(){
                     ]
                 }
             />
-            <div className={"app_main_sub_header_container"} style={{background:'#f42c37'}}>
+            <div className={"app_main_sub_header_container"}>
                 <div className={"app_sub_header_welcome_text"}>
                     <div className={"app_sub_header_main_text_heading_subject profile-page"}>My Profile</div>
                 </div>

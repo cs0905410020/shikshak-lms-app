@@ -69,7 +69,7 @@ function StudentAllCoursesComponentFunction(){
                                                  className={"student_dash_all_courses_inner_section_loop_inner class_detail"}>
                                                 <div className={"icon_section"}>
                                                     <img alt={'subject-photo'}
-                                                         src={subject?.photo ? subject?.photo : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/subject/hindi.jpg'}/>
+                                                         src={subject?.photo ? subject?.photo : 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/save-electricity-kit-58-0.8274624174228714.webp'}/>
                                                 </div>
                                                 <div className={"detail_section"}>
                                                     <div className={"heading"}>{subject?.name}</div>

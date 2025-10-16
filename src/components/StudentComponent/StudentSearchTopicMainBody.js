@@ -13,6 +13,7 @@ import {
 } from "../../actions/CommonAction";
 import { Virtuoso } from 'react-virtuoso'
 import {useHistory} from "react-router-dom";
+import bgImage from "../../theme/image/side-panel.webp";
 
 let typingTimer = null;
 let limitData = 10;
@@ -101,7 +102,7 @@ export const StudentSearchTopicMainBody = ({search})=>{
 
     return(
         <>
-            <div className={"student_app_main_body_container_sub_pages_search"}>
+            <div className={"student_app_main_body_container_sub_pages_search"} style={{ background: `url(${bgImage}) no-repeat center center / cover`, }}>
                 <div className='search_page_student_input_section'>
                     <div onClick={goBack} className="app_sub_header_welcome_text">
                         <svg xmlns="http://www.w3.org/2000/svg"

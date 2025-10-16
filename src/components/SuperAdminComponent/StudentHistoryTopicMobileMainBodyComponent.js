@@ -6,6 +6,7 @@ import {useSelector,useDispatch} from "react-redux";
 import {FacebookLoader} from "../Loader/FacebookLoader";
 import {actionToSetTopicDataById} from "../../actions/CommonAction";
 import {useHistory} from "react-router-dom";
+import bgImage from "../../theme/image/side-panel.webp";
 
 export const StudentHistoryTopicMobileMainBodyComponent = ()=>{
     const userHistoryChapterSubjectTopicData = useSelector((state) => state.userHistoryChapterSubjectTopicData);
@@ -58,11 +59,9 @@ export const StudentHistoryTopicMobileMainBodyComponent = ()=>{
 
     return(
         <>
-            <div className={"student_app_main_body_container_sub_pages_search"}>
-                <div className={"app_main_sub_header_container"} style={{background:'#f58489'}}>
-                    <div className={"app_sub_header_welcome_text"}>
-                        <div className={"app_sub_header_main_text_heading_subject profile-page"}>Your learning history</div>
-                    </div>
+            <div className={"student_app_main_body_container_sub_pages_search"} style={{ background: `url(${bgImage}) no-repeat center center / cover`, }}>
+                <div className={"student_app_main_body_container_header_section"}>
+                    <div>Your Learnign History</div>
                 </div>
                 <div className={"subject_chapter_mobile_chapters_main_container history_section_container"}>
                     {(userHistoryChapterSubjectTopicData?.loading) ?

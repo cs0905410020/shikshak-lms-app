@@ -37,7 +37,7 @@ export const UserProgressReportBodyComponent=()=>{
     useEffect(()=>{
         if(studentData?.class_data){
             setSelectedStudentClassData(studentData?.class_data);
-            changeSubjectTab({name:'All Subjects',id:0},studentData);
+            changeSubjectTab({name:'All Subjects', id:0},studentData);
         }
     },[studentData])
 

@@ -22,7 +22,7 @@ function ChapterAllTopicsDesktopVideoBodyComponentFunction() {
                     <div className="col-5 topic_video_poster_screenshot_section" >
                         <LazyLoadImage
                             alt="Video Class"
-                            src={topic?.poster_url || 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/steam-park-8.png'}
+                            src={topic?.poster_url || 'https://stemcity.s3.ap-southeast-2.amazonaws.com/products/save-electricity-kit-58-0.8274624174228714.webp'}
                         />
                         <div className="topic_video_poster_timer_button">
                             {_readableTimeFromSeconds(topic?.video_duration_in_seconds)}
