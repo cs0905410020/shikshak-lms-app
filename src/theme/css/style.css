@@ -13,7 +13,7 @@
     left: 0px;
 }
 .voice_avatar_select_section_loop.active {
-    border: 4px solid #f42c37;
+    border: 3px solid #1974E6;
 }
 .row-custom {
     display: flex;
@@ -295,7 +295,7 @@
 }
 
 .left_side_bar_main_section_container .left_side_bar_logo_section .logo_main_div img {
-    width: 170px;
+    width: 270px;
     margin: 7px 10px;
 }
 .left_side_bar_extra_div {
@@ -332,7 +332,7 @@
     width: 94%;
     text-decoration: none;
     padding: 8px 0px;
-    color:#000000;
+    color:#0E1842;
     padding-left: 1.5rem;
 }
 .left_side_content_menu_section .menu_loop_section{
@@ -341,18 +341,18 @@
 .left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section.active {
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
-    background: #fff;
-    color:#000!important;
+    background: #50B5C2;
+    color:#FFFFFF!important;
 }
 .left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section svg {
     width: 1.7rem;
     margin-right: 12px;
 }
 .left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section svg {
-    fill:#000000;
+    fill:#0E1842;
 }
 .left_side_content_menu_section .menu_loop_section .menu_loop_section_inner_section.active svg {
-    fill:#f42c37!important;
+    fill:#FFFFFF!important;
 }
 .student_dash_header_section {
     padding: 44px 0px;
@@ -462,7 +462,7 @@
 }
 
 .subject_chapter_main_container_section_video_page_inner .video_list_main_loop_container .time_duration {
-    color: #f58489;
+    color: #1974E6;
 }
 .subject_chapter_main_container_section_video_page_inner .video_list_main_loop_container .topic_name {
     font-size: 16px;
@@ -484,7 +484,7 @@
 .subject_chapter_main_container_section_video_page_inner .topic_video_poster_screenshot_section .topic_video_poster_play_button svg {
     margin: auto;
     width: 44px;
-    fill: #f58489;
+    fill: #0094A7;
 }
 
 .topic_video_class_desktop_main_div_container .react-player_topic_heading_section {
@@ -660,7 +660,7 @@
     margin-right: 7px;
 }
 .header_welcome_text .breadcrumb_section .main_link {
-    color: #f42c37;
+    color: #1EA0B1;
 }
 .header_welcome_text .header_main_text_heading_subject {
     font-style: normal;
@@ -733,7 +733,7 @@
     font-weight: 600;
     border: unset;
     border-radius: 5px;
-    background: #ED2126;
+    background: #444B6C;
 }
 
 .subject_chapter_main_container_section .chapter_section_loop_area_main_section {
@@ -774,7 +774,7 @@
 .subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col .topic_video_poster_screenshot_section .topic_video_poster_play_button svg {
     width: 54px;
     margin: auto;
-    fill: #f42c37;
+    fill: #0094A7;
 }
 
 .subject_chapter_main_container_section .chapter_section_loop_area_inner_section .chapter_icon_section_col .topic_video_poster_screenshot_section .topic_video_poster_timer_button {
@@ -1042,7 +1042,7 @@ div#editPopupId {
     margin: auto;
 }
 .header_profile_right_side_panel .profile_edit_save_button {
-    background: #f42c37;
+    background: linear-gradient(to right, #1974E6, #0094A7);
     padding: 10px 46px;
     border-radius: 6px;
     font-size: 19px;
@@ -1124,7 +1124,7 @@ div#editPopupId {
     position: relative;
 }
 .student_progress_inner_section .subject_menu_loop_container.active {
-    border: 5px solid #f5c6cb;
+    /*border: 1px solid #1974E6;*/
 }
 .student_progress_chart_main_container .student_progress_chart_menu_container {
     text-align: center;
@@ -1139,20 +1139,24 @@ div#editPopupId {
     border-left: 1px solid #ccc;
 }
 
-
 .student_progress_chart_main_container .student_progress_chart_menu_container .selected_sub_overall_heading .chart_menu_button {
-    border: 4px solid transparent;
     margin-right: 30px;
-    background: #f42c37;
-    border-radius: 24px;
+    background: #444B6C;
+    border-radius: 20px;
     color: #fff;
     padding: 0px 9px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    width: 105px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
 }
 .student_progress_chart_main_container .student_progress_chart_menu_container .selected_sub_overall_heading .chart_menu_button.active {
-    border: 4px solid #f58489!important;
+    scale: 1.05;
 }
 .student_progress_chart_main_container .student_progress_chart_main_container_inner {
     width: 100%;
@@ -1207,7 +1211,6 @@ div#editPopupId {
     margin-top: 20px;
 }
 .all_teacher_class_menu_loop {
-    border: 4px solid transparent;
     padding: 6px;
     border-radius: 8px;
     cursor: pointer;
@@ -1216,7 +1219,8 @@ div#editPopupId {
 }
 
 .all_teacher_class_menu_loop.active-grade {
-    background: #e1eff6;
+    background: #82CAD4;
+    opacity: 0.9;
     transform: scale(1.1);
 }
 
@@ -1312,7 +1316,7 @@ div#editPopupId {
     padding: 0px 17px 0px 17px!important;
 }
 .app_inner_tab_main_section_container .app_inner_tab_main_section_tabs .all_teacher_class_menu_loop.active {
-    background: #b8dcf1 !important;
+    background: #82CAD4 !important;
     transform: scale(1.1);
 }
 .app_inner_tab_main_section_container .app_inner_tab_main_section_tabs {
@@ -1424,7 +1428,7 @@ div#editPopupId {
 }
 
 .desktop_no_data_found_icon_container img {
-    max-width: 180px;
+    max-width: 300px;
     width: 100%;
 }
 

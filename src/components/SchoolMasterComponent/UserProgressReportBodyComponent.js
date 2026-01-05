@@ -58,7 +58,7 @@ export const UserProgressReportBodyComponent=()=>{
                                 <div
                                     className={"icon_section"}>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <circle cx="256" cy="256" r="256" fill="#4ab8a1"/>
+                                        <circle cx="256" cy="256" r="256" fill="#FFFFFF"/>
                                         <path
                                             d="M412 280l-60-64-60 127.252L172 280 52 400v10.62C98.752 472.204 172.72 512 256 512c141.384 0 256-114.616 256-256 0-44.752-11.512-86.8-31.696-123.404L412 280z"
                                             fill="#e16b5a"/>
